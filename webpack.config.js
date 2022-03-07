@@ -33,14 +33,24 @@ module.exports = {
         use: [
           'style-loader', 'css-loader', 'sass-loader',
         ]
-      }
-    ]
+      },
+      // Font and SVGs
+      {
+        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+        type: 'asset/inline',
+      },
+      // Images
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        type: 'asset/resource',
+      },
+    ],
   },
   // configure any plugins for development mode
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Development',
-      template: './client/index.html' //might need resolve(__dirname, client/)
+      template: './client/index.html'
     }),
   ],
   devServer: {
@@ -55,6 +65,32 @@ module.exports = {
       '/convert/**': 'http://localhost:3000',
       secure: false,
     } 
+  },
+  // Enable importing JS / JSX files without specifying their extension
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+  proxy: {
+    // for API request in schemas generations in URIinput component
+    '/api/**': {
+      target: 'http://localhost:3000/',
+      secure: false,
+    }, 
+    // for managing the saved queries
+    '/query/**': {
+      target: 'http://localhost:3000/',
+      secure: false,
+    },
+    // for managing the user's front page content
+    '/user/**': {
+      target: 'http://localhost:3000/',
+      secure: false,
+    },
+    // for managing the output from GraphQl results
+    '/output/**': {
+      target: 'http://localhost:3000/',
+      secure: false,
+    },
   }
 
-}
+};
