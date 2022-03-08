@@ -25,3 +25,4 @@ router.delete('/deleteQuery',
 });
 
 
+module.exports = router;
