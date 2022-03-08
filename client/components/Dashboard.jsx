@@ -10,7 +10,8 @@ import Logo from './Logo';
 // function which sets the state
 function Dashboard() {
   // all the queries which are shown in the QueryContainer
-  const [ queryCard, setQueryCard ] = useState({});
+  // right now, the initial state is set to a test sample of Query topics - will be an empy object
+  const [ queryCard, setQueryCard ] = useState({1: 'Query A', 2: 'Query B', 3: 'Query C'});
   // set state for schema window of a given query card
   const [ schema, setSchema ] = useState();
   // set state for the output window of a submitted query
@@ -33,11 +34,12 @@ function Dashboard() {
          : <Button variant='outlined' href='/logout'>Log out</Button>}
         </header>
         <div className='containers'>
-          {/* {typeof queryCard === 'object' && 
+          {typeof queryCard === 'object' && 
           <QueryContainer
           // drilling down of things happens here
+            queryCard={queryCard}
           />
-         } */}
+         }
          {/* {currentQueryId && typeof queryCard === 'object' &&
          <SchemaContainer 
           // drilling down of things happens here

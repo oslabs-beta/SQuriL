@@ -5,7 +5,7 @@ function QueryCard(props) {
     return (
         <div className='QueryCard'>
             <h3 style={{ cursor: 'pointer ' }}>
-                Query A
+                {props.queryCard}
             <Button variant='text' size='small' className='deleteQuery'>X</Button>
             </h3>
         </div>
