@@ -4,4 +4,4 @@ import SchemaWindow from './SchemaWindow';
 
 
 
-export default SchemaContainer;
+// export default SchemaContainer;
