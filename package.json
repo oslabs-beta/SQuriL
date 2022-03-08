@@ -38,6 +38,7 @@
     "@mui/icons-material": "^5.5.0",
     "@mui/material": "^5.5.0",
     "@mui/styled-engine-sc": "^5.4.2",
+    "babel-loader": "^8.2.3",
     "bcrypt": "^5.0.1",
     "chartjs": "^0.3.24",
     "cookie-parser": "^1.4.6",
