@@ -10,16 +10,16 @@ app.use(express.json());
 
 const queryRouter = require(path.join(__dirname, '/routers/queryRouter.js'));
 const apiRouter = require(path.join(__dirname, '/routers/apiRouter.js'));
-const userRouter = require(path.join(__dirname, '/routers/userRouter.js'));
+// const userRouter = require(path.join(__dirname, '/routers/userRouter.js'));
 
 
-// // Route requests to queryRouter
+// Route requests to queryRouter
 // app.use('query', queryRouter);
 
-// // Route requests to apiRouter
+// Route requests to apiRouter
 // app.use('api', apiRouter);
 
-// // Route requests to outputRouter
+// Route requests to outputRouter
 // app.use('user', userRouter);
 
 // Unknown Route Handler

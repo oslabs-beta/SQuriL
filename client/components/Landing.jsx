@@ -4,4 +4,4 @@ import OAuth from './OAuth';
 
 // create a component that serves as login button and fx
 
-export default Landing;
+// export default Landing;

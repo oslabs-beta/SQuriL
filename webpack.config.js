@@ -61,6 +61,10 @@ module.exports = {
     }, 
     // set up the proxy such that you can call API requests from hot-reload webpack server to the express back-end server
     // aka fetch req. from localhoast:8080/api/* redirect to localhost:3000/api/*
+    // proxy: {
+    //   '/convert/**': 'http://localhost:3000',
+    //   secure: false,
+    // } 
     proxy: {
       // for API request in schemas generations in URIinput component
       '/api/**': {
@@ -82,12 +86,11 @@ module.exports = {
         target: 'http://localhost:3000/',
         secure: false,
       },
-    },
+    }
   },
   // Enable importing JS / JSX files without specifying their extension
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  
 
 };
