@@ -10,7 +10,9 @@ app.use(express.json());
 
 const queryRouter = require(path.join(__dirname, '/routers/queryRouter.js'));
 const apiRouter = require(path.join(__dirname, '/routers/apiRouter.js'));
-// const userRouter = require(path.join(__dirname, '/routers/userRouter.js'));
+const userRouter = require(path.join(__dirname, '/routers/userRouter.js'));
+const outputRouter = require(path.join(__dirname, '/routers/outputRouter.js'));
+const oauthRouter = require(path.join(__dirname, '/routers/oauthRouter.js'));
 
 require('dotenv').config();
 const pool = new Pool({
@@ -18,13 +20,19 @@ const pool = new Pool({
 });
 
 // Route requests to queryRouter
-// app.use('query', queryRouter);
+// app.use('/query', queryRouter);
 
 // Route requests to apiRouter
-// app.use('api', apiRouter);
+// app.use('/api', apiRouter);
+
+// Route requests to userRouter
+// app.use('/user', userRouter);
 
 // Route requests to outputRouter
-// app.use('user', userRouter);
+// app.use('/output', outputRouter);
+
+// Route requests to oauthRouter
+app.use('/oauth', oauthRouter);
 
 // Unknown Route Handler
 app.use((req, res) => res.sendStatus(404));

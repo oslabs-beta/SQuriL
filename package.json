@@ -7,7 +7,8 @@
     "test": "jest --verbose",
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
-    "dev": " NODE_ENV=development nodemon server/server.js --open & NODE_ENV=development webpack-dev-server --open --hot"
+    "dev": " NODE_ENV=development nodemon server/server.js --open & NODE_ENV=development webpack-dev-server --open --hot",
+    "server": "nodemon server/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -48,6 +49,7 @@
     "express-session": "^1.17.2",
     "graphql": "^16.3.0",
     "jsonwebtoken": "^8.5.1",
+    "node-fetch": "^2.6.7",
     "pg": "^8.7.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
