@@ -37,9 +37,11 @@
   "dependencies": {
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
+    "@material-ui/styles": "^4.11.4",
     "@mui/icons-material": "^5.5.0",
     "@mui/material": "^5.5.0",
     "@mui/styled-engine-sc": "^5.4.2",
+    "@mui/styles": "^5.5.0",
     "babel-loader": "^8.2.3",
     "bcrypt": "^5.0.1",
     "chartjs": "^0.3.24",
