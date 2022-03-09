@@ -14,6 +14,7 @@ authController.getToken = async (req, res, next) => {
     });
     const token = await tokenJSON.json();
     res.locals.access_token = token.access_token;
+    console.log(token)
     return next();
   } catch(err) {
     return next({
