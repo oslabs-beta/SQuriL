@@ -1,7 +1,15 @@
 import React from 'react';
-import Dashboard from './Dashboard';
 import SchemaWindow from './SchemaWindow';
 
+function SchemaContainer(props) {
 
 
-// export default SchemaContainer;
+    return(
+        <div className='SchemaContainer'>
+            {/* <SchemaWindow /> */}
+        </div>
+    )
+
+}
+
+export default SchemaContainer;

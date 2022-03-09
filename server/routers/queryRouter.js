@@ -1,4 +1,5 @@
 const express = require('express');
+<<<<<<< HEAD
 const router = express.Router();
 
 const queryController = require('../controllers/queryController.js');
@@ -24,6 +25,10 @@ router.delete('/deleteQuery',
   (req, res) => {
   res.status(200).json()
 });
+=======
+const queryController = require('../controllers/queryController.js');
+const router = express.Router();
+>>>>>>> dev
 
 
 module.exports = router;

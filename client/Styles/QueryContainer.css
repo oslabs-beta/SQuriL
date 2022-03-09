@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+.QueryContainer {
+    margin-left: 60px;
+    border: 10px;
+    border-color: white;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    outline: 2px solid white;
+    border-radius: 5px;
+    padding: 25px 25px;
+    background-color: rgb(77, 74, 78);
+    margin-left: 5px;
+    align-items: center;
+}
+
+.QueryContainerHeader  {
+    color: white;
+    font-family: Roboto;
+    display: flex;
+}
+
+.QueryCard {
+    color: white;
+    font-family: Roboto;
+    display: flex;
+}

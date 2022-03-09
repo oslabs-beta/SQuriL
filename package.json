@@ -7,7 +7,8 @@
     "test": "jest --verbose",
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
-    "dev": " NODE_ENV=development nodemon server/server.js --open & NODE_ENV=development webpack-dev-server --open --hot"
+    "dev": " NODE_ENV=development nodemon server/server.js --open & NODE_ENV=development webpack-dev-server --open --hot",
+    "server": "nodemon server/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,7 +19,7 @@
     "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.2.3",
     "cross-env": "^7.0.3",
-    "css-loader": "^6.7.0",
+    "css-loader": "^6.7.1",
     "eslint": "^8.10.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
@@ -49,10 +50,13 @@
     "express-session": "^1.17.2",
     "graphql": "^16.3.0",
     "jsonwebtoken": "^8.5.1",
+    "node-fetch": "^2.6.7",
     "pg": "^8.7.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "redux": "^4.1.2",
+    "sass": "^1.49.9",
+    "style-loader": "^3.3.1",
     "styled-components": "^5.3.3",
     "typescript": "^4.6.2"
   }
