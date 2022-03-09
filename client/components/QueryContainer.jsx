@@ -1,5 +1,6 @@
 import React from 'react';
 import QueryCard from './QueryCard';
+import styles from '../Styles/QueryContainer.css'
 
 function QueryContainer(props) {
     const queryList = [];
@@ -10,7 +11,9 @@ function QueryContainer(props) {
 
     return (
         <div className='QueryContainer'>
+            <div className='QueryContainerHeader'>
           <h2>Queries</h2>
+          </div>
           <br></br>
           {queryList}
         </div>
