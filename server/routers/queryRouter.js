@@ -7,22 +7,26 @@ const queryController = require('../controllers/queryController.js');
 router.post('/createQuery', 
   queryController.createQuery,
   (req, res) => {
+  res.status(200).json(res.locals.query)
+});
+
+router.get('/getQuery/:id', 
+  queryController.getQuery,
+  (req, res) => {
+  // console.log(res.locals.value)
+  res.status(200).json(res.locals.value)
+});
+
+router.put('/updateQuery/',
+  queryController.updateQuery,
+  (req, res) => {
+  res.status(200).json(res.locals.updatedQuery)
+});
+
+router.delete('/deleteQuery/:id', 
+  queryController.deleteQuery,
+  (req, res) => {
   res.status(200).json(res.locals.message)
-});
-
-router.get('/getQuery', 
-  (req, res) => {
-  res.status(200).json()
-});
-
-router.put('/updateQuery', 
-  (req, res) => {
-  res.status(200).json()
-});
-
-router.delete('/deleteQuery', 
-  (req, res) => {
-  res.status(200).json()
 });
 
 
