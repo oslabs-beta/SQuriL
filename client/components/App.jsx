@@ -2,7 +2,7 @@
 import React from 'react';
 import Dashboard from './Dashboard.jsx'
 import Header from './Header.jsx'
-import Logo from './Logo'
+import Landing from './Landing.jsx'
 import styles from '../Styles/App.css'
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
         <div className='App'>
             <Header />,
             <Dashboard />
+            <Landing />
         </div>
     );
 }

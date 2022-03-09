@@ -8,16 +8,9 @@
 
 }
 
-
 .logo {
     height: 200px;
     width: 200px;
     padding: 0px;
     display: grid;
-}
-
-.URIInput {
-    padding-top: 20px;
-    color: white;
-    font-family: Roboto
 }
