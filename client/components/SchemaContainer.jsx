@@ -1,15 +1,24 @@
 import React from 'react';
 import SchemaWindow from './SchemaWindow';
+import { Button } from '@mui/material';
+import styles from '../Styles/SchemaContainer.css'
 
 function SchemaContainer(props) {
-
+// schemawindow prop to be passed down
 
     return(
-        <div className='SchemaContainer'>
-            {/* <SchemaWindow /> */}
-        </div>
+            <div className='SchemaContainer'>
+                {/* <div className='SchemaContainerHeader'> */}
+                <span>
+                <h4 style={{width: '100px'}}>Schema</h4>
+                <Button variant="contained" type='submit' className='submitButtons' value="Save">Save</Button>
+                <Button variant="contained" type='submit' className='submitButtons' value="Update">Update</Button>
+                </span>
+                {/* </div> */}
+            <br></br>
+            {/* {SchemaWindow} */}
+            </div>
     )
-
 }
 
 export default SchemaContainer;

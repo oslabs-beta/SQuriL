@@ -8,12 +8,5 @@ html, body, #app, #app>div {
 
 .App {
     background-color: rgb(59, 5, 97);
-}
-
-.logo {
-    height: 250px;
-    width: 250px;
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
+    margin: 1rem;
 }

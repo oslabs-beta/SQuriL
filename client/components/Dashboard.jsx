@@ -6,6 +6,8 @@ import URIInput from './URIInput';
 import Landing from './Landing';
 import OutputContainer from './OutputContainer';
 import Logo from './Logo';
+import styles from '../Styles/Dashboard.css'
+
 
 // function which sets the state
 function Dashboard() {
@@ -25,27 +27,27 @@ function Dashboard() {
 
   return (
     <div className='Dashboard'>
-      <header>
+      {/* <header> */}
         {/* <h1 id='mainTitle' className='squrilTitle'>SQuriL🐿️</h1>
         <p id='subTitle' className='Tagline'>Tagline goes here</p>
         {/* boilerplate logic for login/logout button, this will live in upper right corner of screen */}
         {/* {typeof queryCard !== 'object' ? <OAuth /> */}
         {/* // what is href in our case?  Check with backend team. */}
          {/* : <Button variant='outlined' href='/logout'>Log out</Button>} */}
-        </header>
-        <div className='containers'>
+        {/* </header> */}
           {typeof queryCard === 'object' && 
           <QueryContainer
           // drilling down of things happens here
             queryCard={queryCard}
           />
          }
+         <SchemaContainer />
          {/* {currentQueryId && typeof queryCard === 'object' &&
          <SchemaContainer 
           // drilling down of things happens here
          />
          } */}
-         </div>
+         <OutputContainer />
         </div>
   );
 }

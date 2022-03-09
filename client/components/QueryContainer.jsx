@@ -12,7 +12,7 @@ function QueryContainer(props) {
     return (
         <div className='QueryContainer'>
             <div className='QueryContainerHeader'>
-          <h2>Queries</h2>
+          <h3>Queries</h3>
           </div>
           <br></br>
           {queryList}
