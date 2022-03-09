@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
-
-.SchemaContainer {
+.OutputContainer {
     margin-left: 60px;
     border: 10px;
     border-color: white;
@@ -14,15 +13,11 @@
     margin-left: 5px;
     align-items: top;
     font-family: Roboto
-}
-
-.SchemaContainerHeader  {
-    color: white;
-    font-family: Roboto;
-    display: grid;
-}
-
-.h2 {
-    width: 150px;
-    display: grid
+    /* code from GitGood*/
+    /* outline: 2px solid #1976D2;
+    border-radius: 10px;
+    padding: 25px 50px;
+    width: 65%;
+    background-color: white;
+    margin-left: 10px;*/
 }
