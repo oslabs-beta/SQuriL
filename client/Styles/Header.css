@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+.Header {
+    display: grid;
+    grid: 500px / 150px 700px 450px;
+    grid-gap: 100px;
+    height: 200px;
+
+}
+
+
+.logo {
+    height: 200px;
+    width: 200px;
+    padding: 0px;
+    display: grid;
+}
+
+.URIInput {
+    padding-top: 20px;
+    color: white;
+    font-family: Roboto
+}
