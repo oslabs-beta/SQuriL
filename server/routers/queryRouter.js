@@ -5,8 +5,9 @@ const queryController = require('../controllers/queryController.js');
 
 // CRUD functionalities
 router.post('/createQuery', 
+  queryController.createQuery,
   (req, res) => {
-  res.status(200).json()
+  res.status(200).json(res.locals.message)
 });
 
 router.get('/getQuery', 
