@@ -25,7 +25,7 @@ app.use('/query', queryRouter);
 // app.use('/api', apiRouter);
 
 // Route requests to outputRouter
-// app.use('/user', userRouter);
+app.use('/user', userRouter);
 
 // Route requests to outputRouter
 // app.use('/output', outputRouter);
