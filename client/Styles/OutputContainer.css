@@ -5,7 +5,7 @@
     border: 10px;
     border-color: white;
     color: white;
-    display: grid;
+    display: flexbox;
     outline: 1px solid white;
     border-radius: 5px;
     padding: 25px 25px;
@@ -13,11 +13,24 @@
     margin-left: 5px;
     align-items: top;
     font-family: Roboto
-    /* code from GitGood*/
-    /* outline: 2px solid #1976D2;
-    border-radius: 10px;
-    padding: 25px 50px;
-    width: 65%;
-    background-color: white;
-    margin-left: 10px;*/
+}
+
+.OutputContainerHeader  {
+    color: white;
+    font-family: Roboto;
+    display: grid;
+}
+
+.h2 {
+    width: 150px;
+    display: grid
+}
+
+.OutputWindow {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.CodeMirror {
+    height: 650px;
 }

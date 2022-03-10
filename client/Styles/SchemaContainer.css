@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
-
 .SchemaContainer {
     margin-left: 60px;
     border: 10px;
     border-color: white;
     color: white;
-    display: grid;
+    display: flexbox;
     outline: 1px solid white;
     border-radius: 5px;
     padding: 25px 25px;
@@ -25,4 +24,13 @@
 .h2 {
     width: 150px;
     display: grid
+}
+
+.SchemaWindow {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.CodeMirror {
+    height: 650px;
 }
