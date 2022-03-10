@@ -17,8 +17,8 @@ authController.getToken,
 authController.getProfile, 
 sessionController.createSession, 
 sessionController.verifySession, (req, res) => {
-  console.log(res.locals.username);
   return res.status(200).send('ending at /oauth/callback');
 });
+// sessionController.verifySession probabably doesn't need to be used here, and will probably be used as the first part in every middleware chain
 
 module.exports = router;
