@@ -5,6 +5,8 @@
     grid: 500px / 150px 700px 450px;
     grid-gap: 100px;
     height: 200px;
+    font-family: Roboto;
+    color: white;
 
 }
 
