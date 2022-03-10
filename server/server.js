@@ -12,9 +12,9 @@ app.use(express.json());
 
 
 const queryRouter = require(path.join(__dirname, '/routers/queryRouter.js'));
-const apiRouter = require(path.join(__dirname, '/routers/apiRouter.js'));
+// const apiRouter = require(path.join(__dirname, '/routers/apiRouter.js'));
 const userRouter = require(path.join(__dirname, '/routers/userRouter.js'));
-const outputRouter = require(path.join(__dirname, '/routers/outputRouter.js'));
+// const outputRouter = require(path.join(__dirname, '/routers/outputRouter.js'));
 const oauthRouter = require(path.join(__dirname, '/routers/oauthRouter.js'));
 
 
@@ -25,7 +25,7 @@ app.use('/query', queryRouter);
 // app.use('/api', apiRouter);
 
 // Route requests to outputRouter
-// app.use('/user', userRouter);
+app.use('/user', userRouter);
 
 // Route requests to outputRouter
 // app.use('/output', outputRouter);

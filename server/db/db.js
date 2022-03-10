@@ -1,7 +1,3 @@
-// THIS DOESN'T WORK -> IT BEING IN THE DB.JS FILE 
-// WE MOVED THE POOL INSTANCE TO THE QUERY_CONTROLLER
-
-
 // POOL - allows multiple simultaneous database queries
 const { Pool } = require('pg');
 
@@ -16,6 +12,6 @@ const pool = new Pool({
 module.exports = {
   query: (text, params, callback) => {
     console.log('executed query', text);
-    return pool.query(text.params, callback)
+    return pool.query(text, params, callback)
   }
 }
