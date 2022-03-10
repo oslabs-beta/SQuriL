@@ -9,11 +9,11 @@ function OutputContainer(props) {
 
     return (
         <div className='OutputContainer'>
-            {/* <OutputWindow /> */}
             <span>
-                <h4>Output</h4>
-                <Button variant="contained" type='submit' className='submitButtons' value="Query">Query</Button>
+            <h4>Output</h4>
+            <Button variant="contained" type='submit' className='submitButtons' value="Query">Query</Button>
             </span>
+        <OutputWindow />
         </div>
     )
 

@@ -16,7 +16,7 @@ function SchemaContainer(props) {
                 </span>
                 {/* </div> */}
             <br></br>
-            {/* <SchemaWindow /> */}
+            <SchemaWindow />
             </div>
     )
 }

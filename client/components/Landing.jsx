@@ -15,7 +15,7 @@ function Landing(props) {
         </div>   
         <OAuth /> */}
  <SyntaxHighlighter language="javascript" style={docco}>
-     {'hello World'}
+     {'hello world'}
     </SyntaxHighlighter>
         </div > 
     )
