@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import QueryContainer from './QueryContainer';
 import SchemaContainer from './SchemaContainer';
-import { Button } from '@mui/material';
 import URIInput from './URIInput';
 import Landing from './Landing';
 import OutputContainer from './OutputContainer';
@@ -40,7 +39,7 @@ function Dashboard() {
 
   // // this is where we will put our CRUD functions
 
-  
+  // getQuery functionality still needs to be determined based on user login info
   const getQuery = () => {
     const url = `http://localhost:3000/allQueries/${userCookie}` // changed to username as param
     fetch(url)

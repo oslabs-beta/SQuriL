@@ -2,7 +2,7 @@ import React from 'react';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material.css';
 import 'codemirror/mode/javascript/javascript';
-import styles from '../Styles/OutputContainer.css'
+import '../Styles/OutputContainer.css'
 import { Controlled } from 'react-codemirror2';
 
 function OutputWindow(props) {

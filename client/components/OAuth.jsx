@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@mui/material';
-import GitHubIcon from '@mui/icons-material/GitHub';
+// import GitHubIcon from '@mui/icons-material/GitHub';
 import styles from '../Styles/Landing.css'
 
 function OAuth() {
@@ -30,15 +30,15 @@ function OAuth() {
     // };
 
     return (
-        <Button
+        <button        
             className='OAuth'
             variant='outlined'
-            startIcon={<GitHubIcon />}
+            // startIcon={<GitHubIcon />}
             // onClick={handleSubmit}
             onClick={()=>location.href = '/oauth/authorize'}
         >
-        GitHub
-        </Button>
+        GitHub Login
+        </button>
     )
 }
 

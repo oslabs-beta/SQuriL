@@ -1,6 +1,6 @@
 import React from 'react';
 import QueryCard from './QueryCard';
-import styles from '../Styles/QueryContainer.css'
+import '../Styles/QueryContainer.css'
 
 function QueryContainer(props) {
     const queryList = [];

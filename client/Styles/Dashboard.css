@@ -5,10 +5,6 @@
   border-radius: 5px;
   margin-left: 5px;
   font-family: Roboto
-  /* display: flex; */
-  /* width: 1300px; */
-  /* grid: 800px / 150px 700px 600px; */
-  /* text-align: center; */
 }
 
 header{
@@ -38,4 +34,16 @@ header{
 
 #URIAddrButton {
   height:30px;
+}
+
+.logo {
+  height: 200px;
+  width: 200px;
+  padding: 0px;
+  display: grid;
+}
+
+.OAuth {
+  height: 50px;
+  width: 200px;
 }
