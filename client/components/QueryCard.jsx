@@ -8,7 +8,13 @@ function QueryCard(props) {
         <div className='QueryCard'>
             <h4 style={{ cursor: 'pointer ' }}>
                 {props.queryCard}
-            <Button variant='text' size='small' color='inherit' className='deleteQuery'>X</Button>
+            <Button
+            variant='text'
+            size='small'
+            className='deleteQuery'
+            onClick={() => props.deleteQuery(props.query_id)}
+            >X
+            </Button>
             </h4>
         </div>
     );

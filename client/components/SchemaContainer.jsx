@@ -8,13 +8,13 @@ function SchemaContainer(props) {
     const { schema, setSchema } = props;
     return(
             <div className='SchemaContainer'>
-                {/* <div className='SchemaContainerHeader'> */}
+                <div className='SchemaContainerHeader'>
                 <span>
-                <h4 style={{width: '100px'}}>Schema</h4>
+                <h4>Schema</h4>
                 <Button variant="contained" type='submit' className='submitButtons' value="Save">Save</Button>
                 <Button variant="contained" type='submit' className='submitButtons' value="Update">Update</Button>
                 </span>
-                {/* </div> */}
+                </div>
             <br></br>
             <SchemaWindow
                 value={schema}

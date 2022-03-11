@@ -15,10 +15,11 @@ function URIInput(props) {
     });
     return(
         <div className='URIInput'>
-            <h3>PostgreSQL URI:</h3>
+            {/* <h3>PostgreSQL URI:</h3> */}
             <form>
-                <span>
-            <TextField
+                <label for='postgreSQL'>PostgreSQL URI:</label><br></br>
+                <input type='text' id='URIAddr' name='URIAddr'></input><button type='button' id='URIAddrButton'>Go!</button>
+            {/* <TextField
             sx={{ m: 0.5 }}
             style={{width: '80%'}}
             size="small"
@@ -33,8 +34,7 @@ function URIInput(props) {
             type='submit'
             className='URIGo'>
                 Go
-            </Button>
-            </span>
+            </Button> */}
             </form> 
         </div>
     )

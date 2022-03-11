@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 .SchemaContainer {
-    margin-left: 60px;
+    /* margin-left: 60px; */
     border: 10px;
     border-color: white;
     color: white;
@@ -9,10 +9,10 @@
     flex-direction: column;
     outline: 1px solid white;
     border-radius: 5px;
-    padding: 25px 25px;
+    padding: 0px 20px 0px 20px;
     background-color: rgb(77, 74, 78);
     margin-left: 5px;
-    align-items: top;
+    /* align-items: top; */
     font-family: Roboto;
     width: 600px;
 }

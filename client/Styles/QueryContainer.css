@@ -22,5 +22,8 @@
 .QueryCard {
     color: white;
     font-family: Roboto;
+    border: 1px solid white;
+    text-align: left;
+    padding-left: 10px;
     /* display: grid; */
 }
