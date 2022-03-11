@@ -18,7 +18,7 @@ authController.getToken,
 authController.getProfile, 
 sessionController.createSession, 
 sessionController.verifySession, (req, res) => {
-  return res.status(200).send('ending at /oauth/callback');
+  return res.redirect('http://localhost:8080');
 });
 // sessionController.verifySession probabably doesn't need to be used here, and will probably be used as the first part in every middleware chain
 

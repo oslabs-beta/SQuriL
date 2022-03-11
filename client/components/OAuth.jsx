@@ -5,18 +5,29 @@ import styles from '../Styles/Landing.css'
 
 function OAuth() {
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        fetch('http://localhost:3000/oauth/authorize', {
-            mode: 'no-cors'
-        }) 
-            .then(result => {
-                console.log('successful request')
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    };
+    // const handleSubmit = (e) => {
+        // e.preventDefault();
+        // location.href = '/oauth/authorize'
+        // fetch('http://localhost:3000/oauth/authorize', {
+        //     mode: 'no-cors'
+        // }) 
+        //     .then(result => {
+        //         console.log('successful request')  
+        //     })
+        //     .catch(err => {
+        //         console.log(err);
+        //     })
+        // fetch('http://localhost:3000/oauth/callback', {
+        //     method: 'POST'
+        // })
+        //     .then(result => {
+        //         console.log('executed the callback route');
+        //     })
+        //     .catch(err => {
+        //         console.log('error in the callback route');
+        //     })
+        
+    // };
 
     return (
         <Button
