@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button } from '@mui/material'
-import styles from '../Styles/QueryContainer.css'
+import '../Styles/QueryContainer.css'
 
 
 function QueryCard(props) {
@@ -8,7 +7,14 @@ function QueryCard(props) {
         <div className='QueryCard'>
             <h4 style={{ cursor: 'pointer ' }}>
                 {props.queryCard}
-            <Button variant='text' size='small' color='inherit' className='deleteQuery'>X</Button>
+            <button
+            type="button"
+            variant='text'
+            size='small'
+            className='deleteQuery'
+            onClick={() => props.deleteQuery(props.query_id)}
+            >X
+            </button>
             </h4>
         </div>
     );

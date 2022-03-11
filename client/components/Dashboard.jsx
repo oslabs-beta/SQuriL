@@ -7,6 +7,7 @@ import OutputContainer from './OutputContainer';
 import OAuth from './OAuth';
 import '../Styles/Dashboard.css'
 import logo from '../Public/logo.png'
+import { useCookies } from 'react-cookie';
 
 
 
@@ -15,6 +16,7 @@ function Dashboard() {
   // all the queries which are shown in the QueryContainer
   // right now, the initial state is set to a test sample of Query topics - will be an empy object
   const [queryCard, setQueryCard] = useState({ 1: 'Query A', 2: 'Query B', 3: 'Query C' });
+  // const [queryCard, setQueryCard] = useState();
   // set state for schema window of a given query card
   const [schema, setSchema] = useState();
   // set state for the output window of a submitted query
@@ -23,52 +25,69 @@ function Dashboard() {
   const [uri, setUri] = useState();
   // the current query id that the user has selected
   const [currentQueryId, setCurrentQueryId] = useState();
+  // cookie hook
+  const [ cookies, setCookie ]= useCookies([])
 
-  /*
-  useEffect(() => {
-    setQueryCard();
+  // const userCookie = Object.keys(cookies)[0];
+  const userCookie = 'testUser';
+  // console.log(userCookie);
+
+    useEffect(() => {
+    getQuery();
   })
-  */
+  
 
   // // this is where we will put our CRUD functions
 
-  /*
+  // getQuery functionality still needs to be determined based on user login info
   const getQuery = () => {
-    const url = 'http://localhost:3000/allQueries/:username' // changed to username as param
+    const url = `http://localhost:3000/allQueries/${userCookie}` // changed to username as param
+    fetch(url)
+      .then(data => data.json())
+      .then(data => {
+        console.log(data);
+        setQueryCard(data);
+      })
+      .catch((err) => console.log('err', err));
   }
-  */
+
+  // deleteQuery functionality works - just need to test once we have proper user connection
+  const deleteQuery = (query_id) => {
+    fetch(`http://localhost:3000/query/deleteQuery/${query_id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(data => {
+      console.log('deletequery ', data);
+      console.log('query_id ', query_id);
+      const queryCopy = {...queryCard};
+      delete queryCopy[query_id];
+      setQueryCard(queryCopy);
+    })
+  }
+  
 
   return (
     <div className='Dashboard'>
-      {/* <header> */}
-      {/* <h1 id='mainTitle' className='squrilTitle'>SQuriL🐿️</h1>
-        <p id='subTitle' className='Tagline'>Tagline goes here</p>
-        {/* boilerplate logic for login/logout button, this will live in upper right corner of screen */}
-      {/* {typeof queryCard !== 'object' ? <OAuth /> */}
-      {/* // what is href in our case?  Check with backend team. */}
-      {/* : <Button variant='outlined' href='/logout'>Log out</Button>} */}
-      {/* </header> */}
       <header>
         <img src={logo} alt='logo' className='logo' />
         <URIInput />
+        {/* {typeof queryCard !== 'object' ? <OAuth />
+        : <Button className='logoutButton' variant='outlined' href='/logout'>Log out</Button>} */}
         <OAuth />
-      </header>
-      <div className='main'>
-        {typeof queryCard === 'object' &&
+        </header>
+       <div className='main'>
           <QueryContainer
             // drilling down of things happens here
             queryCard={queryCard}
+            deleteQuery={deleteQuery}
           />
-        }
         <SchemaContainer
           setSchema={setSchema}
           schema={schema}
         />
-        {/* {currentQueryId && typeof queryCard === 'object' &&
-         <SchemaContainer 
-          // drilling down of things happens here
-         />
-         } */}
         <OutputContainer
           setOutput={setOutput}
           output={output}

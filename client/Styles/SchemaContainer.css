@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 .SchemaContainer {
-    margin-left: 60px;
+    text-align: center;
     border: 10px;
     border-color: white;
     color: white;
@@ -9,24 +9,40 @@
     flex-direction: column;
     outline: 1px solid white;
     border-radius: 5px;
-    padding: 25px 25px;
+    padding: 0px 20px 0px 20px;
     background-color: rgb(77, 74, 78);
     margin-left: 5px;
-    align-items: top;
     font-family: Roboto;
     width: 600px;
 }
 
-.h2 {
-    width: 150px;
-    display: grid
+.h4 {
+    width: 40px;
 }
 
 .SchemaWindow {
     flex-grow: 1;
     overflow: hidden;
+    margin-top: 5px;
 }
 
 .CodeMirror {
-    height: 650px;
+    height: 100px;
+    text-align:left;
+}
+
+.saveSchema {
+    margin-left: 20px;
+    outline: 0.5px;
+    outline-color: white;
+    background-color:rgb(94, 14, 151);
+    color: white; 
+}
+
+.updateSchema {
+    margin-left: 20px;
+    outline: 0.5px;
+    outline-color: white;
+    background-color:rgb(94, 14, 151);
+    color: white; 
 }

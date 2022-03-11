@@ -1,12 +1,12 @@
 import React from 'react';
 import QueryCard from './QueryCard';
-import styles from '../Styles/QueryContainer.css'
+import '../Styles/QueryContainer.css'
 
 function QueryContainer(props) {
     const queryList = [];
     //iterate through props.queryCard
     for (const query_id in props.queryCard) {
-        queryList.push(<QueryCard key={query_id} queryCard={props.queryCard[query_id]}/>)
+        queryList.push(<QueryCard key={query_id} queryCard={props.queryCard[query_id]} query_id={query_id} deleteQuery={props.deleteQuery}/>)
     }
 
     return (

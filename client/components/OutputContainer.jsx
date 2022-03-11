@@ -1,7 +1,6 @@
 import React from 'react';
 import OutputWindow from './OutputWindow';
-import styles from '../Styles/OutputContainer.css'
-import { Button } from '@mui/material';
+import '../Styles/OutputContainer.css'
 
 
 function OutputContainer(props) {
@@ -10,7 +9,7 @@ function OutputContainer(props) {
         <div className='OutputContainer'>
             <span>
             <h4>Output</h4>
-            <Button variant="contained" type='submit' className='submitButtons' value="Query">Query</Button>
+            <button type='submit' className='graphQLSubmit' value="Query">Query</button>
             </span>
         <OutputWindow
             onChange={setOutput}

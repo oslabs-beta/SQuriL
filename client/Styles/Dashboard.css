@@ -4,10 +4,7 @@
   border-color: white;
   border-radius: 5px;
   margin-left: 5px;
-  /* display: flex; */
-  /* width: 1300px; */
-  /* grid: 800px / 150px 700px 600px; */
-  /* text-align: center; */
+  font-family: Roboto
 }
 
 header{
@@ -19,4 +16,34 @@ header{
 .main {
   display: flex;
   flex-direction: row;
+}
+
+.logoutButton {
+  height: 50px;
+
+}
+
+.URIInput {
+  margin-top: 70px;
+}
+
+#URIAddr {
+  width: 500px;
+  height: 30px;
+}
+
+#URIAddrButton {
+  height:30px;
+}
+
+.logo {
+  height: 200px;
+  width: 200px;
+  padding: 0px;
+  display: grid;
+}
+
+.OAuth {
+  height: 50px;
+  width: 200px;
 }

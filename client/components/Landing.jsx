@@ -1,9 +1,6 @@
 import React from 'react';
 import LogoLanding from './LogoLanding';
 import OAuth from './OAuth';
-import styles from '../Styles/Landing.css'
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 // create a component that serves as login button and fx
 function Landing(props) {
