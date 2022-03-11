@@ -9,6 +9,7 @@ function Header(props) {
     <div className='Header'>
     <Logo />
     <URIInput />
+    <OAuth />
     </div>
   )
 }

@@ -8,6 +8,7 @@ require('dotenv').config();
 // Get request to GitHub requesting the user's identity
 router.get('/authorize', (req, res) => {
   const url = 'https://github.com/login/oauth/authorize?client_id=' + process.env.CLIENT_ID;
+  console.log(url)
   return res.redirect(url);
 })
 

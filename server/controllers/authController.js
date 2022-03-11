@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 require('dotenv').config();
 
 const authController = {};
-// change the fetch stuff to axios stuff
+
 authController.getToken = async (req, res, next) => {
   const requestToken = req.query.code;
   const url = `https://github.com/login/oauth/access_token?client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}&code=${requestToken}&scope=user,repo`;

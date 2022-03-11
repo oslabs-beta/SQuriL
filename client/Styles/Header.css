@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 .Header {
-    display: grid;
-    grid: 500px / 150px 700px 450px;
-    grid-gap: 100px;
-    height: 200px;
+    display: flex;
+    /* grid: 500px / 150px 700px 100px; */
+    /* grid-gap: 100px; */
+    justify-content: space-between;
+    /* height: 200px; */
     font-family: Roboto;
     color: white;
 
@@ -15,4 +16,9 @@
     width: 200px;
     padding: 0px;
     display: grid;
+}
+
+.OAuth {
+    height: 50px;
+    width: 200px;
 }

@@ -1,11 +1,13 @@
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const app = express();
 
 // requiring in dotenv to use environment variable process.env.POSTGRES_URI from .env file
 require('dotenv').config();
 
+app.use(cors());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

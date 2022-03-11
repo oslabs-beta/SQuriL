@@ -5,18 +5,24 @@ import 'codemirror/mode/javascript/javascript';
 import styles from '../Styles/SchemaContainer.css'
 import { Controlled } from 'react-codemirror2';
 
-function SchemaWindow () {
+function SchemaWindow (props) {
+    const { value, onChange } = props;
+
+    function handleChange (editor, data, value) {
+        onChange(value);
+    } 
     return(
         <div className='SchemaWindow'>
             <Controlled 
-                // onBeforeChange={handleChange}
-                value={'Hello Squirrel'}
-                className='JavaScript-Wrapper'
+                onBeforeChange={handleChange}
+                value={value}
+                className='SchemaWindow-Wrapper'
                 options={{
                     lineWrapping: true,
                     lint: true,
                     mode: 'javascript',
                     lineNumbers: true,
+                    theme: 'material'
                 }}
             />
 

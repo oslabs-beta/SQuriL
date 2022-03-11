@@ -10,13 +10,10 @@ function Landing(props) {
     return (
         <div className="Landing">
             <LogoLanding />
-            {/* <div className='Tagline'>
+            <div className='Tagline'>
         <h3>Stach your Cache</h3>
         </div>   
-        <OAuth /> */}
- <SyntaxHighlighter language="javascript" style={docco}>
-     {'hello world'}
-    </SyntaxHighlighter>
+        <OAuth />
         </div > 
     )
 }

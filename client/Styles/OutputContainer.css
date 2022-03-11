@@ -5,14 +5,16 @@
     border: 10px;
     border-color: white;
     color: white;
-    display: flexbox;
+    display: flex;
+    flex-direction: column;
     outline: 1px solid white;
     border-radius: 5px;
     padding: 25px 25px;
     background-color: rgb(77, 74, 78);
     margin-left: 5px;
     align-items: top;
-    font-family: Roboto
+    font-family: Roboto;
+    width: 600px;
 }
 
 .OutputContainerHeader  {
