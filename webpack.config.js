@@ -67,7 +67,7 @@ module.exports = {
     // } 
     proxy: {
       // for API request in schemas generations in URIinput component
-      '/api/**': {
+      '/api/*': {
         target: 'http://localhost:3000/',
         secure: false,
       }, 
@@ -77,12 +77,17 @@ module.exports = {
         secure: false,
       },
       // for managing the user's front page content
-      '/user/**': {
+      '/user/*': {
         target: 'http://localhost:3000/',
         secure: false,
       },
       // for managing the output from GraphQl results
-      '/output/**': {
+      '/output/*': {
+        target: 'http://localhost:3000/',
+        secure: false,
+      },
+      // for managing the oauth route
+      '/oauth/*': {
         target: 'http://localhost:3000/',
         secure: false,
       },

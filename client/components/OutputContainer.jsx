@@ -5,15 +5,17 @@ import { Button } from '@mui/material';
 
 
 function OutputContainer(props) {
-
-
+    const { output, setOutput } = props;
     return (
         <div className='OutputContainer'>
             <span>
             <h4>Output</h4>
             <Button variant="contained" type='submit' className='submitButtons' value="Query">Query</Button>
             </span>
-        <OutputWindow />
+        <OutputWindow
+            onChange={setOutput}
+            value={output}
+        />
         </div>
     )
 

@@ -8,7 +8,7 @@ import styles from '../Styles/App.css'
 function App() {
     return (
         <div className='App'>
-            <Header />,
+            {/* <Header />, */}
             <Dashboard />
             {/* <Landing /> */}
         </div>

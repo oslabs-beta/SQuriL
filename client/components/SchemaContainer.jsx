@@ -5,7 +5,7 @@ import styles from '../Styles/SchemaContainer.css'
 
 function SchemaContainer(props) {
 // schemawindow prop to be passed down
-
+    const { schema, setSchema } = props;
     return(
             <div className='SchemaContainer'>
                 {/* <div className='SchemaContainerHeader'> */}
@@ -16,7 +16,10 @@ function SchemaContainer(props) {
                 </span>
                 {/* </div> */}
             <br></br>
-            <SchemaWindow />
+            <SchemaWindow
+                value={schema}
+                onChange={setSchema}
+            />
             </div>
     )
 }

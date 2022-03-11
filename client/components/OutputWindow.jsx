@@ -5,23 +5,29 @@ import 'codemirror/mode/javascript/javascript';
 import styles from '../Styles/OutputContainer.css'
 import { Controlled } from 'react-codemirror2';
 
-function OutputWindow () {
-    return(
+function OutputWindow(props) {
+    const { value, onChange } = props;
+
+function handleChange(editor, data, value) {
+    onChange(value);
+}
+
+    return (
         <div className='OutputWindow'>
-            <Controlled 
-                // onBeforeChange={handleChange}
-                value={'Hello Squirrel'}
+            <Controlled
+                onBeforeChange={handleChange}
+                value={value}
                 className='JavaScript-Wrapper'
                 options={{
                     lineWrapping: true,
                     lint: true,
                     mode: 'javascript',
                     lineNumbers: true,
+                    theme: 'material'
                 }}
             />
 
         </div>
     )
 }
-
 export default OutputWindow;

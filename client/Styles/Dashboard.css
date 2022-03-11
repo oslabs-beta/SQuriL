@@ -4,7 +4,19 @@
   border-color: white;
   border-radius: 5px;
   margin-left: 5px;
-  display: grid;
-  width: 1300px;
-  grid: 800px / 150px 700px 600px
+  /* display: flex; */
+  /* width: 1300px; */
+  /* grid: 800px / 150px 700px 600px; */
+  /* text-align: center; */
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
 }
