@@ -8,7 +8,6 @@ require('dotenv').config();
 // Get request to GitHub requesting the user's identity
 router.get('/authorize', (req, res) => {
   const url = 'https://github.com/login/oauth/authorize?client_id=' + process.env.CLIENT_ID;
-  console.log(url)
   return res.redirect(url);
 })
 
@@ -16,10 +15,14 @@ router.get('/authorize', (req, res) => {
 router.get('/callback', 
 authController.getToken, 
 authController.getProfile, 
-sessionController.createSession, 
-sessionController.verifySession, (req, res) => {
-  return res.redirect('http://localhost:8080');
+sessionController.createSession,
+sessionController.verifySession,
+userController.checkUser,
+userController.addUser,
+(req, res) => {
+  // return res.redirect('http://localhost:8080'); // When the frontend is running redirect back to homepage
+  return res.status(200).send('finished oauth callback route') // Testing in the backend, clean up later
 });
-// sessionController.verifySession probabably doesn't need to be used here, and will probably be used as the first part in every middleware chain
+
 
 module.exports = router;
