@@ -32,7 +32,7 @@ function Dashboard() {
   const userCookie = 'testUser';
   // console.log(userCookie);
 
-    useEffect(() => {
+  useEffect(() => {
     getQuery();
   })
   
@@ -41,7 +41,7 @@ function Dashboard() {
 
   // getQuery functionality still needs to be determined based on user login info
   const getQuery = () => {
-    const url = `http://localhost:3000/allQueries/${userCookie}` // changed to username as param
+    const url = `/user/allQueries` // changed to username as param
     fetch(url)
       .then(data => data.json())
       .then(data => {
