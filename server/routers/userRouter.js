@@ -4,7 +4,7 @@ const router = express.Router();
 const userController = require('../controllers/userController.js');
 const sessionController = require('../controllers/sessionController.js');
 
-router.get('/allQueries/', 
+router.get('/allQueries', 
   sessionController.verifySession,
   userController.allQueries,
   (req, res) => {

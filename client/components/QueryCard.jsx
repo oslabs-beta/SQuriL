@@ -6,7 +6,10 @@ function QueryCard(props) {
     return (
         <div className='QueryCard'>
             <h4 style={{ cursor: 'pointer ' }}>
+                {/* <span onClick={() => console.log('clickedQueryCard ', props.query_id)}> This is a test*/}
+                <span onClick={() => props.getSchema(props.query_id)}>
                 {props.queryCard}
+                </span>
             <button
             type="button"
             variant='text'

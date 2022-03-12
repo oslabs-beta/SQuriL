@@ -41,6 +41,7 @@ queryController.updateQuery = async (req, res, next) => {
   const { _id, value } = req.body;
   const sqlQuery = 'UPDATE queries SET value=$1 WHERE _id=$2 RETURNING *';
   try {
+    console.log('in the update query controller')
     const updatedQuery = await db.query(sqlQuery, [value, _id]);
     res.locals.updatedQuery = updatedQuery.row[0];
     next();
