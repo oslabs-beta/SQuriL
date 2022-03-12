@@ -4,6 +4,8 @@ import 'codemirror/theme/material.css';
 import 'codemirror/mode/javascript/javascript';
 import '../Styles/SchemaContainer.css'
 import { Controlled } from 'react-codemirror2';
+import { SampleGQLServerCode } from '/server/sambleDB.js'
+
 
 function SchemaWindow (props) {
     const { value, onChange } = props;
@@ -15,7 +17,7 @@ function SchemaWindow (props) {
         <div className='SchemaWindow'>
             <Controlled 
                 onBeforeChange={handleChange}
-                value={value}
+                value={''}
                 className='SchemaWindow-Wrapper'
                 options={{
                     lineWrapping: true,

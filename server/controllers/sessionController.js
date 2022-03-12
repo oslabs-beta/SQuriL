@@ -24,11 +24,14 @@ sessionController.createSession = async (req, res, next) => {
 
 // Decodes the cookie and assigns the user to res.locals.username
 sessionController.verifySession = async (req, res, next) => {
+  console.log('in the verify session')
   try {
+  console.log(res.cookies)
   if (req.cookies.user) {
     const decoded = jwt.verify(req.cookies.user, process.env.JWT_SECRET);
     if (decoded.username !== undefined) {
       res.locals.username = decoded.username;
+      console.log(res.locals.username)
       return next();
     } 
   } else {

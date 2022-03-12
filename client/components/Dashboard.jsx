@@ -18,34 +18,27 @@ function Dashboard() {
   const [queryCard, setQueryCard] = useState({ 1: 'Query A', 2: 'Query B', 3: 'Query C' });
   // const [queryCard, setQueryCard] = useState();
   // set state for schema window of a given query card
-  const [schema, setSchema] = useState();
+  const [schema, setSchema] = useState('console.log("Hello World!)');
   // set state for the output window of a submitted query
   const [output, setOutput] = useState();
   // set state for uri address bar at the top of the screen
   const [uri, setUri] = useState();
   // the current query id that the user has selected
   const [currentQueryId, setCurrentQueryId] = useState();
-  // cookie hook
-  const [ cookies, setCookie ]= useCookies([])
 
-  // const userCookie = Object.keys(cookies)[0];
-  const userCookie = 'testUser';
-  // console.log(userCookie);
-
-    useEffect(() => {
-    getQuery();
-  })
+  //   useEffect(() => {
+  //   getQuery();
+  // })
   
-
-  // // this is where we will put our CRUD functions
+ // this is where we will put our CRUD functions
 
   // getQuery functionality still needs to be determined based on user login info
   const getQuery = () => {
-    const url = `http://localhost:3000/allQueries/${userCookie}` // changed to username as param
+    const url = `http://localhost:3000/user/allQueries` // changed to username as param
     fetch(url)
       .then(data => data.json())
       .then(data => {
-        console.log(data);
+        console.log('getQuery data return ', data);
         setQueryCard(data);
       })
       .catch((err) => console.log('err', err));
