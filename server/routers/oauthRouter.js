@@ -20,8 +20,8 @@ sessionController.verifySession,
 userController.checkUser,
 userController.addUser,
 (req, res) => {
-  // return res.redirect('http://localhost:8080'); // When the frontend is running redirect back to homepage
-  return res.status(200).send('finished oauth callback route') // Testing in the backend, clean up later
+  return res.redirect('http://localhost:8080'); // When the frontend is running redirect back to homepage
+  // return res.status(200).send('finished oauth callback route') // Testing in the backend, clean up later
 });
 
 

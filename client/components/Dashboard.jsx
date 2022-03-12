@@ -27,13 +27,9 @@ function Dashboard() {
   //   getQuery();
   // })
 
-<<<<<<< HEAD
   useEffect(() => {
     getQuery();
   })
-=======
-  // this is where we will put our CRUD functions
->>>>>>> dev
   
   // postQuery function (saves query)
     // logic for when user doesn't enter a name
@@ -46,11 +42,7 @@ function Dashboard() {
   
     // getQuery functionality still needs to be determined based on user login info
   const getQuery = () => {
-<<<<<<< HEAD
     const url = `/user/allQueries` // changed to username as param
-=======
-    const url = `http://localhost:3000/user/allQueries` // changed to username as param
->>>>>>> dev
     fetch(url)
       .then(data => data.json())
       .then(data => {

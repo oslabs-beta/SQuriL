@@ -27,7 +27,6 @@ sessionController.createSession = async (req, res, next) => {
 
 // Decodes the cookie and assigns the user to res.locals.username
 sessionController.verifySession = async (req, res, next) => {
-<<<<<<< HEAD
   // console.log(req.cookies.user) // This definitely exists when running server on its own
   try {
   console.log(req.cookies.user)
@@ -37,22 +36,6 @@ sessionController.verifySession = async (req, res, next) => {
       console.log('User cookie decoded and saved to res.locals.username as ' + res.locals.username)
     }
     return next()
-=======
-  console.log('in the verify session')
-  try {
-  console.log(res.cookies)
-  if (req.cookies.user) {
-    const decoded = jwt.verify(req.cookies.user, process.env.JWT_SECRET);
-    if (decoded.username !== undefined) {
-      res.locals.username = decoded.username;
-      console.log(res.locals.username)
-      return next();
-    } 
-  } else {
-    // Not sure what to add here, as it stands this just moves to the next part of the chain if the user is not verified or if the cookie does not exist
-    return next();
-  }
->>>>>>> dev
   } catch (err) {
     return next({
       log: `Error in sessionController.verifySession Err: ${err.message}`,

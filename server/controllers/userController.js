@@ -21,22 +21,21 @@ userController.checkUser = async (req, res, next) => {
     return next();
   } catch (err) {
     next({
-      log: `userController.allQueries: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
+      log: `userController.checkUser: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
       message: { err: 'Error occurred in userController.checkUser. Check server log for more details.'},
     })
   }
 }
 
 userController.addUser = async (req, res, next) => {
-<<<<<<< HEAD
   // Check if res.locals.exists is true and moves to next middleware 
   if (res.locals.exists) {
     console.log('The user already exists in the database')
     return next()
   }
   const { username } = res.locals
-  // const sqlQuery = `INSERT INTO users (username) VALUES ('${username}')`; // Query for after user table is changed to just _id and username
-  const sqlQuery = `INSERT INTO users (username, token) VALUES ('${username}', 'testoken')`; // Query while the user table is still _id, username, and token
+  const sqlQuery = `INSERT INTO users (username) VALUES ('${username}')`; // Query for after user table is changed to just _id and username
+
 
 
   // Add the user to the database
@@ -46,30 +45,14 @@ userController.addUser = async (req, res, next) => {
     return next();
   } catch (err) {
     next({
-      log: `userController.allQueries: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
+      log: `userController.addUser: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
       message: { err: 'Error occurred in userController.addUser. Check server log for more details.'},
-=======
-// check for user in the database
-// if the user is not in the database, add the user to the database
-// FRANK LOOK OVER THIS AGAIN 
-
-const { username } = req.locals.username
-const sqlQuery = `INSERT INTO users (username) VALUES ('${username}')`;
-  try {
-    const query = await db.query(sqlQuery, [username]);
-    next();
-  } catch (err) {
-    next({
-      log: `userController.allQueries: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
-      message: { err: 'Error occurred in userController.allQueries. Check server log for more details.'},
->>>>>>> dev
     })
   }
 };
 
 // Retreive all saved queries as User logs 
 userController.allQueries = async (req, res, next) => {
-<<<<<<< HEAD
   // If verifySession did not find a cookie then res.locals.username does not exist and nothing needs to be done here, move to next middleware
   if (!res.locals.username) {
     console.log('There is no user currently logged in')
@@ -78,12 +61,8 @@ userController.allQueries = async (req, res, next) => {
   console.log('In the allQueries middleware, res.locals.username is set to ' + res.locals.username)
 
   // Else use username stored in res.locals.username to make the query
-  // const { username } = res.locals // Used for build
-  const username = 'michaeltraps' // Used for testing
-=======
-  //coming from OAuth response => needs testing
-  const { username } = req.locals.username
->>>>>>> dev
+  const { username } = res.locals // Used for build
+  // const username = 'michaeltraps' // Used for testing
   const sqlQuery = 'SELECT q._id, q.value FROM queries q LEFT OUTER JOIN users u on q.user_id=u._id WHERE u.username=$1'
 
   try {
