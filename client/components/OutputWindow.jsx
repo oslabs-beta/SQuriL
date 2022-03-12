@@ -8,12 +8,13 @@ import { Controlled } from 'react-codemirror2';
 function OutputWindow(props) {
     const { value, onChange } = props;
 
-function handleChange(editor, data, value) {
-    onChange(value);
-}
+    function handleChange(editor, data, value) {
+        onChange(value);
+    }
 
     return (
         <div className='OutputWindow'>
+            <button type='submit' className='graphQLSubmit' value="Query">Query</button>
             <Controlled
                 onBeforeChange={handleChange}
                 value={value}

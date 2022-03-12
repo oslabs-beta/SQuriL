@@ -38,6 +38,7 @@
 .CodeMirror {
     height: 600px;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .graphQLSubmit {

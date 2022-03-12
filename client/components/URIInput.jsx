@@ -5,7 +5,7 @@ function URIInput(props) {
     return(
         <div className='URIInput'>
             <form>
-                <label for='postgreSQL'>PostgreSQL URI:</label><br></br>
+                <label form='postgreSQL'>PostgreSQL URI:</label><br></br>
                 <input type='text' id='URIAddr' name='URIAddr'></input><button type='button' id='URIAddrButton'>Go!</button>
             </form> 
         </div>
