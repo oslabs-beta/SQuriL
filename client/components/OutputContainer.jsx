@@ -7,10 +7,7 @@ function OutputContainer(props) {
     const { output, setOutput } = props;
     return (
         <div className='OutputContainer'>
-            <span>
             <h4>Output</h4>
-            <button type='submit' className='graphQLSubmit' value="Query">Query</button>
-            </span>
         <OutputWindow
             onChange={setOutput}
             value={output}

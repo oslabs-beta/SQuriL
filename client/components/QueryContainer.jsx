@@ -6,7 +6,13 @@ function QueryContainer(props) {
     const queryList = [];
     //iterate through props.queryCard
     for (const query_id in props.queryCard) {
-        queryList.push(<QueryCard key={query_id} queryCard={props.queryCard[query_id]} query_id={query_id} deleteQuery={props.deleteQuery}/>)
+        queryList.push(<QueryCard
+                        key={query_id}
+                        queryCard={props.queryCard[query_id]}
+                        query_id={query_id}
+                        deleteQuery={props.deleteQuery}
+                        getSchema={props.getSchema}
+                        />)
     }
 
     return (

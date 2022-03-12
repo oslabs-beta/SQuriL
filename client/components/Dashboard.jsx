@@ -7,9 +7,6 @@ import OutputContainer from './OutputContainer';
 import OAuth from './OAuth';
 import '../Styles/Dashboard.css'
 import logo from '../Public/logo.png'
-import { useCookies } from 'react-cookie';
-
-
 
 // function which sets the state
 function Dashboard() {
@@ -18,7 +15,7 @@ function Dashboard() {
   const [queryCard, setQueryCard] = useState({ 1: 'Query A', 2: 'Query B', 3: 'Query C' });
   // const [queryCard, setQueryCard] = useState();
   // set state for schema window of a given query card
-  const [schema, setSchema] = useState('console.log("Hello World!)');
+  const [schema, setSchema] = useState();
   // set state for the output window of a submitted query
   const [output, setOutput] = useState();
   // set state for uri address bar at the top of the screen
@@ -29,10 +26,19 @@ function Dashboard() {
   //   useEffect(() => {
   //   getQuery();
   // })
-  
- // this is where we will put our CRUD functions
 
-  // getQuery functionality still needs to be determined based on user login info
+  // this is where we will put our CRUD functions
+  
+  // postQuery function (saves query)
+    // logic for when user doesn't enter a name
+      // if (!queryName) {queryName = `Query ${ID}`}
+    // logic for when user does enter a name
+      // most important* - save a queryName
+    // whether named or not, creates a new queryCard in queryContainer
+
+  // putQuery function (updates query)
+  
+    // getQuery functionality still needs to be determined based on user login info
   const getQuery = () => {
     const url = `http://localhost:3000/user/allQueries` // changed to username as param
     fetch(url)
@@ -52,15 +58,27 @@ function Dashboard() {
         'Content-Type': 'application/json'
       }
     })
-    .then(data => {
-      console.log('deletequery ', data);
-      console.log('query_id ', query_id);
-      const queryCopy = {...queryCard};
-      delete queryCopy[query_id];
-      setQueryCard(queryCopy);
-    })
+      .then(data => {
+        console.log('deletequery ', data);
+        console.log('query_id ', query_id);
+        const queryCopy = { ...queryCard };
+        delete queryCopy[query_id];
+        setQueryCard(queryCopy);
+      })
   }
-  
+
+  // getSchema function that fetches schema from database and populates schemaWindow CodeMirror component
+  const getSchema = (query_id) => {
+    const url = `http://localhost:3000/query/getQuery/${query_id}`;
+    console.log('This is triggering getSchema')
+    fetch(url)
+      .then(data => data.json())
+      .then(data => {
+        console.log(data);
+        setSchema(data);
+        setCurrentQueryId(query_id);
+      })
+  }
 
   return (
     <div className='Dashboard'>
@@ -70,16 +88,19 @@ function Dashboard() {
         {/* {typeof queryCard !== 'object' ? <OAuth />
         : <Button className='logoutButton' variant='outlined' href='/logout'>Log out</Button>} */}
         <OAuth />
-        </header>
-       <div className='main'>
-          <QueryContainer
-            // drilling down of things happens here
-            queryCard={queryCard}
-            deleteQuery={deleteQuery}
-          />
+      </header>
+      <div className='main'>
+        <QueryContainer
+          // drilling down of things happens here
+          queryCard={queryCard}
+          deleteQuery={deleteQuery}
+          getSchema={getSchema}
+          // schema={schema}
+        />
         <SchemaContainer
-          setSchema={setSchema}
+          setSchema={setSchema} // to use in the save and update buttons in SchemaContainer?
           schema={schema}
+          currentQueryId={currentQueryId}
         />
         <OutputContainer
           setOutput={setOutput}
