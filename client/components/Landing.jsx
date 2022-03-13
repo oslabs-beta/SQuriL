@@ -5,13 +5,15 @@ import { atelierForestDark } from 'react-syntax-highlighter/dist/esm/styles/hljs
 import { saveAs } from 'file-saver';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import black_logo from '../Public/black_logo.png'
+import logo from '../Public/logo.png'
 import Loading from './Loading'
 import '../Styles/Landing.css'
 
-function Landing() {
+function Landing(props) {
 
     const [demo, setDemo] = useState(false);
     const [loading, setLoading] = useState(true);
+    const { isDarkTheme } = props;
     const exportGraphQLCode = () => {
         if(demo) {
             saveAs(new File([`${SampleGQLServerCode}`], 'SQLServerCode.js', {type: 'text/plain;charset=utf-8'}));
@@ -26,7 +28,7 @@ function Landing() {
         <>
             {loading === false ? (
                 <div className="Landing">
-                    <img src={black_logo} alt='logo' className='logoLanding' />
+                    <img src={isDarkTheme ? logo : black_logo} alt='logo' className='logoLanding' />
                     <Button size='small' variant='contained' onClick={() => setDemo(true)}>Show Demo</Button>
                     <form className='uri-form'>
                         <label form='postgreSQL' className='uri-label'>PostgreSQL URI</label><Button size='small' variant='contained'>Go!</Button>

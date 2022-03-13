@@ -1,16 +1,33 @@
 import React, { useState } from 'react';
 // import Dashboard from './Dashboard.jsx'
-import { Button } from '@mui/material';
+import { Button, CssBaseline, FormControlLabel, FormGroup, Switch } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ModalDialogue from './ModalDialogue'
-import Landing from './Landing.jsx'
 import black_logo from '../Public/black_logo.png'
+import logo from '../Public/logo.png'
 import '../Styles/App.css'
 
+const light = {
+    palette: {
+        mode: 'light',
+    },
+};
+
+const dark = {
+    palette: {
+        mode: 'dark',
+    },
+};
 
 function App() {
     
     // declare a new state variable for modal open
     const [open, setOpen] = useState(false);
+    const [ isDarkTheme, setIsDarkTheme ] = useState(false);
+
+    const changeTheme = () => {
+        setIsDarkTheme(!isDarkTheme);
+    };
 
     // function to handle modal open
     const handleOpen = () => {
@@ -23,9 +40,15 @@ function App() {
     };
 
     return (
+        <ThemeProvider theme={isDarkTheme ? createTheme(dark) : createTheme(light)}>
+            <CssBaseline />
         <div className='App'>
-            <div className='app-welcome'>
-            <img src={black_logo} alt='logo' className='logo' />
+            <FormGroup>
+                <FormControlLabel control={ <Switch checked={isDarkTheme} onChange={changeTheme}/>}
+                label="Dark Theme" />
+            </FormGroup>
+            <div className='app-welcome' style={isDarkTheme ? {border: '2px solid white'} : {border: '2px solid black'}}>
+            <img src={isDarkTheme ? logo : black_logo} alt='logo' className='logo' />
             <Button variant='contained' color='primary' onClick={handleOpen}>
                 Let's Go!
             </Button>
@@ -35,8 +58,10 @@ function App() {
             className='lets-typescript'
             open={open}
             handleClose={handleClose}
+            isDarkTheme={isDarkTheme}
             />
         </div>
+        </ThemeProvider>
     );
 }
 
