@@ -8,9 +8,9 @@ import { SampleGQLServerCode } from '/server/sambleDB.js'
 
 
 function SchemaWindow(props) {
-    const { value, onChange, currentQueryId } = props;
+    const { value, onChange, currentQueryId, postQuery } = props;
     console.log('schema state', value);
-    console.log('current query ID', currentQueryId)
+    // console.log('current query ID', currentQueryId)
     // console.log('selected schema', value[currentQueryId])
 
     function handleChange(editor, data, value) {
@@ -21,9 +21,15 @@ function SchemaWindow(props) {
         <div className='SchemaWindow'>
             <span>
                 <input type='text' id='queryName' name='queryName' placeholder='name your query here'></input>
-                <button type='submit' className='saveSchema' value="Save">Save</button>
-                <button type='submit' className='updateSchema' value="Update">Update</button>
-                <button type='submit' className='sampleSchema' value="Sample">Sample</button>
+                <button
+                onClick={(e) => postQuery(value)}
+                type='submit'
+                className='saveSchema'
+                value="Save"
+                >Save
+                </button>
+                {/* <button type='submit' className='updateSchema' value="Update">Update</button> */}
+                {/* <button type='submit' className='sampleSchema' value="Sample">Sample</button> */}
             </span>
             <Controlled
                 onBeforeChange={handleChange}
@@ -37,7 +43,6 @@ function SchemaWindow(props) {
                     theme: 'material'
                 }}
             />
-
         </div>
     )
 }

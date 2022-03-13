@@ -23,17 +23,9 @@ function Dashboard() {
   // the current query id that the user has selected
   const [currentQueryId, setCurrentQueryId] = useState();
 
-  //   useEffect(() => {
-  //   getQuery();
-  // })
-
-<<<<<<< HEAD
   useEffect(() => {
     getQuery();
-  })
-=======
-  // this is where we will put our CRUD functions
->>>>>>> dev
+  }, []);
   
   // postQuery function (saves query)
     // logic for when user doesn't enter a name
@@ -46,13 +38,10 @@ function Dashboard() {
   
     // getQuery functionality still needs to be determined based on user login info
   const getQuery = () => {
-<<<<<<< HEAD
-    const url = `/user/allQueries` // changed to username as param
-=======
     const url = `http://localhost:3000/user/allQueries` // changed to username as param
->>>>>>> dev
     fetch(url)
       .then(data => data.json())
+      .then(console.log(data))
       .then(data => {
         console.log('getQuery data return ', data);
         setQueryCard(data);
@@ -90,6 +79,23 @@ function Dashboard() {
       })
   }
 
+  const postQuery = (e) => {
+    // e.preventDefault();
+    // fetch('http://localhost/3000/query/createQuery', {
+    //   method: 'Post',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //   })
+    // })
+    const queryCopy = {...queryCard};
+    queryCopy[4] = e;
+    setQueryCard(queryCopy);
+    // console.log({...queryCard})
+    // console.log(e);
+  }
+
   return (
     <div className='Dashboard'>
       <header>
@@ -111,11 +117,12 @@ function Dashboard() {
           setSchema={setSchema} // to use in the save and update buttons in SchemaContainer?
           schema={schema}
           currentQueryId={currentQueryId}
+          postQuery={postQuery}
         />
-        <OutputContainer
+        {/* <OutputContainer
           setOutput={setOutput}
           output={output}
-        />
+        /> */}
       </div>
     </div>
   );
