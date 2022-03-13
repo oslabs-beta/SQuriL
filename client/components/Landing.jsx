@@ -13,6 +13,7 @@ function Landing(props) {
 
     const [demo, setDemo] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [URI, setURI ] = useState('');
     const { isDarkTheme } = props;
     const exportGraphQLCode = () => {
         if(demo) {
@@ -33,11 +34,11 @@ function Landing(props) {
                     <form className='uri-form'>
                         <label form='postgreSQL' className='uri-label'>PostgreSQL URI</label><Button size='small' variant='contained'>Go!</Button>
                         <br></br>
-                        <TextField type='text' fullWidth={true} size='string' variant='standard' className='entryForm' placeholder='Input URI...'></TextField>
+                        <TextField type='text' fullWidth={true} size='string' variant='standard' className='entryForm' placeholder='Input URI...' onChange={(e) => setURI(e.target.value)}></TextField>
                         <SyntaxHighlighter language='javascript' className='syntax-highlighter' showLineNumbers='true' wrapLongLines='false' style={atelierForestDark}>
                             {demo ? SampleGQLServerCode : ''}
                         </SyntaxHighlighter>
-                        <Button size='small' variant='contained' onClick={() => { exportGraphQLCode();}}>Export</Button>
+                        <Button size='small' variant='contained' onClick={() => { exportGraphQLCode(); }}>Export</Button>
                     </form>
                 </div >
             ) : (

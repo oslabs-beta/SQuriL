@@ -8,6 +8,8 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import ModalDialogue from './ModalDialogue'
 import black_logo from '../Public/black_logo.png'
 import logo from '../Public/logo.png'
+import github_white from '../Public/github_white.png'
+import github_black from '../Public/github_black.png'
 import '../Styles/App.css'
 
 const light = {
@@ -46,6 +48,9 @@ function App() {
         <ThemeProvider theme={isDarkTheme ? createTheme(dark) : createTheme(light)}>
             <CssBaseline />
         <div className='App'>
+            <a href='https://github.com/oslabs-beta/SQuriL'>
+            <img src={isDarkTheme ? github_white : github_black} alt='logo' className='github'/>
+            </a>
             <span>
             { isDarkTheme ? 'dark mode' : 'light mode'}
             <IconButton sx={{ ml: 1 }} onClick={changeTheme} color='inherit'>
