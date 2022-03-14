@@ -3,19 +3,23 @@ import '../Styles/QueryContainer.css'
 
 
 function QueryCard(props) {
+    const { queryCard } = props;
     return (
         <div className='QueryCard'>
             <h4 style={{ cursor: 'pointer ' }}>
                 {/* <span onClick={() => console.log('clickedQueryCard ', props.query_id)}> This is a test*/}
                 <span onClick={() => props.getSchema(props.query_id)}>
-                {`Query ${props.queryCard}`}
+                {`Query ${queryCard}`}
                 </span>
             <button
             type="button"
             variant='text'
             size='small'
             className='deleteQuery'
-            onClick={() => props.deleteQuery(props.query_id)}
+            onClick={() => {
+                console.log('deleted this id', queryCard)
+                props.deleteQuery(queryCard)
+            }}
             >X
             </button>
             </h4>

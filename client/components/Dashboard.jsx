@@ -5,6 +5,7 @@ import URIInput from './URIInput';
 import Landing from './Landing';
 import OutputContainer from './OutputContainer';
 import OAuth from './OAuth';
+import { Button } from '@mui/material';
 import '../Styles/Dashboard.css'
 import logo from '../Public/logo.png'
 
@@ -23,19 +24,19 @@ function Dashboard() {
   // the current query id that the user has selected
   const [currentQueryId, setCurrentQueryId] = useState();
 
-    useEffect(() => {
+  useEffect(() => {
     getQuery();
   }, []);
-  
+
   // postQuery function (saves query)
-    // logic for when user doesn't enter a name
-      // if (!queryName) {queryName = `Query ${ID}`}
-    // logic for when user does enter a name
-      // most important* - save a queryName
-    // whether named or not, creates a new queryCard in queryContainer
+  // logic for when user doesn't enter a name
+  // if (!queryName) {queryName = `Query ${ID}`}
+  // logic for when user does enter a name
+  // most important* - save a queryName
+  // whether named or not, creates a new queryCard in queryContainer
 
   // putQuery function (updates query)
-  
+
   // getQuery functionality still needs to be determined based on user login info
   const getQuery = () => {
     const url = `/user/allQueries` // changed to username as param
@@ -57,11 +58,13 @@ function Dashboard() {
       }
     })
       .then(data => {
-        console.log('deletequery ', data);
-        console.log('query_id ', query_id);
-        const queryCopy = { ...queryCard };
-        delete queryCopy[query_id];
+        console.log(data);
+        // console.log('deletequery ', data);
+        // console.log('query_id ', query_id);
+        const queryCopy = [...queryCard];
+        queryCopy.splice(query_id, 1);
         setQueryCard(queryCopy);
+        getQuery();
       })
   }
 
@@ -83,9 +86,9 @@ function Dashboard() {
       <header>
         <img src={logo} alt='logo' className='logo' />
         <URIInput />
-        {/* {typeof queryCard !== 'object' ? <OAuth />
-        : <Button className='logoutButton' variant='outlined' href='/logout'>Log out</Button>} */}
-        <OAuth />
+        {typeof queryCard !== 'object' ? <OAuth />
+        : <Button className='logoutButton' variant='outlined' href='/logout'>Log out</Button>}
+        {/* <OAuth /> */}
       </header>
       <div className='main'>
         <QueryContainer
@@ -93,7 +96,7 @@ function Dashboard() {
           queryCard={queryCard}
           deleteQuery={deleteQuery}
           getSchema={getSchema}
-          // schema={schema}
+        // schema={schema}
         />
         <SchemaContainer
           setSchema={setSchema} // to use in the save and update buttons in SchemaContainer?
