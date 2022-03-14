@@ -5,7 +5,6 @@ CREATE DATABASE squril;
 CREATE TABLE users (
   _id SERIAL NOT NULL PRIMARY KEY,
   username VARCHAR(100) NOT NULL, 
-  token VARCHAR NOT NULL
 )
 
 

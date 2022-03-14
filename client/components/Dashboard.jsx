@@ -29,7 +29,7 @@ function Dashboard() {
 
   useEffect(() => {
     getQuery();
-  })
+  }, []);
   
   // postQuery function (saves query)
     // logic for when user doesn't enter a name
