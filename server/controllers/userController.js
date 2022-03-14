@@ -21,7 +21,7 @@ userController.checkUser = async (req, res, next) => {
     return next();
   } catch (err) {
     next({
-      log: `userController.checkUser: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
+      log: `userController.checkUser: ERROR: ${err}`,
       message: { err: 'Error occurred in userController.checkUser. Check server log for more details.'},
     })
   }
@@ -45,7 +45,7 @@ userController.addUser = async (req, res, next) => {
     return next();
   } catch (err) {
     next({
-      log: `userController.addUser: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
+      log: `userController.addUser: ERROR: ${err}`,
       message: { err: 'Error occurred in userController.addUser. Check server log for more details.'},
     })
   }
@@ -72,7 +72,7 @@ userController.allQueries = async (req, res, next) => {
     next();
   } catch (err) {
     next({
-      log: `userController.allQueries: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
+      log: `userController.allQueries: ERROR: ${err}`,
       message: { err: 'Error occurred in userController.allQueries. Check server log for more details.'},
     })
   }
