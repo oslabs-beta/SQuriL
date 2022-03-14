@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SampleGQLServerCode } from '/server/sambleDB.js'
+import { SampleGQLServerCode } from '/server/sampleDB.js'
 import { Button, TextField } from '@mui/material'
 import { atelierForestDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { saveAs } from 'file-saver';
