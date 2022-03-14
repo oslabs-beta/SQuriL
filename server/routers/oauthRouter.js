@@ -23,13 +23,13 @@ sessionController.verifySession,
 });
 
 // Redirect route after cookie is created, Adds the user to the database
-router.get('/userDatabase', 
+router.get('/userDatabase',
+sessionController.verifySession, 
 userController.checkUser,
 userController.addUser,
 (req, res) => {
   console.log('Ended at the /oauth/userDatabase')
   return res.redirect('http://localhost:8080');
 });
-
 
 module.exports = router;
