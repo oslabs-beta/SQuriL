@@ -12,8 +12,6 @@ import logo from '../Public/logo.png'
 // function which sets the state
 function Dashboard() {
   // all the queries which are shown in the QueryContainer
-  // right now, the initial state is set to a test sample of Query topics - will be an empy object
-  // const [queryCard, setQueryCard] = useState({ 1: 'Query A', 2: 'Query B', 3: 'Query C' });
   const [queryCard, setQueryCard] = useState([]);
   // set state for schema window of a given query card
   const [schema, setSchema] = useState();
@@ -58,25 +56,27 @@ function Dashboard() {
       }
     })
       .then(data => {
-        console.log(data);
+        // console.log(data);
         // console.log('deletequery ', data);
         // console.log('query_id ', query_id);
         const queryCopy = [...queryCard];
         queryCopy.splice(query_id, 1);
         setQueryCard(queryCopy);
+        setSchema('');
         getQuery();
       })
   }
 
   // getSchema function that fetches schema from database and populates schemaWindow CodeMirror component
   const getSchema = (query_id) => {
-    const url = `http://localhost:3000/query/getQuery/${query_id}`;
-    console.log('This is triggering getSchema')
+    const url = `/query/getQuery/${query_id}`;
+    // console.log('This is triggering getSchema')
     fetch(url)
       .then(data => data.json())
       .then(data => {
-        console.log(data);
-        setSchema(data);
+        // console.log(data.value);
+        // console.log(typeof data.value);
+        setSchema(data.value);
         setCurrentQueryId(query_id);
       })
   }

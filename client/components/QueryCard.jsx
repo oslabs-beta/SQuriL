@@ -8,7 +8,7 @@ function QueryCard(props) {
         <div className='QueryCard'>
             <h4 style={{ cursor: 'pointer ' }}>
                 {/* <span onClick={() => console.log('clickedQueryCard ', props.query_id)}> This is a test*/}
-                <span onClick={() => props.getSchema(props.query_id)}>
+                <span onClick={() => props.getSchema(queryCard)}>
                 {`Query ${queryCard}`}
                 </span>
             <button
@@ -17,7 +17,7 @@ function QueryCard(props) {
             size='small'
             className='deleteQuery'
             onClick={() => {
-                console.log('deleted this id', queryCard)
+                // console.log('deleted this id', queryCard)
                 props.deleteQuery(queryCard)
             }}
             >X

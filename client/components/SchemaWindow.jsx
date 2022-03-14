@@ -8,7 +8,9 @@ import { SampleGQLServerCode } from '/server/sambleDB.js'
 
 
 function SchemaWindow(props) {
-    const { value, onChange, currentQueryId } = props;
+    let { value, onChange, currentQueryId } = props;
+    const [ sample, setSample ] = useState(false);
+
     // console.log('schema state', value);
     // console.log('current query ID', currentQueryId)
     // console.log('selected schema', value[currentQueryId])
@@ -16,18 +18,23 @@ function SchemaWindow(props) {
     function handleChange(editor, data, value) {
         onChange(value);
     }
+    
+    if(value) {
+        console.log('value is here!', value)
+    }
+    console.log('sample code', SampleGQLServerCode) 
 
     return (
         <div className='SchemaWindow'>
             <span>
-                <input type='text' id='queryName' name='queryName' placeholder='name your query here'></input>
+                {/* <input type='text' id='queryName' name='queryName' placeholder='name your query here'></input> */}
                 <button type='submit' className='saveSchema' value="Save">Save</button>
                 <button type='submit' className='updateSchema' value="Update">Update</button>
-                <button type='submit' className='sampleSchema' value="Sample">Sample</button>
+                <button type='submit' className='sampleSchema' value="Sample" onClick={(e) => setSample(true)}>Sample</button>
             </span>
             <Controlled
                 onBeforeChange={handleChange}
-                value={value}
+                value={ sample ? SampleGQLServerCode : value}
                 className='SchemaWindow-Wrapper'
                 options={{
                     lineWrapping: true,
