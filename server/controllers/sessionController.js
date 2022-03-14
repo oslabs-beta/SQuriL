@@ -29,11 +29,11 @@ sessionController.createSession = async (req, res, next) => {
 sessionController.verifySession = async (req, res, next) => {
   // console.log(req.cookies.user) // This definitely exists when running server on its own
   try {
-  console.log(req.cookies.user)
+  // console.log(req.cookies.user)
     if (req.cookies.user) {
       const decoded = jwt.verify(req.cookies.user, process.env.JWT_SECRET);
       res.locals.username = decoded.username;
-      console.log('User cookie decoded and saved to res.locals.username as ' + res.locals.username)
+      // console.log('User cookie decoded and saved to res.locals.username as ' + res.locals.username)
     }
     return next()
   } catch (err) {

@@ -81,13 +81,32 @@ function Dashboard() {
       })
   }
 
+  const createQuery = (schema_value) => {
+    const url = `/query/createQuery`
+    // e.preventDefault();
+    fetch(url, {
+      method: 'Post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        value: schema_value
+      })
+    })
+      .then(data => data.json())
+      .then(data => {
+        console.log(data);
+        getQuery();
+      })
+  }
+
   return (
     <div className='Dashboard'>
       <header>
         <img src={logo} alt='logo' className='logo' />
         <URIInput />
         {typeof queryCard !== 'object' ? <OAuth />
-        : <Button className='logoutButton' variant='outlined' href='/logout'>Log out</Button>}
+          : <Button className='logoutButton' variant='outlined' href='/logout'>Log out</Button>}
         {/* <OAuth /> */}
       </header>
       <div className='main'>
@@ -102,6 +121,7 @@ function Dashboard() {
           setSchema={setSchema} // to use in the save and update buttons in SchemaContainer?
           schema={schema}
           currentQueryId={currentQueryId}
+          createQuery={createQuery}
         />
         <OutputContainer
           setOutput={setOutput}

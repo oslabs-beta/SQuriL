@@ -8,7 +8,7 @@ import { SampleGQLServerCode } from '/server/sambleDB.js'
 
 
 function SchemaWindow(props) {
-    let { value, onChange, currentQueryId } = props;
+    let { value, onChange, currentQueryId, createQuery } = props;
     const [ sample, setSample ] = useState(false);
 
     // console.log('schema state', value);
@@ -17,18 +17,25 @@ function SchemaWindow(props) {
 
     function handleChange(editor, data, value) {
         onChange(value);
+        console.log(value);
+    }
+
+    function handleSubmit (e) {
+        // e.preventDefault();
+        props.createQuery(value);
     }
     
-    if(value) {
-        console.log('value is here!', value)
-    }
-    console.log('sample code', SampleGQLServerCode) 
+    // if(value) {
+    //     console.log('value is here!', value)
+    // }
+    // console.log('sample code', SampleGQLServerCode) 
 
     return (
         <div className='SchemaWindow'>
             <span>
                 {/* <input type='text' id='queryName' name='queryName' placeholder='name your query here'></input> */}
-                <button type='submit' className='saveSchema' value="Save">Save</button>
+                <button type='submit' className='saveSchema' value="Save" onClick={(e) => handleSubmit()}>Save</button>
+                {/* <button type='submit' className='saveSchema' value="Save" onClick={() => console.log(value)}>Save</button> */}
                 <button type='submit' className='updateSchema' value="Update">Update</button>
                 <button type='submit' className='sampleSchema' value="Sample" onClick={(e) => setSample(true)}>Sample</button>
             </span>
