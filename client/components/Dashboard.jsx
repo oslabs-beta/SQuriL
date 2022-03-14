@@ -12,8 +12,8 @@ import logo from '../Public/logo.png'
 function Dashboard() {
   // all the queries which are shown in the QueryContainer
   // right now, the initial state is set to a test sample of Query topics - will be an empy object
-  const [queryCard, setQueryCard] = useState({ 1: 'Query A', 2: 'Query B', 3: 'Query C' });
-  // const [queryCard, setQueryCard] = useState();
+  // const [queryCard, setQueryCard] = useState({ 1: 'Query A', 2: 'Query B', 3: 'Query C' });
+  const [queryCard, setQueryCard] = useState([]);
   // set state for schema window of a given query card
   const [schema, setSchema] = useState();
   // set state for the output window of a submitted query
@@ -23,11 +23,7 @@ function Dashboard() {
   // the current query id that the user has selected
   const [currentQueryId, setCurrentQueryId] = useState();
 
-  //   useEffect(() => {
-  //   getQuery();
-  // })
-
-  useEffect(() => {
+    useEffect(() => {
     getQuery();
   }, []);
   
@@ -40,21 +36,21 @@ function Dashboard() {
 
   // putQuery function (updates query)
   
-    // getQuery functionality still needs to be determined based on user login info
+  // getQuery functionality still needs to be determined based on user login info
   const getQuery = () => {
     const url = `/user/allQueries` // changed to username as param
     fetch(url)
       .then(data => data.json())
       .then(data => {
-        console.log('getQuery data return ', data);
-        setQueryCard(data);
+        // console.log('data', data);
+        setQueryCard([...data]);
       })
       .catch((err) => console.log('err', err));
   }
 
   // deleteQuery functionality works - just need to test once we have proper user connection
   const deleteQuery = (query_id) => {
-    fetch(`http://localhost:3000/query/deleteQuery/${query_id}`, {
+    fetch(`/query/deleteQuery/${query_id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'

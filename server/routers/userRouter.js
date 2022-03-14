@@ -8,8 +8,8 @@ router.get('/allQueries',
   sessionController.verifySession,
   userController.allQueries,
   (req, res) => {
-  return res.status(200).send('reached the end of allqueries route') // Used for testing
-  // return res.status(200).json(res.locals.allQueries) // Used with frontend
+  // return res.status(200).send('reached the end of allqueries route') // Used for testing
+  return res.status(200).json(res.locals.allQueries) // Used with frontend
 });
 
 router.get('/test', 

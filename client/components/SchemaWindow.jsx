@@ -9,8 +9,8 @@ import { SampleGQLServerCode } from '/server/sambleDB.js'
 
 function SchemaWindow(props) {
     const { value, onChange, currentQueryId } = props;
-    console.log('schema state', value);
-    console.log('current query ID', currentQueryId)
+    // console.log('schema state', value);
+    // console.log('current query ID', currentQueryId)
     // console.log('selected schema', value[currentQueryId])
 
     function handleChange(editor, data, value) {

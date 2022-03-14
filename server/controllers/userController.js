@@ -67,9 +67,15 @@ userController.allQueries = async (req, res, next) => {
 
   try {
     const query = await db.query(sqlQuery, [username]);
-    console.log(query.rows)
-    res.locals.allQueries = query.rows; //array of objects
-    next();
+    // console.log('From allQueries controller', query.rows)
+    // added logic to convert this to an array of ids
+    const arr = [];
+    query.rows.forEach(element => {
+      arr.push(element['_id']);
+    })
+    // console.log(arr);
+    res.locals.allQueries = arr; //array of ids
+    return next();
   } catch (err) {
     next({
       log: `userController.allQueries: ERROR: ${err}`,

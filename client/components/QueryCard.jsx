@@ -8,7 +8,7 @@ function QueryCard(props) {
             <h4 style={{ cursor: 'pointer ' }}>
                 {/* <span onClick={() => console.log('clickedQueryCard ', props.query_id)}> This is a test*/}
                 <span onClick={() => props.getSchema(props.query_id)}>
-                {props.queryCard}
+                {`Query ${props.queryCard}`}
                 </span>
             <button
             type="button"
