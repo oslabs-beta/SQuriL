@@ -36,12 +36,12 @@ header{
   height:30px;
 }
 
-.logo {
+/* .logo {
   height: 200px;
   width: 200px;
   padding: 0px;
   display: grid;
-}
+} */
 
 .OAuth {
   height: 50px;

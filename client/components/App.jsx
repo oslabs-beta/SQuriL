@@ -1,13 +1,19 @@
 import React from 'react';
+import Landing from './Landing'
 import Dashboard from './Dashboard.jsx'
-// import Landing from './Landing.jsx'
 import '../Styles/App.css'
 
 function App() {
     return (
         <div className='App'>
-            <Dashboard />
-            {/* <Landing /> */}
+            <Landing />
+            {/* <Dashboard /> */}
+            {/* {document.cookie !== undefined &&
+                <Dashboard />
+            }
+            {document.cookie === undefined &&
+                < Landing />
+            } */}
         </div>
     );
 }

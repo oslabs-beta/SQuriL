@@ -7,7 +7,7 @@ import OutputContainer from './OutputContainer';
 import OAuth from './OAuth';
 import { Button } from '@mui/material';
 import '../Styles/Dashboard.css'
-import logo from '../Public/logo.png'
+import SQuriL_logo_white from '../Public/SQuriL_logo_white.png'
 
 // function which sets the state
 function Dashboard() {
@@ -103,7 +103,7 @@ function Dashboard() {
   return (
     <div className='Dashboard'>
       <header>
-        <img src={logo} alt='logo' className='logo' />
+        {/* <img src={SQuriL_logo_white} alt='logo' className='logo' /> */}
         <URIInput />
         {typeof queryCard !== 'object' ? <OAuth />
           : <Button className='logoutButton' variant='outlined' href='/logout'>Log out</Button>}
