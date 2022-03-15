@@ -2,10 +2,9 @@
 
 .QueryContainer {
     border: 10px;
-    border-color: white;
-    outline: 1px solid white;
-    border-radius: 5px;
-    background-color: rgb(77, 74, 78);
+    border-color: black;
+    outline: 2px solid black;
+    border-radius: 10px;
     align-items: top;
     text-align: center;
     display: flex;
@@ -14,13 +13,13 @@
 }
 
 .QueryContainerHeader  {
-    color: white;
+    color: black;
     font-family: Roboto;
     display: grid;
 }
 
 .QueryCard {
-    color: white;
+    color: black;
     margin: 2px 2px 2px 2px;
     font-family: Roboto;
     border: 1px solid white;
@@ -35,4 +34,9 @@
     outline-color: white;
     background-color:rgb(94, 14, 151);
     color: white;
+}
+
+.uri-button {
+    justify-content: center;
+    align-items: center;
 }

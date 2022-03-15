@@ -1,21 +1,26 @@
 .Dashboard {
-  margin-left: 60px;
-  border: 10px;
-  border-color: white;
-  border-radius: 5px;
-  margin-left: 5px;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
   font-family: Roboto
 }
 
-header{
+.dash-logo {
+  height: 200px;
+  width: 200px;
+}
+
+header {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  color: white;
 }
 
 .main {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .logoutButton {
@@ -34,16 +39,4 @@ header{
 
 #URIAddrButton {
   height:30px;
-}
-
-/* .logo {
-  height: 200px;
-  width: 200px;
-  padding: 0px;
-  display: grid;
-} */
-
-.OAuth {
-  height: 50px;
-  width: 200px;
 }

@@ -1,27 +1,31 @@
 import React from 'react';
 import '../Styles/QueryContainer.css'
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 function QueryCard(props) {
-    const { queryCard } = props;
+    const { queryCard, getSchema } = props;
     return (
         <div className='QueryCard'>
             <h4 style={{ cursor: 'pointer ' }}>
                 {/* <span onClick={() => console.log('clickedQueryCard ', props.query_id)}> This is a test*/}
-                <span onClick={() => props.getSchema(queryCard)}>
-                {`Query ${queryCard}`}
+                <span onClick={() => getSchema(queryCard)}>
+                    {`Query ${queryCard}`}
                 </span>
-            <button
-            type="button"
-            variant='text'
-            size='small'
-            className='deleteQuery'
-            onClick={() => {
-                // console.log('deleted this id', queryCard)
-                props.deleteQuery(queryCard)
-            }}
-            >X
-            </button>
+                <IconButton
+                    aria-label='delete'
+                    type="button"
+                    variant='text'
+                    size='small'
+                    className='deleteQuery'
+                    onClick={() => {
+                        // console.log('deleted this id', queryCard)
+                        props.deleteQuery(queryCard)
+                    }}
+                >
+                    <DeleteIcon />
+                </IconButton>
             </h4>
         </div>
     );

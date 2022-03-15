@@ -36,7 +36,7 @@ function SchemaWindow(props) {
                 {/* <input type='text' id='queryName' name='queryName' placeholder='name your query here'></input> */}
                 <button type='submit' className='saveSchema' value="Save" onClick={(e) => handleSubmit()}>Save</button>
                 {/* <button type='submit' className='saveSchema' value="Save" onClick={() => console.log(value)}>Save</button> */}
-                <button type='submit' className='updateSchema' value="Update">Update</button>
+                {/* <button type='submit' className='updateSchema' value="Update">Update</button> */}
                 <button type='submit' className='sampleSchema' value="Sample" onClick={(e) => setSample(true)}>Sample</button>
             </span>
             <Controlled

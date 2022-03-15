@@ -4,14 +4,14 @@ import '../Styles/QueryContainer.css'
 
 function QueryContainer(props) {
     const queryList = [];
-    const { queryCard } = props;
+    const { queryCard, deleteQuery, getSchema } = props;
     //iterate through props.queryCard
     for (let i = 0; i < queryCard.length; i++) {
         queryList.push(<QueryCard
                         key={queryCard[i]}
                         queryCard={queryCard[i]}
-                        deleteQuery={props.deleteQuery}
-                        getSchema={props.getSchema}
+                        deleteQuery={deleteQuery}
+                        getSchema={getSchema}
                         />)
     }
 
