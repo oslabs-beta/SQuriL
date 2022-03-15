@@ -27,7 +27,7 @@ function URIInput(props) {
                 />
                 <Button
                     type='button'
-                    size='large'
+                    size='medium'
                     variant='contained'
                     className='uri-button'>
                     Go!

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import QueryContainer from './QueryContainer';
 import SchemaContainer from './SchemaContainer';
+import { Button } from '@mui/material';
 import URIInput from './URIInput';
+import { saveAs } from 'file-saver';
 import OutputContainer from './OutputContainer';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
@@ -24,10 +26,12 @@ function Dashboard(props) {
   // the current query id that the user has selected
   const [currentQueryId, setCurrentQueryId] = useState();
 
+
   // loads querycards on page load ([] = just once)
   useEffect(() => {
     getQuery();
   }, []);
+
 
   // getQuery functionality still needs to be determined based on user login info
   const getQuery = () => {
@@ -88,43 +92,45 @@ function Dashboard(props) {
   }
 
   return (
-    <div className='Dashboard'>
-      <header>
-      <img src={isDarkTheme ? SQuriL_logo_white : SQuriL_logo_black} alt='logo' className='dash-logo' />
-        <URIInput
-        uri={uri}
-        setUri={setUri}
-        />
-        {/* {typeof queryCard !== 'object' ? <OAuth />
-          : <Button className='logoutButton' variant='contained' size='small' href='/logout'>Log out</Button>} */}
-        <span>
-          {isDarkTheme ? 'dark mode' : 'light mode'}
-          <IconButton sx={{ ml: 1 }} size='small' onClick={changeTheme} color='inherit'>
-            {isDarkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
-          </IconButton>
-        </span>
-      </header>
-      <div className='main'>
-        <QueryContainer
-          // drilling down of things happens here
-          queryCard={queryCard}
-          deleteQuery={deleteQuery}
-          getSchema={getSchema}
-          isDarkTheme={isDarkTheme}
-   
-        />
-        <SchemaContainer
-          onChange={setSchema} // to use in the save and update buttons in SchemaContainer?
-          value={schema}
-          currentQueryId={currentQueryId}
-          createQuery={createQuery}
-        />
-        {/* <OutputContainer
-          setOutput={setOutput}
-          output={output}
-        /> */}
+      <div className='Dashboard'>
+        <header>
+          <img src={isDarkTheme ? SQuriL_logo_white : SQuriL_logo_black} alt='logo' className='dash-logo' />
+          <URIInput
+            uri={uri}
+            setUri={setUri}
+          />
+          {/* {typeof queryCard !== 'object' ? <OAuth />
+       : <Button className='logoutButton' variant='contained' size='small' href='/logout'>Log out</Button>} */}
+          <span>
+            {isDarkTheme ? 'dark mode' : 'light mode'}
+            <IconButton sx={{ ml: 1 }} size='small' onClick={changeTheme} color='inherit'>
+              {isDarkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
+            </IconButton>
+          </span>
+        </header>
+        <div className='main'>
+          <QueryContainer
+            // drilling down of things happens here
+            queryCard={queryCard}
+            deleteQuery={deleteQuery}
+            getSchema={getSchema}
+            isDarkTheme={isDarkTheme}
+
+          />
+          <SchemaContainer
+            onChange={setSchema} // to use in the save and update buttons in SchemaContainer?
+            value={schema}
+            currentQueryId={currentQueryId}
+            createQuery={createQuery}
+            isDarkTheme={isDarkTheme}
+
+          />
+          {/* <OutputContainer
+       setOutput={setOutput}
+       output={output}
+     /> */}
+        </div>
       </div>
-    </div>
   );
 }
 

@@ -13,11 +13,11 @@ function QueryCard(props) {
                     {`Query ${queryCard}`}
                 </span>
                 <IconButton
-                    aria-label='delete'
                     type="button"
                     variant='text'
                     size='small'
                     className='delete-Query'
+                    style={{marginLeft: '20px'}}
                     onClick={() => {
                         deleteQuery(queryCard)
                     }}

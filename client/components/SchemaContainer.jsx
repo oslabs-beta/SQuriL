@@ -1,49 +1,89 @@
 import React, { useState, useEffect } from 'react';
+import { TextField, Button } from '@mui/material';
+import Loading from './Loading'
 import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/material.css';
+import 'codemirror/theme/duotone-dark.css';
+import 'codemirror/theme/cobalt.css';
 import 'codemirror/mode/javascript/javascript';
 import '../Styles/SchemaContainer.css'
 import { Controlled } from 'react-codemirror2';
 import { SampleGQLServerCode } from '/server/sambleDB.js'
 
 function SchemaContainer(props) {
-// schemawindow prop to be passed down
-    let { value, onChange, currentQueryId, createQuery } = props;
-    const [ sample, setSample ] = useState(false);
+    // schemawindow prop to be passed down
+    let { value, onChange, currentQueryId, createQuery, isDarkTheme } = props;
+    const [sample, setSample] = useState(false);
+    const [loading, setLoading] = useState(false);
+
 
     function handleChange(editor, data, value) {
         onChange(value);
         console.log(value);
     }
 
-    function handleSubmit (e) {
+    function handleSubmit(e) {
         // e.preventDefault();
         props.createQuery(value);
     }
 
-    return(
-            <div className='SchemaContainer'>
-                <h4>Schema</h4>
-                <span>
-                {/* <input type='text' id='queryName' name='queryName' placeholder='name your query here'></input> */}
-                <button type='submit' className='saveSchema' value="Save" onClick={(e) => handleSubmit()}>Save</button>
-                {/* <button type='submit' className='saveSchema' value="Save" onClick={() => console.log(value)}>Save</button> */}
+    const exportCode = () => {
+        saveAs(new File([`${value}`], 'schemaExport.js', { type: 'text/plain;charset=utf-8' }))
+    }
+
+    function loadingFunc() {
+        setTimeout(() => setLoading(false), 2000)
+        setSample(true)
+    };
+
+    return (
+        <div className='SchemaContainer' style={isDarkTheme ? { border: '1px solid white' } : { border: '1px solid black' }}>
+            <h3>Schema</h3>
+            <span>
+                <Button
+                    type='button'
+                    className='save-schema'
+                    variant='contained'
+                    onClick={(e) => handleSubmit()}>
+                    Save
+                </Button>
+                {' '}
                 {/* <button type='submit' className='updateSchema' value="Update">Update</button> */}
-                <button type='submit' className='sampleSchema' value="Sample" onClick={(e) => setSample(true)}>Sample</button>
+                <Button
+                    type='button'
+                    className='sample-schema'
+                    variant='contained'
+                    onClick={(e) => {
+                        setLoading(true);
+                        loadingFunc();
+                    }}>
+                    Sample
+                </Button>
+                {' '}
+                <Button
+                    variant='outlined'
+                    onClick={() => { exportCode(); }}
+                >
+                    Export
+                </Button>
             </span>
-            <Controlled
-                onBeforeChange={handleChange}
-                value={ sample ? SampleGQLServerCode : value}
-                className='SchemaWindow-Wrapper'
-                options={{
-                    lineWrapping: true,
-                    lint: true,
-                    mode: 'javascript',
-                    lineNumbers: true,
-                    theme: 'material'
-                }}
+            {loading === false ? (
+                <Controlled
+                    onBeforeChange={handleChange}
+                    value={sample ? SampleGQLServerCode : value}
+                    className='schemaWindow-wrapper'
+                    options={{
+                        lineWrapping: true,
+                        lint: true,
+                        mode: 'javascript',
+                        lineNumbers: true,
+                        theme: (isDarkTheme ? 'duotone-dark' : 'cobalt')
+                    }}
                 />
-            </div>
+            ) : (
+                <Loading />
+            )
+            }
+        </div>
     )
 }
 

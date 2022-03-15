@@ -9,19 +9,13 @@
     width: 15vw;
 }
 
-.QueryContainerHeader  {
-    font-family: Roboto;
-    display: grid;
-}
-
 .QueryCard {
-    margin: 2px 2px 2px 2px;
     font-family: Roboto;
     text-align: center;
 }
 
 .deleteQuery {
-    margin-left: 20px;
+    margin-left: px;
 }
 
 .uri-button {

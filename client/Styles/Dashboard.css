@@ -40,3 +40,10 @@ header {
 .uri-button {
   height:100%;
 }
+
+.loader {
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: cetner;
+}
