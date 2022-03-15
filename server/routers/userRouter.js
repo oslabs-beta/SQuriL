@@ -12,11 +12,13 @@ router.get('/allQueries',
   return res.status(200).json(res.locals.allQueries) // Used with frontend
 });
 
-router.get('/test', 
+router.get('/cookie', 
   sessionController.verifySession, 
-  // userController.checkUser,
-  // userController.addUser,
   (req, res) => {
-  return res.status(200).send('reached the end of the test route');
+  let loggedIn = false;
+  if (res.locals.username !== undefined) {
+    loggedIn = true;
+  }
+  return res.status(200).send(loggedIn);
 })
 module.exports = router;
