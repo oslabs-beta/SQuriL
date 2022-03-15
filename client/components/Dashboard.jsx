@@ -11,6 +11,8 @@ import IconButton from '@mui/material/IconButton';
 import '../Styles/Dashboard.css'
 import SQuriL_logo_white from '../Public/SQuriL_logo_white.png'
 import SQuriL_logo_black from '../Public/SQuriL_logo_black.png'
+import github_white from '../Public/github_white.png'
+import github_black from '../Public/github_black.png'
 
 function Dashboard(props) {
   // pulling from props
@@ -92,45 +94,51 @@ function Dashboard(props) {
   }
 
   return (
-      <div className='Dashboard'>
-        <header>
+    <div className='Dashboard'>
+      <header>
+        <div className='topright'>
           <img src={isDarkTheme ? SQuriL_logo_white : SQuriL_logo_black} alt='logo' className='dash-logo' />
-          <URIInput
-            uri={uri}
-            setUri={setUri}
-          />
-          {/* {typeof queryCard !== 'object' ? <OAuth />
+        </div>
+        <URIInput
+          uri={uri}
+          setUri={setUri}
+        />
+        {/* {typeof queryCard !== 'object' ? <OAuth />
        : <Button className='logoutButton' variant='contained' size='small' href='/logout'>Log out</Button>} */}
-          <span>
-            {isDarkTheme ? 'dark mode' : 'light mode'}
-            <IconButton sx={{ ml: 1 }} size='small' onClick={changeTheme} color='inherit'>
-              {isDarkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
-            </IconButton>
-          </span>
-        </header>
-        <div className='main'>
-          <QueryContainer
-            // drilling down of things happens here
-            queryCard={queryCard}
-            deleteQuery={deleteQuery}
-            getSchema={getSchema}
-            isDarkTheme={isDarkTheme}
+        <span>
+          {isDarkTheme ? 'dark mode' : 'light mode'}
+          <IconButton sx={{ ml: 1 }} size='small' onClick={changeTheme} color='inherit'>
+            {isDarkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton>
+        </span>
+      </header>
+      <div className='main'>
+        <QueryContainer
+          // drilling down of things happens here
+          queryCard={queryCard}
+          deleteQuery={deleteQuery}
+          getSchema={getSchema}
+          isDarkTheme={isDarkTheme}
 
-          />
-          <SchemaContainer
-            onChange={setSchema} // to use in the save and update buttons in SchemaContainer?
-            value={schema}
-            currentQueryId={currentQueryId}
-            createQuery={createQuery}
-            isDarkTheme={isDarkTheme}
+        />
+        <SchemaContainer
+          onChange={setSchema} // to use in the save and update buttons in SchemaContainer?
+          value={schema}
+          currentQueryId={currentQueryId}
+          createQuery={createQuery}
+          isDarkTheme={isDarkTheme}
 
-          />
-          {/* <OutputContainer
+        />
+        {/* <OutputContainer
        setOutput={setOutput}
        output={output}
      /> */}
-        </div>
       </div>
+      <br></br>
+      {/* <a href='https://github.com/oslabs-beta/SQuriL'>
+        <img src={isDarkTheme ? github_white : github_black} alt='logo' className='github' />
+      </a> */}
+    </div>
   );
 }
 
