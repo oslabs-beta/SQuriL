@@ -76,7 +76,6 @@ function Dashboard(props) {
 
   const createQuery = (schema_value) => {
     const url = `/query/createQuery`
-    // e.preventDefault();
     fetch(url, {
       method: 'Post',
       headers: {
@@ -103,8 +102,6 @@ function Dashboard(props) {
           uri={uri}
           setUri={setUri}
         />
-        {/* {typeof queryCard !== 'object' ? <OAuth />
-       : <Button className='logoutButton' variant='contained' size='small' href='/logout'>Log out</Button>} */}
         <span>
           {isDarkTheme ? 'dark mode' : 'light mode'}
           <IconButton sx={{ ml: 1 }} size='small' onClick={changeTheme} color='inherit'>
