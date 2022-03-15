@@ -110,11 +110,12 @@ function Dashboard(props) {
           queryCard={queryCard}
           deleteQuery={deleteQuery}
           getSchema={getSchema}
-        // schema={schema}
+          isDarkTheme={isDarkTheme}
+   
         />
         <SchemaContainer
-          setSchema={setSchema} // to use in the save and update buttons in SchemaContainer?
-          schema={schema}
+          onChange={setSchema} // to use in the save and update buttons in SchemaContainer?
+          value={schema}
           currentQueryId={currentQueryId}
           createQuery={createQuery}
         />

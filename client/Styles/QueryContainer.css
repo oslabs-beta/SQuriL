@@ -1,39 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
-.QueryContainer {
-    border: 10px;
-    border-color: black;
-    outline: 2px solid black;
-    border-radius: 10px;
+.query-container {
+    border-radius: 5px;
     align-items: top;
     text-align: center;
     display: flex;
     flex-direction: column;
-    width: 200px;
+    width: 15vw;
 }
 
 .QueryContainerHeader  {
-    color: black;
     font-family: Roboto;
     display: grid;
 }
 
 .QueryCard {
-    color: black;
     margin: 2px 2px 2px 2px;
     font-family: Roboto;
-    border: 1px solid white;
-    border-radius: 5px;
-    text-align: left;
-    padding-left: 10px;
+    text-align: center;
 }
 
 .deleteQuery {
     margin-left: 20px;
-    outline: 0.5px;
-    outline-color: white;
-    background-color:rgb(94, 14, 151);
-    color: white;
 }
 
 .uri-button {

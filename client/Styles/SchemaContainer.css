@@ -13,17 +13,11 @@
     background-color: rgb(77, 74, 78);
     margin-left: 5px;
     font-family: Roboto;
-    width: 600px;
+    width: 80vw;
 }
 
 .h4 {
     width: 40px;
-}
-
-.SchemaWindow {
-    flex-grow: 1;
-    overflow: hidden;
-    margin-top: 5px;
 }
 
 .CodeMirror {

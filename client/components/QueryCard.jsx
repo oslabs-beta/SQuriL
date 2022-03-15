@@ -5,11 +5,10 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 
 function QueryCard(props) {
-    const { queryCard, getSchema } = props;
+    const { queryCard, getSchema, deleteQuery } = props;
     return (
         <div className='QueryCard'>
             <h4 style={{ cursor: 'pointer ' }}>
-                {/* <span onClick={() => console.log('clickedQueryCard ', props.query_id)}> This is a test*/}
                 <span onClick={() => getSchema(queryCard)}>
                     {`Query ${queryCard}`}
                 </span>
@@ -18,10 +17,9 @@ function QueryCard(props) {
                     type="button"
                     variant='text'
                     size='small'
-                    className='deleteQuery'
+                    className='delete-Query'
                     onClick={() => {
-                        // console.log('deleted this id', queryCard)
-                        props.deleteQuery(queryCard)
+                        deleteQuery(queryCard)
                     }}
                 >
                     <DeleteIcon />

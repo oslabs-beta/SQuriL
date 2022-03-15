@@ -28,15 +28,15 @@ header {
 
 }
 
-.URIInput {
+.uri-input {
   margin-top: 70px;
 }
 
-#URIAddr {
+.uri-text {
   width: 500px;
   height: 30px;
 }
 
-#URIAddrButton {
-  height:30px;
+.uri-button {
+  height:100%;
 }
