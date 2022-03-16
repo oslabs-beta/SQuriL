@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { TextField, Button } from '@mui/material';
 import Loading from './Loading'
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/duotone-dark.css';
 import 'codemirror/theme/cobalt.css';
@@ -36,7 +38,7 @@ function SchemaContainer(props) {
     };
 
     return (
-        <div className='SchemaContainer' style={isDarkTheme ? { border: '1px solid white' } : { border: '1px solid black' }}>
+        <div className='SchemaContainer' style={isDarkTheme ? { border: '2px solid white' } : { border: '2px solid black' }}>
             <h3>Schema</h3>
             <span>
                 <Button
@@ -66,6 +68,7 @@ function SchemaContainer(props) {
                     Export
                 </Button>
             </span>
+            <FormControlLabel control={<Switch />} label="TypeScript" className='switch'/>
             {loading === false ? (
                 <Controlled
                     onBeforeChange={handleChange}

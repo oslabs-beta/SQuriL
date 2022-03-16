@@ -11,7 +11,7 @@ function URIInput(props) {
     return (
         <div className='uri-input'>
             <form>
-                <label form='postgreSQL'>PostgreSQL URI:</label><br></br>
+                <label form='postgreSQL'>Input your PostgreSQL URI here:</label><br></br>
                 <TextField
                     variant='outlined'
                     size='small'

@@ -4,7 +4,7 @@ import '../Styles/QueryContainer.css'
 
 function QueryContainer(props) {
     const queryList = [];
-    const { queryCard, deleteQuery, getSchema, isDarkTheme, } = props;
+    const { queryCard, deleteQuery, getSchema, isDarkTheme, currentQueryId } = props;
     //iterate through props.queryCard
     for (let i = 0; i < queryCard.length; i++) {
         queryList.push(<QueryCard
@@ -12,13 +12,14 @@ function QueryContainer(props) {
                         queryCard={queryCard[i]}
                         deleteQuery={deleteQuery}
                         getSchema={getSchema}
+                        currentQueryId={currentQueryId}
                         />)
     }
 
     return (
-        <div className='query-container' style={isDarkTheme ? {border: '1px solid white'} : {border: '1px solid black'}}>
+        <div className='query-container' style={isDarkTheme ? {border: '2px solid white'} : {border: '2px solid black'}}>
             <div className='QueryContainerHeader'>
-          <h3>Queries</h3>
+          <h3>Schema List</h3>
           </div>
           <br></br>
           {queryList}

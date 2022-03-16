@@ -7,10 +7,13 @@ import { saveAs } from 'file-saver';
 import OutputContainer from './OutputContainer';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Switch, { SwitchProps } from '@mui/material/Switch';
 import IconButton from '@mui/material/IconButton';
-import '../Styles/Dashboard.css'
-import SQuriL_logo_white from '../Public/SQuriL_logo_white.png'
-import SQuriL_logo_black from '../Public/SQuriL_logo_black.png'
+import '../Styles/Dashboard.css';
+import SQuriL_logo_white from '../Public/SQuriL_logo_white.png';
+import SQuriL_logo_black from '../Public/SQuriL_logo_black.png';
+import SQuriLts_logos_black from '../Public/SQuriLts_logos_black.png';
+import SQuriLts_logos_white from '../Public/SQuriLts_logos_white.png';
 import github_white from '../Public/github_white.png'
 import github_black from '../Public/github_black.png'
 
@@ -96,7 +99,7 @@ function Dashboard(props) {
     <div className='Dashboard'>
       <header>
         <div className='topright'>
-          <img src={isDarkTheme ? SQuriL_logo_white : SQuriL_logo_black} alt='logo' className='dash-logo' />
+          <img src={isDarkTheme ? SQuriLts_logos_white : SQuriLts_logos_black} alt='logo' className='dash-logo' />
         </div>
         <URIInput
           uri={uri}
@@ -116,6 +119,7 @@ function Dashboard(props) {
           deleteQuery={deleteQuery}
           getSchema={getSchema}
           isDarkTheme={isDarkTheme}
+          currentQueryId={currentQueryId}
 
         />
         <SchemaContainer
@@ -132,9 +136,11 @@ function Dashboard(props) {
      /> */}
       </div>
       <br></br>
-      {/* <a href='https://github.com/oslabs-beta/SQuriL'>
+      {/* <footer>
+      <a href='https://github.com/oslabs-beta/SQuriL'>
         <img src={isDarkTheme ? github_white : github_black} alt='logo' className='github' />
-      </a> */}
+      </a>
+      </footer> */}
     </div>
   );
 }

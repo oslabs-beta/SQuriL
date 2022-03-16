@@ -12,7 +12,7 @@
     margin-left: 5px;
     font-family: Roboto;
     width: 80vw;
-    height: 45vw;
+    height: 65vh;
 }
 
 .h4 {
@@ -43,4 +43,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.switch {
+    justify-content: right;
 }
