@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import QueryContainer from './QueryContainer';
 import SchemaContainer from './SchemaContainer';
-import URIInput from './URIInput';
-import Landing from './Landing';
-import OutputContainer from './OutputContainer';
-import OAuth from './OAuth';
 import { Button } from '@mui/material';
-import '../Styles/Dashboard.css'
-import logo from '../Public/logo.png'
+import URIInput from './URIInput';
+import { saveAs } from 'file-saver';
+import OutputContainer from './OutputContainer';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Switch, { SwitchProps } from '@mui/material/Switch';
+import IconButton from '@mui/material/IconButton';
+import '../Styles/Dashboard.css';
+import SQuriL_logo_white from '../Public/SQuriL_logo_white.png';
+import SQuriL_logo_black from '../Public/SQuriL_logo_black.png';
+import SQuriLts_logos_black from '../Public/SQuriLts_logos_black.png';
+import SQuriLts_logos_white from '../Public/SQuriLts_logos_white.png';
+import github_white from '../Public/github_white.png'
+import github_black from '../Public/github_black.png'
 
-// function which sets the state
-function Dashboard() {
+function Dashboard(props) {
+  // pulling from props
+  const { isDarkTheme, changeTheme, light, dark } = props;
   // all the queries which are shown in the QueryContainer
   const [queryCard, setQueryCard] = useState([]);
   // set state for schema window of a given query card
@@ -22,26 +31,19 @@ function Dashboard() {
   // the current query id that the user has selected
   const [currentQueryId, setCurrentQueryId] = useState();
 
+
+  // loads querycards on page load ([] = just once)
   useEffect(() => {
     getQuery();
   }, []);
 
-  // postQuery function (saves query)
-  // logic for when user doesn't enter a name
-  // if (!queryName) {queryName = `Query ${ID}`}
-  // logic for when user does enter a name
-  // most important* - save a queryName
-  // whether named or not, creates a new queryCard in queryContainer
-
-  // putQuery function (updates query)
 
   // getQuery functionality still needs to be determined based on user login info
   const getQuery = () => {
-    const url = `/user/allQueries` // changed to username as param
+    const url = `/user/allQueries`
     fetch(url)
       .then(data => data.json())
       .then(data => {
-        // console.log('data', data);
         setQueryCard([...data]);
       })
       .catch((err) => console.log('err', err));
@@ -56,9 +58,6 @@ function Dashboard() {
       }
     })
       .then(data => {
-        // console.log(data);
-        // console.log('deletequery ', data);
-        // console.log('query_id ', query_id);
         const queryCopy = [...queryCard];
         queryCopy.splice(query_id, 1);
         setQueryCard(queryCopy);
@@ -70,12 +69,9 @@ function Dashboard() {
   // getSchema function that fetches schema from database and populates schemaWindow CodeMirror component
   const getSchema = (query_id) => {
     const url = `/query/getQuery/${query_id}`;
-    // console.log('This is triggering getSchema')
     fetch(url)
       .then(data => data.json())
       .then(data => {
-        // console.log(data.value);
-        // console.log(typeof data.value);
         setSchema(data.value);
         setCurrentQueryId(query_id);
       })
@@ -83,7 +79,6 @@ function Dashboard() {
 
   const createQuery = (schema_value) => {
     const url = `/query/createQuery`
-    // e.preventDefault();
     fetch(url, {
       method: 'Post',
       headers: {
@@ -103,11 +98,19 @@ function Dashboard() {
   return (
     <div className='Dashboard'>
       <header>
-        <img src={logo} alt='logo' className='logo' />
-        <URIInput />
-        {typeof queryCard !== 'object' ? <OAuth />
-          : <Button className='logoutButton' variant='outlined' href='/logout'>Log out</Button>}
-        {/* <OAuth /> */}
+        <div className='topright'>
+          <img src={isDarkTheme ? SQuriLts_logos_white : SQuriLts_logos_black} alt='logo' className='dash-logo' />
+        </div>
+        <URIInput
+          uri={uri}
+          setUri={setUri}
+        />
+        <span>
+          {isDarkTheme ? 'dark mode' : 'light mode'}
+          <IconButton sx={{ ml: 1 }} size='small' onClick={changeTheme} color='inherit'>
+            {isDarkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton>
+        </span>
       </header>
       <div className='main'>
         <QueryContainer
@@ -115,19 +118,29 @@ function Dashboard() {
           queryCard={queryCard}
           deleteQuery={deleteQuery}
           getSchema={getSchema}
-        // schema={schema}
+          isDarkTheme={isDarkTheme}
+          currentQueryId={currentQueryId}
+
         />
         <SchemaContainer
-          setSchema={setSchema} // to use in the save and update buttons in SchemaContainer?
-          schema={schema}
+          onChange={setSchema} // to use in the save and update buttons in SchemaContainer?
+          value={schema}
           currentQueryId={currentQueryId}
           createQuery={createQuery}
+          isDarkTheme={isDarkTheme}
+
         />
-        <OutputContainer
-          setOutput={setOutput}
-          output={output}
-        />
+        {/* <OutputContainer
+       setOutput={setOutput}
+       output={output}
+     /> */}
       </div>
+      <br></br>
+      {/* <footer>
+      <a href='https://github.com/oslabs-beta/SQuriL'>
+        <img src={isDarkTheme ? github_white : github_black} alt='logo' className='github' />
+      </a>
+      </footer> */}
     </div>
   );
 }

@@ -7,6 +7,31 @@ html, body, #app, #app>div {
   }
 
 .App {
-    background-color: rgb(94, 14, 151);
-    margin: 1rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 100px;
+    border-radius: 20px;
+}
+
+.github {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    
+}
+
+.logo {
+    margin-top: 40px;
+    height: 500px;
+    width: 500px;
 }

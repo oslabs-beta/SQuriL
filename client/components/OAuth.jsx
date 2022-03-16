@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@mui/material';
-// import GitHubIcon from '@mui/icons-material/GitHub';
-import styles from '../Styles/Landing.css'
+import GitHubIcon from '@mui/icons-material/GitHub';
+import '../Styles/Landing.css'
 
 function OAuth() {
 
@@ -30,15 +30,23 @@ function OAuth() {
     // };
 
     return (
-        <button        
-            className='OAuth'
-            variant='outlined'
-            // startIcon={<GitHubIcon />}
-            // onClick={handleSubmit}
-            onClick={()=>location.href = '/oauth/authorize'}
-        >
-        GitHub Login
-        </button>
+        <Button
+        variant="contained"
+        size="large"
+        startIcon={<GitHubIcon />}
+        onClick={()=>location.href = '/oauth/authorize'}
+      >
+        github
+      </Button>
+        // <button        
+        //     className='OAuth'
+        //     variant='outlined'
+        //     // startIcon={<GitHubIcon />}
+        //     // onClick={handleSubmit}
+        //     onClick={()=>location.href = '/oauth/authorize'}
+        // >
+        // GitHub Login
+        // </button>
     )
 }
 
