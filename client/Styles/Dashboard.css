@@ -48,3 +48,20 @@ header {
   justify-content: center;
   align-items: cetner;
 }
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.graphql {
+  height: 50px;
+  width: 50px;
+}
+
+.github {
+  height: 50px;
+  width: 50px;
+}
