@@ -17,12 +17,19 @@ authController.getToken,
 authController.getProfile, 
 sessionController.createSession,
 sessionController.verifySession,
-userController.checkUser,
-userController.addUser,
 (req, res) => {
-  return res.redirect('http://localhost:8080'); // When the frontend is running redirect back to homepage
+  return res.redirect('/oauth/userDatabase'); // When the frontend is running redirect back to homepage
   // return res.status(200).send('finished oauth callback route') // Testing in the backend, clean up later
 });
 
+// Redirect route after cookie is created, Adds the user to the database
+router.get('/userDatabase',
+sessionController.verifySession, 
+userController.checkUser,
+userController.addUser,
+(req, res) => {
+  console.log('Ended at the /oauth/userDatabase')
+  return res.redirect('http://localhost:8080');
+});
 
 module.exports = router;

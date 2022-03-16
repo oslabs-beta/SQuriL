@@ -2,9 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 const queryController = require('../controllers/queryController.js');
+const userController = require('../controllers/userController.js');
+const sessionController = require('../controllers/sessionController.js');
 
 // CRUD functionalities
 router.post('/createQuery', 
+  sessionController.verifySession,
+  userController.getUserID,
   queryController.createQuery,
   (req, res) => {
   res.status(200).json(res.locals.query)
