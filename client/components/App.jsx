@@ -3,6 +3,7 @@ import Landing from './Landing'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import Dashboard from './Dashboard.jsx'
+import Loading from './Loading'
 import '../Styles/App.css'
 import { darken } from '@mui/material';
 

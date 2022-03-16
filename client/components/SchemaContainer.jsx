@@ -9,22 +9,20 @@ import 'codemirror/theme/cobalt.css';
 import 'codemirror/mode/javascript/javascript';
 import '../Styles/SchemaContainer.css'
 import { Controlled } from 'react-codemirror2';
-import { SampleGQLServerCode } from '/server/sambleDB.js'
+import { SampleGQLServerCode } from '/server/sampleDB.js'
 
 function SchemaContainer(props) {
     // schemawindow prop to be passed down
-    let { value, onChange, currentQueryId, createQuery, isDarkTheme } = props;
+    let { value, onChange, currentQueryId, createQuery, isDarkTheme, queryCard, loading, setLoading } = props;
     const [sample, setSample] = useState(false);
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
 
 
     function handleChange(editor, data, value) {
         onChange(value);
-        console.log(value);
     }
 
     function handleSubmit(e) {
-        // e.preventDefault();
         createQuery(value);
     }
 
@@ -39,7 +37,7 @@ function SchemaContainer(props) {
 
     return (
         <div className='SchemaContainer' style={isDarkTheme ? { border: '2px solid rgb(72, 20, 155)' } : { border: '2px solid black' }}>
-            <h3>Schema</h3>
+            <h3>{currentQueryId ? `Schema ${currentQueryId}` : 'Schema'}</h3>
             <span>
                 <Button
                     type='button'
