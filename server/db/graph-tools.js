@@ -73,6 +73,6 @@ const resolvers = {
       const result = data.rows.json 
     }      
   }
-},
+}
 
 
