@@ -38,7 +38,7 @@ function SchemaContainer(props) {
     };
 
     return (
-        <div className='SchemaContainer' style={isDarkTheme ? { border: '2px solid white' } : { border: '2px solid black' }}>
+        <div className='SchemaContainer' style={isDarkTheme ? { border: '2px solid rgb(72, 20, 155)' } : { border: '2px solid black' }}>
             <h3>Schema</h3>
             <span>
                 <Button
@@ -76,6 +76,8 @@ function SchemaContainer(props) {
                     className='schemaWindow-wrapper'
                     options={{
                         lineWrapping: true,
+                        showCursorWhenSelecting: true,
+                        scrollbarStyle: null,
                         lint: true,
                         mode: 'javascript',
                         lineNumbers: true,
