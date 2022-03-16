@@ -19,6 +19,57 @@ const userRouter = require(path.join(__dirname, '/routers/userRouter.js'));
 // const outputRouter = require(path.join(__dirname, '/routers/outputRouter.js'));
 const oauthRouter = require(path.join(__dirname, '/routers/oauthRouter.js'));
 
+/* ********* graphQL + express ********* */
+app.use('/graphql', graphqlHTTP({
+  // setting the data types
+  schema: buildSchema(`
+    type Query {
+      _id: ID!
+      value: String!
+      user_id: Int!
+    }
+
+    input QueryInput {
+      value: String!
+      user_id: Int!
+    }
+    
+    type RootQuery {
+      queries: [Query] 
+    }
+
+    type RootMutation {
+       createQuery(queryInput: QueryInput): Query
+    }
+
+    schema {
+      query: RootQuery
+      mutation: RootMutation
+    }
+  `), 
+  // seeting up the resolvers
+  rootValue: {
+    // get data
+    queries: () => {
+      return db.query('SELECT * FROM queries')
+      .then(data => {
+        console.log(data.rows)
+        return data.rows
+      })
+    },
+    // mutate data
+    createQuery: (args) => {
+      const query = {
+        value: args.queryInput.value,
+        user_id: args.queryInput.user_id
+      }
+    }
+  },
+  graphiql: true
+  })
+);
+
+/* ********* graphQL + express ********* */
 
 // Route requests to queryRouter
 app.use('/query', queryRouter);
