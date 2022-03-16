@@ -14,7 +14,7 @@ app.use(express.json());
 
 
 const queryRouter = require(path.join(__dirname, '/routers/queryRouter.js'));
-// const apiRouter = require(path.join(__dirname, '/routers/apiRouter.js'));
+const apiRouter = require(path.join(__dirname, '/routers/apiRouter.js'));
 const userRouter = require(path.join(__dirname, '/routers/userRouter.js'));
 // const outputRouter = require(path.join(__dirname, '/routers/outputRouter.js'));
 const oauthRouter = require(path.join(__dirname, '/routers/oauthRouter.js'));
@@ -23,13 +23,13 @@ const oauthRouter = require(path.join(__dirname, '/routers/oauthRouter.js'));
 // Route requests to queryRouter
 app.use('/query', queryRouter);
 
-// Route requests to apiRouter
-// app.use('/api', apiRouter);
+// Route requests to apiRouter --> convert the db to gql schema
+app.use('/api', apiRouter);
 
 // Route requests to outputRouter
 app.use('/user', userRouter);
 
-// Route requests to outputRouter
+// Route requests to outputRouter --> convert the gql schema to TS schema
 // app.use('/output', outputRouter);
 
 // Route requests to oauthRouter
