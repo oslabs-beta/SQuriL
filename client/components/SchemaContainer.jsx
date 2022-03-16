@@ -25,7 +25,7 @@ function SchemaContainer(props) {
 
     function handleSubmit(e) {
         // e.preventDefault();
-        props.createQuery(value);
+        createQuery(value);
     }
 
     const exportCode = () => {
@@ -34,7 +34,7 @@ function SchemaContainer(props) {
 
     function loadingFunc() {
         setTimeout(() => setLoading(false), 2000)
-        setSample(true)
+        onChange(SampleGQLServerCode)
     };
 
     return (
