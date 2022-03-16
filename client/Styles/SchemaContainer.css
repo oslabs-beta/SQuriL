@@ -4,53 +4,47 @@
     text-align: center;
     border: 10px;
     border-color: white;
-    color: white;
     display: flex;
     flex-direction: column;
     outline: 1px solid white;
     border-radius: 5px;
     padding: 0px 20px 0px 20px;
-    background-color: rgb(77, 74, 78);
     margin-left: 5px;
     font-family: Roboto;
-    width: 600px;
+    width: 80vw;
+    height: 65vh;
 }
 
 .h4 {
     width: 40px;
 }
 
-.SchemaWindow {
-    flex-grow: 1;
-    overflow: hidden;
-    margin-top: 5px;
+.schemaWindow-wrapper {
+    margin-bottom: 10px;
+}
+
+.save-schema {
+    margin-left: 20px;
+}
+
+.sample-schema {
+    margin-left: 20px;
 }
 
 .CodeMirror {
     height: 100px;
     text-align:left;
+    border-radius: 10px;
 }
 
-.saveSchema {
-    margin-left: 20px;
-    outline: 0.5px;
-    outline-color: white;
-    background-color:rgb(94, 14, 151);
-    color: white; 
+.loading {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.updateSchema {
-    margin-left: 20px;
-    outline: 0.5px;
-    outline-color: white;
-    background-color:rgb(94, 14, 151);
-    color: white; 
-}
-
-.sampleSchema{
-    margin-left: 20px;
-    outline: 0.5px;
-    outline-color: white;
-    background-color:rgb(94, 14, 151);
-    color: white; 
+.switch {
+    justify-content: right;
 }

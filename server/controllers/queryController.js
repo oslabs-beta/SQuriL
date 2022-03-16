@@ -4,14 +4,17 @@ const db = require('../db/db');
 const queryController = {};
 
 queryController.createQuery = async (req, res, next) => {
-  const { value, user_id } = req.body;
-  console.log(req.body)
+  console.log('in the createquery router')
+  const { value } = req.body;
+  console.log(value);
+  const { userid } = res.locals;
+  // console.log(req.body)
   const sqlQuery = 'INSERT INTO queries (value, user_id) VALUES ($1, $2) RETURNING *'
   try {
-    const query = await db.query(sqlQuery, [value, user_id])
+    const query = await db.query(sqlQuery, [value, userid])
     // const table = await pool.query('SELECT * FROM queries');
     // console.log(table);
-    console.log(query)
+    // console.log(query)
     res.locals.query = query.rows[0];
     next()
   } catch (err) {

@@ -1,13 +1,38 @@
 import React from 'react';
+import { TextField, Button } from '@mui/material';
+import InputAdornment from '@mui/material/InputAdornment';
+import Computer from '@mui/icons-material/Computer';
+import '../Styles/Dashboard.css';
 
 function URIInput(props) {
-    
-    return(
-        <div className='URIInput'>
+
+    const { uri, setUri } = props;
+
+    return (
+        <div className='uri-input'>
             <form>
-                <label form='postgreSQL'>PostgreSQL URI:</label><br></br>
-                <input type='text' id='URIAddr' name='URIAddr'></input><button type='button' id='URIAddrButton'>Go!</button>
-            </form> 
+                <label form='postgreSQL'>Input your PostgreSQL URI here:</label><br></br>
+                <TextField
+                    variant='outlined'
+                    size='small'
+                    type='text'
+                    className='uri-text'
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <Computer />
+                            </InputAdornment>
+                        )
+                    }}
+                />
+                <Button
+                    type='button'
+                    size='medium'
+                    variant='contained'
+                    className='uri-button'>
+                    Go!
+                </Button>
+            </form>
         </div>
     )
 }

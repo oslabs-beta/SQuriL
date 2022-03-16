@@ -10,7 +10,11 @@ CREATE TABLE users (
 
 CREATE TABLE queries (
   _id SERIAL NOT NULL PRIMARY KEY,
+<<<<<<< HEAD
   value VARCHAR, 
+=======
+  value VARCHAR,
+>>>>>>> dev
   user_id BIGINT NOT NULL REFERENCES users (_id)
 );
 
