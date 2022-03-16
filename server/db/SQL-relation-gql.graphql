@@ -1,0 +1,44 @@
+// 1 : 1
+type User {
+  name: String!
+  car: Car
+}
+
+type Car {
+  plate: String!
+  owner: User
+}
+
+
+// 1: many ==> a User can have many Cars, while a Car can be associated with a single User.
+type User {
+  name: String!
+  cars: [Car!] @relation
+}
+
+type Car {
+  plate: String!
+  owner: User!
+}
+
+
+// many: 1 ==>  the array field can be omitted.
+type User {
+  name: String!
+}
+
+type Car {
+  plate: String!
+  owner: User!
+}
+
+//  many: many 
+type User {
+  name: String!
+  drives: [Car!] @relation
+}
+
+type Car {
+  plate: String!
+  drivers: [User!] @relation
+}
