@@ -9,7 +9,13 @@ import { darken } from '@mui/material';
 // set palette for light mode
 const light = {
     palette: {
-        mode: 'light',
+        primary: {
+            light: '#9162e4',
+            main: 'rgb(72, 20, 155)',
+            dark: '#280680',
+            mode: 'light',
+            contrastText: '#ffffff'
+        }
     },
 };
 
@@ -17,7 +23,11 @@ const light = {
 const dark = {
     palette: {
         mode: 'dark',
-    },
+        primary: {
+            main: 'rgb(72, 20, 155)'
+        }
+    }, 
+
 };
 
 function App() {
