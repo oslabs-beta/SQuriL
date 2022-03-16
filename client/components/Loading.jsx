@@ -5,7 +5,7 @@ import '../Styles/SchemaContainer.css'
 function Loading () {
     return(
         <div className='loading'>
-            <ReactLoading type='cylon' color="#0288d1"/>
+            <ReactLoading type='bars' color="rgb(72, 20, 155)"/>
         </div>
     );
 }

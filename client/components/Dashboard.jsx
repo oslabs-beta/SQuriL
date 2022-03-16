@@ -7,6 +7,7 @@ import { saveAs } from 'file-saver';
 import OutputContainer from './OutputContainer';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import graphql_logo from '../Public/graphql_logo.png'
 import Switch, { SwitchProps } from '@mui/material/Switch';
 import IconButton from '@mui/material/IconButton';
 import '../Styles/Dashboard.css';
@@ -136,11 +137,14 @@ function Dashboard(props) {
      /> */}
       </div>
       <br></br>
-      {/* <footer>
-      <a href='https://github.com/oslabs-beta/SQuriL'>
-        <img src={isDarkTheme ? github_white : github_black} alt='logo' className='github' />
-      </a>
-      </footer> */}
+      <footer>
+        <a href='https://github.com/oslabs-beta/SQuriL'>
+          <img src={isDarkTheme ? github_white : github_black} alt='logo' className='github' />
+        </a>
+        <a href='https://graphql.org/learn/'>
+          <img src={graphql_logo} alt='graphql' className='graphql' style={{marginLeft: '3px'}}/>
+        </a>
+      </footer>
     </div>
   );
 }

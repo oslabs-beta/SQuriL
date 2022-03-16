@@ -18,6 +18,7 @@ function QueryCard(props) {
                     type="button"
                     style={{ marginLeft: '20px' }}
                     variant='text'
+                    color='primary'
                     size='small'
                     className='delete-Query'
                     onClick={() => {
