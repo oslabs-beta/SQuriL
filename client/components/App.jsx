@@ -25,7 +25,7 @@ const dark = {
     palette: {
         mode: 'dark',
         primary: {
-            main: 'rgb(72, 20, 155)'
+            main: 'rgb(125, 54, 175)'
         }
     }, 
 

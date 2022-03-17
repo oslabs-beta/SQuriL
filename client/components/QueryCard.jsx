@@ -10,7 +10,7 @@ function QueryCard(props) {
 
     return (
         <div className='QueryCard'>
-            <h4
+            <h3
             style={currentQueryId === queryCard ? {fontWeight: 'bolder', textDecoration: 'underline'} : {fontWeight: 'normal'}}
             onClick={() => getSchema(queryCard)}
             >
@@ -28,7 +28,7 @@ function QueryCard(props) {
                 >
                     <DeleteIcon />
                 </IconButton>
-            </h4>
+            </h3>
             <Divider />
         </div>
     );
