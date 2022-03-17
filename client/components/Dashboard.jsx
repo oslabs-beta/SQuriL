@@ -9,10 +9,9 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import graphql_logo from '../Public/graphql_logo.png'
 import Switch, { SwitchProps } from '@mui/material/Switch';
+import LoadingLogo from './LoadingLogo'
 import IconButton from '@mui/material/IconButton';
 import '../Styles/Dashboard.css';
-import SQuriL_logo_white from '../Public/SQuriL_logo_white.png';
-import SQuriL_logo_black from '../Public/SQuriL_logo_black.png';
 import SQuriLts_logos_black from '../Public/SQuriLts_logos_black.png';
 import SQuriLts_logos_white from '../Public/SQuriLts_logos_white.png';
 import github_white from '../Public/github_white.png'
@@ -31,10 +30,14 @@ function Dashboard(props) {
   const [uri, setUri] = useState();
   // the current query id that the user has selected
   const [currentQueryId, setCurrentQueryId] = useState();
-
+  // state for main loading screen
+  const [ isLoaded, setLoaded ] = useState(false);
+  // state for loading schema
+  const [loading, setLoading] = useState(false);
 
   // loads querycards on page load ([] = just once)
   useEffect(() => {
+    setTimeout(() => setLoaded(true), 3500)
     getQuery();
   }, []);
 
@@ -97,14 +100,22 @@ function Dashboard(props) {
   }
 
   return (
-    <div className='Dashboard'>
+    <>
+    {isLoaded === false ? (
+       <LoadingLogo />
+    ) : (
+<div className='Dashboard'>
       <header>
         <div className='topright'>
           <img src={isDarkTheme ? SQuriLts_logos_white : SQuriLts_logos_black} alt='logo' className='dash-logo' />
         </div>
         <URIInput
+          value={schema}
+          onChange={setSchema}
           uri={uri}
           setUri={setUri}
+          loading={loading}
+          setLoading={setLoading}
         />
         <span>
           {isDarkTheme ? 'dark mode' : 'light mode'}
@@ -129,7 +140,9 @@ function Dashboard(props) {
           currentQueryId={currentQueryId}
           createQuery={createQuery}
           isDarkTheme={isDarkTheme}
-
+          queryCard={queryCard}
+          loading={loading}
+          setLoading={setLoading}
         />
         {/* <OutputContainer
        setOutput={setOutput}
@@ -142,10 +155,12 @@ function Dashboard(props) {
           <img src={isDarkTheme ? github_white : github_black} alt='logo' className='github' />
         </a>
         <a href='https://graphql.org/learn/'>
-          <img src={graphql_logo} alt='graphql' className='graphql' style={{marginLeft: '3px'}}/>
+          <img src={graphql_logo} alt='graphql' className='graphql' style={{marginLeft: '10px'}}/>
         </a>
       </footer>
     </div>
+    )}
+    </>
   );
 }
 

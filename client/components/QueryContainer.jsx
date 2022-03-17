@@ -17,9 +17,9 @@ function QueryContainer(props) {
     }
 
     return (
-        <div className='query-container' style={isDarkTheme ? {border: '2px solid rgb(72, 20, 155)'} : {border: '2px solid black'}}>
+        <div className='query-container' style={isDarkTheme ? {border: '2px solid rgb(125, 54, 175)'} : {border: '2px solid black'}}>
             <div className='QueryContainerHeader'>
-          <h3>Schema List</h3>
+          <h2>Schema List</h2>
           </div>
           <br></br>
           {queryList}
