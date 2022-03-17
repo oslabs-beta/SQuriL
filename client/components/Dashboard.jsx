@@ -9,11 +9,9 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import graphql_logo from '../Public/graphql_logo.png'
 import Switch, { SwitchProps } from '@mui/material/Switch';
-import Loading from './Loading'
+import LoadingLogo from './LoadingLogo'
 import IconButton from '@mui/material/IconButton';
 import '../Styles/Dashboard.css';
-import SQuriL_logo_white from '../Public/SQuriL_logo_white.png';
-import SQuriL_logo_black from '../Public/SQuriL_logo_black.png';
 import SQuriLts_logos_black from '../Public/SQuriLts_logos_black.png';
 import SQuriLts_logos_white from '../Public/SQuriLts_logos_white.png';
 import github_white from '../Public/github_white.png'
@@ -39,7 +37,7 @@ function Dashboard(props) {
 
   // loads querycards on page load ([] = just once)
   useEffect(() => {
-    setTimeout(() => setLoaded(true), 2000)
+    setTimeout(() => setLoaded(true), 3500)
     getQuery();
   }, []);
 
@@ -104,7 +102,7 @@ function Dashboard(props) {
   return (
     <>
     {isLoaded === false ? (
-       <Loading />
+       <LoadingLogo />
     ) : (
 <div className='Dashboard'>
       <header>

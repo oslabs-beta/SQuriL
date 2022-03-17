@@ -2,7 +2,7 @@ import React from 'react';
 import { TextField, Button } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import Computer from '@mui/icons-material/Computer';
-import { SampleGQLClientMutationsCode } from '/server/sampleDB.js'
+import { MVPschema } from '/server/sampleDB.js'
 import '../Styles/Dashboard.css';
 
 function URIInput(props) {
@@ -29,8 +29,10 @@ function URIInput(props) {
                 />
                 <Button
                     onClick={() => {
-                        // setTimeout(() => setLoading(false), 2000);
-                        onChange(SampleGQLClientMutationsCode)
+                        setLoading(true);
+                        setTimeout(() => setLoading(false), 2000);
+                        onChange(MVPschema)
+                        setUri('')
                     }}
                     type='button'
                     size='medium'

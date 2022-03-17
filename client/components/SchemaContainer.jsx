@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button } from '@mui/material';
+import { TextField, Button, autocompleteClasses } from '@mui/material';
 import Loading from './Loading'
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+import Tooltip from '@mui/material/Tooltip';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/duotone-dark.css';
 import 'codemirror/theme/cobalt.css';
@@ -15,8 +17,17 @@ function SchemaContainer(props) {
     // schemawindow prop to be passed down
     let { value, onChange, currentQueryId, createQuery, isDarkTheme, queryCard, loading, setLoading } = props;
     const [sample, setSample] = useState(false);
+    const [open, setOpen] = useState(false);
     // const [loading, setLoading] = useState(false);
 
+    // tooltip functions
+    const handleTooltipClose = () => {
+        setOpen(false);
+    }
+
+    const handleTooltipOpen = () => {
+        setOpen(true);
+    }
 
     function handleChange(editor, data, value) {
         onChange(value);
@@ -65,13 +76,37 @@ function SchemaContainer(props) {
                 >
                     Export
                 </Button>
+                {' '}
+                    <ClickAwayListener onClickAway={handleTooltipClose}>
+                            <Tooltip
+                                PopperProps={{
+                                    disablePortal: true,
+                                }}
+                                onClose={handleTooltipClose}
+                                open={open}
+                                placement='top'
+                                disableFocusListener
+                                disableHoverListener
+                                disableTouchListener
+                                title="Copied to clipboard"
+                                >
+                                <Button
+                                    variant='outlined'
+                                    onClick={(e) => {
+                                        setOpen(true)
+                                        navigator.clipboard.writeText(value);
+                                        setTimeout(() => setOpen(false), 1000)
+                                        }}>
+                                    Copy
+                                </Button>
+                            </Tooltip>
+                    </ClickAwayListener>
             </span>
-            <FormControlLabel control={<Switch />} label="TypeScript" className='switch'/>
+            <FormControlLabel control={<Switch />} label="TypeScript" className='switch' />
             {loading === false ? (
                 <Controlled
                     onBeforeChange={handleChange}
                     value={sample ? SampleGQLServerCode : value}
-                    className='schemaWindow-wrapper'
                     options={{
                         lineWrapping: true,
                         showCursorWhenSelecting: true,
@@ -82,6 +117,7 @@ function SchemaContainer(props) {
                         theme: (isDarkTheme ? 'duotone-dark' : 'cobalt')
                     }}
                 />
+
             ) : (
                 <Loading />
             )
