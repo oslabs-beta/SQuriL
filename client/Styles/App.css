@@ -35,3 +35,15 @@ html, body, #app, #app>div {
     height: 500px;
     width: 500px;
 }
+
+.CodeMirror {
+    height: 50vh;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.logo-load {
+    height: 600;
+    width: 600px
+}

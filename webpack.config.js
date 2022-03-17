@@ -50,7 +50,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Development',
-      template: './client/index.html'
+      template: './client/index.html',
     }),
   ],
   devServer: {

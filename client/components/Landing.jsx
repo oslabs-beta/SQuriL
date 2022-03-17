@@ -6,8 +6,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import SQuriL_logo_black from '../Public/SQuriL_logo_black.png'
-import SQuriL_logo_white from '../Public/SQuriL_logo_white.png'
 import SQuriLts_logos_black from '../Public/SQuriLts_logos_black.png';
 import SQuriLts_logos_white from '../Public/SQuriLts_logos_white.png';
 import github_white from '../Public/github_white.png'

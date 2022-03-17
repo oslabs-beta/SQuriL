@@ -1,30 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button } from '@mui/material';
+import { TextField, Button, autocompleteClasses } from '@mui/material';
 import Loading from './Loading'
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+import Tooltip from '@mui/material/Tooltip';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/duotone-dark.css';
 import 'codemirror/theme/cobalt.css';
 import 'codemirror/mode/javascript/javascript';
 import '../Styles/SchemaContainer.css'
 import { Controlled } from 'react-codemirror2';
-import { SampleGQLServerCode } from '/server/sambleDB.js'
+import { SampleGQLServerCode } from '/server/sampleDB.js'
 
 function SchemaContainer(props) {
     // schemawindow prop to be passed down
-    let { value, onChange, currentQueryId, createQuery, isDarkTheme } = props;
+    let { value, onChange, currentQueryId, createQuery, isDarkTheme, queryCard, loading, setLoading } = props;
     const [sample, setSample] = useState(false);
-    const [loading, setLoading] = useState(false);
+    const [open, setOpen] = useState(false);
+    // const [loading, setLoading] = useState(false);
 
+    // tooltip functions
+    const handleTooltipClose = () => {
+        setOpen(false);
+    }
+
+    const handleTooltipOpen = () => {
+        setOpen(true);
+    }
 
     function handleChange(editor, data, value) {
         onChange(value);
-        console.log(value);
     }
 
     function handleSubmit(e) {
-        // e.preventDefault();
         createQuery(value);
     }
 
@@ -38,8 +47,8 @@ function SchemaContainer(props) {
     };
 
     return (
-        <div className='SchemaContainer' style={isDarkTheme ? { border: '2px solid rgb(72, 20, 155)' } : { border: '2px solid black' }}>
-            <h3>Schema</h3>
+        <div className='SchemaContainer' style={isDarkTheme ? { border: '2px solid rgb(125, 54, 175)' } : { border: '2px solid black' }}>
+            <h2>{currentQueryId ? `Schema ${currentQueryId}` : 'Schema'}</h2>
             <span>
                 <Button
                     type='button'
@@ -67,13 +76,37 @@ function SchemaContainer(props) {
                 >
                     Export
                 </Button>
+                {' '}
+                    <ClickAwayListener onClickAway={handleTooltipClose}>
+                            <Tooltip
+                                PopperProps={{
+                                    disablePortal: true,
+                                }}
+                                onClose={handleTooltipClose}
+                                open={open}
+                                placement='top'
+                                disableFocusListener
+                                disableHoverListener
+                                disableTouchListener
+                                title="Copied to clipboard"
+                                >
+                                <Button
+                                    variant='outlined'
+                                    onClick={(e) => {
+                                        setOpen(true)
+                                        navigator.clipboard.writeText(value);
+                                        setTimeout(() => setOpen(false), 1000)
+                                        }}>
+                                    Copy
+                                </Button>
+                            </Tooltip>
+                    </ClickAwayListener>
             </span>
-            <FormControlLabel control={<Switch />} label="TypeScript" className='switch'/>
+            <FormControlLabel control={<Switch />} label="TypeScript" className='switch' />
             {loading === false ? (
                 <Controlled
                     onBeforeChange={handleChange}
                     value={sample ? SampleGQLServerCode : value}
-                    className='schemaWindow-wrapper'
                     options={{
                         lineWrapping: true,
                         showCursorWhenSelecting: true,
@@ -84,6 +117,7 @@ function SchemaContainer(props) {
                         theme: (isDarkTheme ? 'duotone-dark' : 'cobalt')
                     }}
                 />
+
             ) : (
                 <Loading />
             )
