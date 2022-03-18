@@ -29,18 +29,28 @@ module.exports = {
       },
       {
         test: /\.s?css/,
-        exclude: /node_module/,
+        // exclude: /node_module/,
         use: [
           'style-loader', 'css-loader', 'sass-loader',
         ]
-      }
-    ]
+      },
+      // Font and SVGs
+      {
+        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+        type: 'asset/inline',
+      },
+      // Images
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        type: 'asset/resource',
+      },
+    ],
   },
   // configure any plugins for development mode
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Development',
-      template: './client/index.html' //might need resolve(__dirname, client/)
+      template: './client/index.html',
     }),
   ],
   devServer: {
@@ -51,10 +61,41 @@ module.exports = {
     }, 
     // set up the proxy such that you can call API requests from hot-reload webpack server to the express back-end server
     // aka fetch req. from localhoast:8080/api/* redirect to localhost:3000/api/*
+    // proxy: {
+    //   '/convert/**': 'http://localhost:3000',
+    //   secure: false,
+    // } 
     proxy: {
-      '/convert/**': 'http://localhost:3000',
-      secure: false,
-    } 
-  }
+      // for API request in schemas generations in URIinput component
+      '/api/*': {
+        target: 'http://localhost:3000/',
+        secure: false,
+      }, 
+      // for managing the saved queries
+      '/query/**': {
+        target: 'http://localhost:3000/',
+        secure: false,
+      },
+      // for managing the user's front page content
+      '/user/*': {
+        target: 'http://localhost:3000/',
+        secure: false,
+      },
+      // for managing the output from GraphQl results
+      '/output/*': {
+        target: 'http://localhost:3000/',
+        secure: false,
+      },
+      // for managing the oauth route
+      '/oauth/*': {
+        target: 'http://localhost:3000/',
+        secure: false,
+      },
+    }
+  },
+  // Enable importing JS / JSX files without specifying their extension
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
 
-}
+};

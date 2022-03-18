@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+.SchemaContainer {
+    text-align: center;
+    border: 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 0px 20px 0px 20px;
+    margin-left: 5px;
+    font-family: Roboto;
+    width: 80vw;
+    height: 65vh;
+}
+
+.h4 {
+    width: 40px;
+}
+
+.schemaWindow-wrapper {
+    margin-bottom: 10px;
+}
+
+.save-schema {
+    margin-left: 20px;
+}
+
+.sample-schema {
+    margin-left: 20px;
+}
+
+.CodeMirror {
+    height: 100px;
+    text-align:left;
+    border-radius: 5px;
+}
+
+.loading {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.switch {
+    justify-content: right;
+}
