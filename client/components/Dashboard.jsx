@@ -62,9 +62,9 @@ function Dashboard(props) {
       }
     })
       .then(data => {
-        const queryCopy = [...queryCard];
-        queryCopy.splice(query_id, 1);
-        setQueryCard(queryCopy);
+        // const queryCopy = [...queryCard];
+        // queryCopy.splice(query_id, 1);
+        // setQueryCard(queryCopy);
         setSchema('');
         getQuery();
       })

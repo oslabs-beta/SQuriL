@@ -1,4 +1,4 @@
-//direct the files
+1//direct the files
 const path = require('path');
 // plugin automatically add css, js ,... assets from your entry point to your html output. 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -72,7 +72,7 @@ module.exports = {
         secure: false,
       }, 
       // for managing the saved queries
-      '/query/**': {
+      '/query/*': {
         target: 'http://localhost:3000/',
         secure: false,
       },

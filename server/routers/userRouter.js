@@ -12,6 +12,7 @@ router.get('/allQueries',
   return res.status(200).json(res.locals.allQueries) // Used with frontend
 });
 
+// check if the user has been logged in
 router.get('/cookie', 
   sessionController.verifySession, 
   (req, res) => {
@@ -20,5 +21,6 @@ router.get('/cookie',
     loggedIn = true;
   }
   return res.status(200).send(loggedIn);
-})
+});
+
 module.exports = router;

@@ -37,7 +37,7 @@ authController.getProfile = async (req, res, next) => {
     });
     const profileInfo = await profileInfoJSON.json();
     res.locals.profile = profileInfo;
-    next();
+    return next();
   } catch(err) {
     return next({
       log: `Error in authController.getProfile Err: ${err.message}`,

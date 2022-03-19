@@ -42,6 +42,7 @@ function App() {
         setIsDarkTheme(!isDarkTheme);
     }
 
+    // checks login status from user router
     const loginStatus = () => {
         const url = `/user/cookie`
         fetch(url)
@@ -53,6 +54,7 @@ function App() {
             .catch((err) => console.log('err', err));
     }
 
+    // runs loginStatus function on page render --> [] only runs this once
     useEffect(() => {
         loginStatus();
     }, []);
