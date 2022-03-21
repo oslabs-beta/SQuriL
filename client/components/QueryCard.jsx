@@ -9,7 +9,10 @@ function QueryCard(props) {
     const { queryCard, getSchema, deleteQuery, currentQueryId } = props;
 
     return (
-        <div className='QueryCard'>
+        <div
+        className='QueryCard'
+        data-testid='query-card'
+        >
             <h3
             style={currentQueryId === queryCard ? {fontWeight: 'bolder', textDecoration: 'underline'} : {fontWeight: 'normal'}}
             onClick={() => getSchema(queryCard)}

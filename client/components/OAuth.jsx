@@ -6,6 +6,7 @@ import '../Styles/Landing.css'
 function OAuth() {
 
     return (
+      <div data-testid='OAuth-1'>
         <Button
         variant="contained"
         size="large"
@@ -14,6 +15,7 @@ function OAuth() {
       >
         github
       </Button>
+      </div>
     )
 }
 
