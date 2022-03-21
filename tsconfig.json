@@ -1,0 +1,59 @@
+{
+  // File Inclusion options ... this is boilerplate
+  // Which file should be run through the compiler. We will include our 'src' directory.
+"include": [
+  "client/components"
+],
+  // Compiler Options - The bulk of our config.
+"compilerOptions": {
+  //  First Section - Project Options
+  // This option allows you to import .js and .jsx files into your typescript files.
+  "allowJs": true,
+  // This option checks for type errors in javascript files in your project.
+  "checkJs": false,
+  // This option generates type declaration files automatically for every js or ts file.
+  "declaration": true,
+  // This option determines what format our JSX outputs in the compiled js file.
+  // There are a number of options like preserving the .jsx format or using createReactElement.
+  // Refer to the docs for more info.
+  "jsx": "react",
+  // library with type definitions for javascript functions
+  "lib": [
+    "dom",
+    "dom.iterable",
+    "esnext"
+  ],
+  // what module system to use.
+  // We will use esnext but commonJS is also an option.
+  "module": "esnext",
+  // This determines whether the compiler emits js files.
+  //  We set it to false.
+  // You would set to true if babel will handle the transpilation.
+  "noEmit": false,
+  // where you want the output files to be generated.
+  // If omitted it generates next to the files
+  "outDir": "./dist/",
+  // Generate source map file to debug ts file.
+  "sourceMap": true,
+  // What flavor of Javascript you want to transpile to
+  "target": "es6",
+  // Second Section - Strict Checks
+  // We will set this to false.
+  // If set to true, it will fail to compile based on strict type checking rules.
+  // There are a few granular options like no null or any types.
+  "strict": false,
+  // Third Section - Module Resolution
+  "allowSyntheticDefaultImports": true,
+  // Option that helps solve import edge case
+  "esModuleInterop": true,
+  // use node to resolve our modules
+  "moduleResolution": "node",
+  // Allows you to import json files into your ts files.
+  "resolveJsonModule": true,
+  // Fourth Section - Advanced
+  // Skip type checking of declaration files for faster compiles.
+  "skipLibCheck": true,
+  // TypeScript follows the case-sensitivity rules of the file system it's running on.
+  "forceConsistentCasingInFileNames": true
+}
+}
