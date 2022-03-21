@@ -44,6 +44,12 @@ module.exports = {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource',
       },
+       // added ts-loader to load our typescript files
+       {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
     ],
   },
   // configure any plugins for development mode
@@ -94,8 +100,9 @@ module.exports = {
     }
   },
   // Enable importing JS / JSX files without specifying their extension
+  // Adding TS and TSX files here
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
 
 };
