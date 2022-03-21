@@ -20,27 +20,32 @@ function SchemaContainer(props) {
     const [open, setOpen] = useState(false);
     // const [loading, setLoading] = useState(false);
 
-    // tooltip functions
+    // tooltip function close - copy button
     const handleTooltipClose = () => {
         setOpen(false);
     }
 
+    // tooltip function open - copy button
     const handleTooltipOpen = () => {
         setOpen(true);
     }
 
+    // handleChange function for code-mirror editor window
     function handleChange(editor, data, value) {
         onChange(value);
     }
 
+    // save schema functionality
     function handleSubmit(e) {
         createQuery(value);
     }
 
+    // export code functionality
     const exportCode = () => {
         saveAs(new File([`${value}`], 'schemaExport.js', { type: 'text/plain;charset=utf-8' }))
     }
 
+    // purple bar loading in schema container
     function loadingFunc() {
         setTimeout(() => setLoading(false), 2000)
         onChange(SampleGQLServerCode)
