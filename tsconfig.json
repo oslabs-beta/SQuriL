@@ -1,8 +1,10 @@
 {
   // File Inclusion options ... this is boilerplate
-  // Which file should be run through the compiler. We will include our 'src' directory.
+  // Which file/directory should be run through the compiler. Including "client" here.  Should server be included as well?
 "include": [
-  "client/components"
+  "client"
+  // "client/components",
+  // "public"
 ],
   // Compiler Options - The bulk of our config.
 "compilerOptions": {

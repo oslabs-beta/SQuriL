@@ -8,7 +8,7 @@ module.exports = {
   mode: process.env.NODE_ENV,
   // set the entry and output points for the webpack to initiate compiling
   entry: {
-    src: './client/main.js'
+    src: './client/main.tsx'
   },
   output: {
     // in production, the bundle will live on file System
