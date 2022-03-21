@@ -53,7 +53,7 @@ function App() {
             .catch((err) => console.log('err', err));
     }
 
-    // runs loginStatus function on page load
+    // runs loginStatus function on page render --> [] only runs this once
     useEffect(() => {
         loginStatus();
     }, []);
