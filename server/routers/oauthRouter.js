@@ -16,7 +16,7 @@ router.get('/callback',
 authController.getToken, 
 authController.getProfile, 
 sessionController.createSession,
-sessionController.verifySession,
+sessionController.verifySession, 
 (req, res) => {
   return res.redirect('/oauth/userDatabase'); // When the frontend is running redirect back to homepage
   // return res.status(200).send('finished oauth callback route') // Testing in the backend, clean up later
@@ -24,7 +24,7 @@ sessionController.verifySession,
 
 // Redirect route after cookie is created, Adds the user to the database
 router.get('/userDatabase',
-sessionController.verifySession, 
+sessionController.verifySession, // to get the username from the cookies
 userController.checkUser,
 userController.addUser,
 (req, res) => {

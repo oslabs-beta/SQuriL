@@ -20,8 +20,7 @@ function Landing(props) {
     const { isDarkTheme, changeTheme, light, dark } = props;
 
     return (
-        // <ThemeProvider theme={isDarkTheme ? createTheme(dark) : createTheme(light)}>
-        //     <CssBaseline />
+
         <div className='App'>
             <div className='logos'>
             <a href='https://github.com/oslabs-beta/SQuriL'>
@@ -42,7 +41,6 @@ function Landing(props) {
             <OAuth />
             </div>
         </div>
-        // </ThemeProvider>
     );
 }
 
