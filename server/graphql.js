@@ -1,17 +1,22 @@
 /* ********* graphQL + Apollo ********* */
 // we are using Appolo Server to configure GQL API
 // if you want to use alternatives with our template please use graphql-tools and import makeExecutableSchema dependency to combine typeDefs and resolvers
-require("dotenv").config();
-const db = require('./db/db')
+require('dotenv').config();
 const { ApolloServer } = require('apollo-server');
 // get tag template string --> apollo's dependency
+// const db = require('./db/db');
 const gql = require('graphql-tag');
+
+//connect to your target SQL db
+const pg = require('pg');
+const { Pool } = require('pg');
+const db = new Pool({ connectionString: {target_link_URI} })
 
 const typeDefs = gql`
   # describe tables field
   # ! means its unique
   type Users {
-    _id: ID
+    _id: ID!
     username: String
   }
   type Queries {
@@ -28,24 +33,25 @@ const typeDefs = gql`
   # ! means its required
   type Query {
     # show based on the ID
-    users_id(_id: ID!): [Users]
-    queries_id(_id:ID!): [Users]
+    Users_id(_id: ID!): [Users]
+    Queries_id(_id:ID!): [Users]
     # show all 
-    users: [Users]
-    Allqueries: [Queries]
+    Users: [Users]
+    AllQueries: [Queries]
     # show me all queries(many) by this user(one)
     # filter 'many' --> by foreign keys 
     # filter_Queries_by_Users(find: UsersFind): [Queries]
-    queries: [Queries]
+    Queries_by_foreign_keys: [Queries]
   }
   extend type Query {
-    queries(find: UsersFind!): [Queries]
+    Queries(find: UsersFind!): [Queries] 
+    #queries(find: {_id: #}) {}
   }
 `
 const resolvers = {
   // resolver for Query type
   Query: {
-    users: async () => {
+    Users: async () => {
       // console.log(args)
       try {
         const data = await db.query('SELECT * FROM users')
@@ -54,7 +60,7 @@ const resolvers = {
         throw new Error(error);
       }
     },
-    Allqueries: async (parent, args, context, info) => {
+    AllQueries: async (parent, args, context, info) => {
       try {
         const data = await db.query(`SELECT * FROM queries`)
         return data.rows;
@@ -62,7 +68,7 @@ const resolvers = {
         throw new Error(error);
       }
     },
-    users_id: async (parent, args) => {
+    Users_id: async (parent, args, context, info) => {
       try {
         const data = await db.query(`SELECT * FROM users WHERE _id='${args._id}'`)
         return data.rows;
@@ -70,7 +76,7 @@ const resolvers = {
         throw new Error(error);
       }
     },
-    queries_id: async (parent, args) => {
+    Queries_id: async (parent, args, context, info) => {
       try {
         const data = await db.query(`SELECT * FROM queries WHERE _id='${args._id}'`)
         return data.rows;
@@ -79,11 +85,11 @@ const resolvers = {
       }
     },
     // filter by foreign keys aka give queries based on used_id
-    queries: async (parent, args, context, info) => {
+    Queries_by_foreign_keys: async (parent, args, context, info) => {
       const { find } = args
       console.log(args.find._id)
       try {
-        const data = await db.query(`SELECT * FROM queries WHERE user_id='${find._id}'`)
+        const data = await db.query(`SELECT * FROM queries WHERE user_id='${find._id}'`) //where _id is just a integer
         console.log(data.rows)
         return data.rows;
       } catch (error) {
