@@ -19,7 +19,8 @@ function QueryCard(props) {
             >
                     {`Schema ${queryCard}`}
                 <IconButton
-                    type="button"
+                    type='button'
+                    data-testid='query-delete'
                     style={{ marginLeft: '20px' }}
                     variant='text'
                     color='primary'

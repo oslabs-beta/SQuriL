@@ -9,4 +9,6 @@ module.exports = {
     transform: {
         '^.+\.jsx?$': 'babel-jest',
     },
+    modulePaths: ['<rootDir>'],
+    moduleDirectories: ['node_modules', 'src'],
   };
