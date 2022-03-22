@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import QueryContainer from './QueryContainer';
 import SchemaContainer from './SchemaContainer';
-import { Button } from '@mui/material';
 import URIInput from './URIInput';
 import { saveAs } from 'file-saver';
-import OutputContainer from './OutputContainer';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import graphql_logo from '../Public/graphql_logo.png'
-import Switch, { SwitchProps } from '@mui/material/Switch';
 import LoadingLogo from './LoadingLogo'
 import IconButton from '@mui/material/IconButton';
 import '../Styles/Dashboard.css';
@@ -31,7 +28,7 @@ function Dashboard(props) {
   // the current query id that the user has selected
   const [currentQueryId, setCurrentQueryId] = useState();
   // state for main loading screen
-  const [ isLoaded, setLoaded ] = useState(false);
+  const [isLoaded, setLoaded] = useState(false);
   // state for loading schema
   const [loading, setLoading] = useState(false);
 
@@ -62,9 +59,9 @@ function Dashboard(props) {
       }
     })
       .then(data => {
-        const queryCopy = [...queryCard];
-        queryCopy.splice(query_id, 1);
-        setQueryCard(queryCopy);
+        // const queryCopy = [...queryCard];
+        // queryCopy.splice(query_id, 1);
+        // setQueryCard(queryCopy);
         setSchema('');
         getQuery();
       })
@@ -81,6 +78,7 @@ function Dashboard(props) {
       })
   }
 
+  // createQuery function that saves Schema to DB
   const createQuery = (schema_value) => {
     const url = `/query/createQuery`
     fetch(url, {
@@ -101,65 +99,65 @@ function Dashboard(props) {
 
   return (
     <>
-    {isLoaded === false ? (
-       <LoadingLogo />
-    ) : (
-<div className='Dashboard'>
-      <header>
-        <div className='topright'>
-          <img src={isDarkTheme ? SQuriLts_logos_white : SQuriLts_logos_black} alt='logo' className='dash-logo' />
-        </div>
-        <URIInput
-          value={schema}
-          onChange={setSchema}
-          uri={uri}
-          setUri={setUri}
-          loading={loading}
-          setLoading={setLoading}
-        />
-        <span>
-          {isDarkTheme ? 'dark mode' : 'light mode'}
-          <IconButton sx={{ ml: 1 }} size='small' onClick={changeTheme} color='inherit'>
-            {isDarkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
-          </IconButton>
-        </span>
-      </header>
-      <div className='main'>
-        <QueryContainer
-          // drilling down of things happens here
-          queryCard={queryCard}
-          deleteQuery={deleteQuery}
-          getSchema={getSchema}
-          isDarkTheme={isDarkTheme}
-          currentQueryId={currentQueryId}
+      {isLoaded === false ? (
+        <LoadingLogo />
+      ) : (
+        <div className='Dashboard'>
+          <header>
+            <div className='topright'>
+              <img src={isDarkTheme ? SQuriLts_logos_white : SQuriLts_logos_black} alt='logo' className='dash-logo' />
+            </div>
+            <URIInput
+              value={schema}
+              onChange={setSchema}
+              uri={uri}
+              setUri={setUri}
+              loading={loading}
+              setLoading={setLoading}
+            />
+            <span>
+              {isDarkTheme ? 'dark mode' : 'light mode'}
+              <IconButton sx={{ ml: 1 }} size='small' onClick={changeTheme} color='inherit'>
+                {isDarkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
+              </IconButton>
+            </span>
+          </header>
+          <div className='main'>
+            <QueryContainer
+              // drilling down of things happens here
+              queryCard={queryCard}
+              deleteQuery={deleteQuery}
+              getSchema={getSchema}
+              isDarkTheme={isDarkTheme}
+              currentQueryId={currentQueryId}
 
-        />
-        <SchemaContainer
-          onChange={setSchema} // to use in the save and update buttons in SchemaContainer?
-          value={schema}
-          currentQueryId={currentQueryId}
-          createQuery={createQuery}
-          isDarkTheme={isDarkTheme}
-          queryCard={queryCard}
-          loading={loading}
-          setLoading={setLoading}
-        />
-        {/* <OutputContainer
+            />
+            <SchemaContainer
+              onChange={setSchema} // to use in the save and update buttons in SchemaContainer?
+              value={schema}
+              currentQueryId={currentQueryId}
+              createQuery={createQuery}
+              isDarkTheme={isDarkTheme}
+              queryCard={queryCard}
+              loading={loading}
+              setLoading={setLoading}
+            />
+            {/* <OutputContainer
        setOutput={setOutput}
        output={output}
      /> */}
-      </div>
-      <br></br>
-      <footer>
-        <a href='https://github.com/oslabs-beta/SQuriL'>
-          <img src={isDarkTheme ? github_white : github_black} alt='logo' className='github' />
-        </a>
-        <a href='https://graphql.org/learn/'>
-          <img src={graphql_logo} alt='graphql' className='graphql' style={{marginLeft: '10px'}}/>
-        </a>
-      </footer>
-    </div>
-    )}
+          </div>
+          <br></br>
+          <footer>
+            <a href='https://github.com/oslabs-beta/SQuriL'>
+              <img src={isDarkTheme ? github_white : github_black} alt='logo' className='github' />
+            </a>
+            <a href='https://graphql.org/learn/'>
+              <img src={graphql_logo} alt='graphql' className='graphql' style={{ marginLeft: '10px' }} />
+            </a>
+          </footer>
+        </div>
+      )}
     </>
   );
 }

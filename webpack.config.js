@@ -1,4 +1,4 @@
-//direct the files
+1//direct the files
 const path = require('path');
 // plugin automatically add css, js ,... assets from your entry point to your html output. 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -8,7 +8,7 @@ module.exports = {
   mode: process.env.NODE_ENV,
   // set the entry and output points for the webpack to initiate compiling
   entry: {
-    src: './client/main.js'
+    src: './client/main.tsx'
   },
   output: {
     // in production, the bundle will live on file System
@@ -44,6 +44,12 @@ module.exports = {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource',
       },
+       // added ts-loader to load our typescript files
+       {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
     ],
   },
   // configure any plugins for development mode
@@ -72,7 +78,7 @@ module.exports = {
         secure: false,
       }, 
       // for managing the saved queries
-      '/query/**': {
+      '/query/*': {
         target: 'http://localhost:3000/',
         secure: false,
       },
@@ -94,8 +100,9 @@ module.exports = {
     }
   },
   // Enable importing JS / JSX files without specifying their extension
+  // Adding TS and TSX files here
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
 
 };

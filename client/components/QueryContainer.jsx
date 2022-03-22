@@ -3,6 +3,7 @@ import QueryCard from './QueryCard';
 import '../Styles/QueryContainer.css'
 
 function QueryContainer(props) {
+    // array of QueryCard components
     const queryList = [];
     const { queryCard, deleteQuery, getSchema, isDarkTheme, currentQueryId } = props;
     //iterate through props.queryCard
