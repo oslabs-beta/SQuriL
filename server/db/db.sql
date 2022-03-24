@@ -15,6 +15,12 @@ CREATE TABLE queries (
 );
 
 
+CREATE TABLE dataTypes (
+  _id SERIAL NOT NULL PRIMARY KEY,
+  bool boolean,
+  date DATE,
+  float float(4)
+);
 
 
 -- -- FOR TESTING:
