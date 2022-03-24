@@ -4,13 +4,13 @@
 require('dotenv').config();
 const { ApolloServer } = require('apollo-server');
 // get tag template string --> apollo's dependency
-// const db = require('./db/db');
+const db = require('./db/db');
 const gql = require('graphql-tag');
 
-//connect to your target SQL db
-const pg = require('pg');
-const { Pool } = require('pg');
-const db = new Pool({ connectionString: {target_link_URI} })
+// //connect to your target SQL db
+// const pg = require('pg');
+// const { Pool } = require('pg');
+// const db = new Pool({ connectionString: {target_link_URI} })
 
 const typeDefs = gql`
   # describe tables field
@@ -27,14 +27,14 @@ const typeDefs = gql`
 
   # indicate by what filters selections will be availabe for the user input
   input UsersFind {
-    _id: Int! # user_id?
+    user_id: Int! 
   }
   # this schema allows the following query:
   # ! means its required
   type Query {
     # show based on the ID
     Users_id(_id: ID!): [Users]
-    Queries_id(_id:ID!): [Users]
+    Queries_id(_id:ID!): [Queries]
     # show all 
     Users: [Users]
     AllQueries: [Queries]
@@ -44,7 +44,7 @@ const typeDefs = gql`
     Queries_by_foreign_keys: [Queries]
   }
   extend type Query {
-    Queries(find: UsersFind!): [Queries] 
+    Queries_by_foreign_keys(find: UsersFind!): [Queries] 
     #queries(find: {_id: #}) {}
   }
 `
@@ -87,9 +87,9 @@ const resolvers = {
     // filter by foreign keys aka give queries based on used_id
     Queries_by_foreign_keys: async (parent, args, context, info) => {
       const { find } = args
-      console.log(args.find._id)
+      console.log(args.find.user_id)
       try {
-        const data = await db.query(`SELECT * FROM queries WHERE user_id='${find._id}'`) //where _id is just a integer
+        const data = await db.query(`SELECT * FROM queries WHERE user_id='${find.user_id}'`) //where _id is just a integer
         console.log(data.rows)
         return data.rows;
       } catch (error) {
