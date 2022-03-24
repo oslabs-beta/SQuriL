@@ -1,3 +1,4 @@
+const e = require("express");
 
 const gqlController = {};
 
@@ -21,36 +22,60 @@ gqlController.convertToGQLSchema = (req, res, next) => {
       // FOREIGN KEYS (assuming only 1fk per table)
       let fk_name = databases[name].foreignKeys //if fk = null -> shows up as a string
       let fk_ref_table = '';
-      // console.log(fk_name)
-      if (!fk_name) {
-        fk_name = '';
-      } else {
+      if (fk_name) { // if not null
         // if fk exist -> find its name and reference table
         fk_name = Object.keys(fk_name)[0]
-        fk_ref_table = databases[name].foreignKeys[fk_name].referenceTable; //add [] in the string
+        fk_ref_table = databases[name].foreignKeys[fk_name].referenceTable; 
       }
-
-      query += `${tab} type ${name} {\n${tab}${pk_name}: ${pk_type}\n`;
-      console.log(query)
+      // concat the PK first -> output the query string 
+      query += `${tab}type ${name} {\n${tab}${tab}${pk_name}: ${pk_type}`;
+      // contact the FK second -> output the query string
+      if (fk_name === null) { query+= ""}
+      else {
+        query += `\n${tab}${tab} ${fk_name}: [${fk_ref_table}]`;
+      }
+    
       // loop through the rest of the columns
       let columns = databases[name].columns
       for (column in columns) {
-        // console.log(column);
+        if (column != pk_name && column != fk_name) {
+          let column_type = columns[column].dataType
+          // format the datatype to gql 
+          column_type = typeData(column_type);
+          // console.log(column,`converted: ${column_type}`,`table name: ${name}`)
+          query += `\n${tab}${tab}${column}: ${column_type}\n`;
+        }
       }
-      // console.log(name, pk_name, pk_type)
       query += `${tab}}\n`
+      console.log(query)
     }
 
     // query += buildTypes(databases);
-    next();
+    return next();
   } catch (err) {
-    next({
-        log: `gqlController.convertToGQLSchema: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
+    return next({
+        log: `gqlController.convertToGQLSchema: ERROR: ${err}`,
         message: { err: 'Error occurred in gqlController.convertToGQLSchema. Check server log for more details.'},
         })
   }
+};
+
+function typeData(sqlType) {
+  const typeMatch = {
+    integer: 'ID',
+    real: 'Float',
+    boolean: 'Boolean',
+    date: 'String',
+    varchar: 'String',
+    char: 'String',
+    bigint: 'Int',
+    number: 'Int',
+    int: 'Int',
+  }
+  let lowerCaseSqlType = sqlType.toLowerCase()
+  if (lowerCaseSqlType === 'character varying') return 'String';
+  if (typeMatch[lowerCaseSqlType]) return typeMatch[lowerCaseSqlType];
+  else return '[_input data type_]';
 }
-
-
 
 module.exports = gqlController;
