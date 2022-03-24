@@ -26,5 +26,5 @@ describe('QueryCard renders successfully', () => {
 
     // })
 
-})
+});
 
