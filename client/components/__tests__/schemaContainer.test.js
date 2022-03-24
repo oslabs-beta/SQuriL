@@ -1,6 +1,6 @@
 import React from 'react';
 // import React testing methods
-import { render, screen, cleanup, fireEvent, within } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 // import jest-dom testing library (i.e., toBeInDocument())
 import '@testing-library/jest-dom';
 // import SchemaContainer component
@@ -44,7 +44,7 @@ describe('SchemaContainer renders successfully', () => {
 
         // render SchemaContainer component with currentQueryId prop to be equal to dummy variable
         render(<SchemaContainer currentQueryId={id} />);
-        
+
         // expect h2 component to contain text of 'Schema 100' when rendered
         expect(screen.getByText(`Schema ${id}`)).toBeInTheDocument()
     })

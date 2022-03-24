@@ -1,6 +1,6 @@
 import React from 'react';
 // import React testing methods
-import { render, screen, cleanup, fireEvent, within } from '@testing-library/react';
+import { render } from '@testing-library/react';
 // import jest-dom testing library (i.e., toBeInDocument())
 import '@testing-library/jest-dom';
 // import URIInput component
@@ -32,9 +32,8 @@ describe('URIInput renders successfully', () => {
 
         // assign variable to URIInput React component
         const element = getByTestId('uri');
-        
+
         //expect URIInput component to be in document when rendered
         expect(element).toBeInTheDocument();
     })
-
 });

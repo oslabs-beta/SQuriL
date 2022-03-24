@@ -1,6 +1,6 @@
 import React from 'react';
 // import React testing methods
-import { render, screen, cleanup, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 // import jest-dom testing library (i.e., toBeInDocument())
 import '@testing-library/jest-dom';
 // import OAuth component
@@ -45,6 +45,7 @@ describe('OAuth component renders successfully', () => {
 describe('OAuth GitHub login functionality onClick', () => {
 
     test('OAuth button function triggered onClick', () => {
+        
         // create mock jest function to test OAuth button
         const mockOnClick = jest.fn()
 
