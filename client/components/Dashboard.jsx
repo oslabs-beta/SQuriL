@@ -102,7 +102,10 @@ function Dashboard(props) {
       {isLoaded === false ? (
         <LoadingLogo />
       ) : (
-        <div className='Dashboard'>
+        <div
+        className='Dashboard'
+        data-testid='dashboard'
+        >
           <header>
             <div className='topright'>
               <img src={isDarkTheme ? SQuriLts_logos_white : SQuriLts_logos_black} alt='logo' className='dash-logo' />

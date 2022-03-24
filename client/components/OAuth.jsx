@@ -6,14 +6,17 @@ import '../Styles/Landing.css'
 function OAuth() {
 
     return (
+      <div data-testid='OAuth-1'>
         <Button
+        data-testid='OAuth-2'
         variant="contained"
         size="large"
         startIcon={<GitHubIcon />}
-        onClick={()=>location.href = '/oauth/authorize'}
+        onClick={()=> window.location = '/oauth/authorize'}
       >
         github
       </Button>
+      </div>
     )
 }
 

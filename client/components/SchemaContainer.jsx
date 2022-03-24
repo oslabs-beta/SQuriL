@@ -11,7 +11,7 @@ import 'codemirror/theme/cobalt.css';
 import 'codemirror/mode/javascript/javascript';
 import '../Styles/SchemaContainer.css'
 import { Controlled } from 'react-codemirror2';
-import { SampleGQLServerCode } from '/server/sampleDB.js'
+import { SampleGQLServerCode } from '/home/mtrapani/SQuriL/server/sampleDB.js'
 
 function SchemaContainer(props) {
     // schemawindow prop to be passed down
