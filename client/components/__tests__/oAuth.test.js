@@ -1,6 +1,6 @@
 import React from 'react';
 // import React testing methods
-import { render, screen, cleanup, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 // import jest-dom testing library (i.e., toBeInDocument())
 import '@testing-library/jest-dom';
 // import OAuth component
@@ -23,14 +23,14 @@ afterEach(() => {
 })
 
 // initiate render test for GitHub OAuth component
-describe('OAuth component render', () => {
+describe('OAuth component renders successfully', () => {
 
     test('should render OAuth component', () => {
         // deconstruct getByTestId method from render function
         const { getByTestId } = render(<OAuth />);
 
         // assign variable to GitHub OAuth React component
-        const element = screen.getByTestId('OAuth-1');
+        const element = getByTestId('OAuth-1');
 
         //expect GitHub component to be in document when rendered
         expect(element).toBeInTheDocument();
@@ -44,9 +44,11 @@ describe('OAuth component render', () => {
 // initiate onClick test for GitHub OAuth button
 describe('OAuth GitHub login functionality onClick', () => {
 
-    test('OAuth buttong function triggered onClick', () => {
+    test('OAuth button function triggered onClick', () => {
+        
         // create mock jest function to test OAuth button
         const mockOnClick = jest.fn()
+
         // deconstruct getByTestId method from render function
         const { getByTestId } = render(<OAuth onClick={mockOnClick()}/>)
         
