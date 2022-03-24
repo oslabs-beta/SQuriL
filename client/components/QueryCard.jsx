@@ -14,8 +14,10 @@ function QueryCard(props) {
         data-testid='query-card'
         >
             <h3
+            data-testid='query-card-h3'
             style={currentQueryId === queryCard ? {fontWeight: 'bolder', textDecoration: 'underline'} : {fontWeight: 'normal'}}
-            onClick={() => getSchema(queryCard)}
+            onClick={() => 
+                getSchema(queryCard)}
             >
                     {`Schema ${queryCard}`}
                 <IconButton

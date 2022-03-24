@@ -52,7 +52,11 @@ function SchemaContainer(props) {
     };
 
     return (
-        <div className='SchemaContainer' style={isDarkTheme ? { border: '2px solid rgb(125, 54, 175)' } : { border: '2px solid black' }}>
+        <div
+        className='SchemaContainer'
+        style={isDarkTheme ? { border: '2px solid rgb(72, 20, 155)' } : { border: '2px solid black' }}
+        data-testid='schema-container'
+        >
             <h2>{currentQueryId ? `Schema ${currentQueryId}` : 'Schema'}</h2>
             <span>
                 <Button
