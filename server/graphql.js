@@ -25,18 +25,13 @@ const typeDefs = gql`
     user_id: [Users] #make sure its in [] 
   }
 
-  # indicate by what filters selections will be availabe for the user input
-  input UsersFind {
-    user_id: Int! 
-  }
   # this schema allows the following query:
   # ! means its required
   type Query {
-    # show based on the ID
     Users_id(_id: ID!): [Users]
+    Allusers: [Users]
+
     Queries_id(_id:ID!): [Queries]
-    # show all 
-    Users: [Users]
     AllQueries: [Queries]
     # show me all queries(many) by this user(one)
     # filter 'many' --> by foreign keys 
@@ -47,11 +42,15 @@ const typeDefs = gql`
     Queries_by_foreign_keys(find: UsersFind!): [Queries] 
     #queries(find: {_id: #}) {}
   }
+  # indicate by what filters selections will be availabe for the user input
+  input UsersFind {
+    user_id: Int! 
+  }
 `
 const resolvers = {
   // resolver for Query type
   Query: {
-    Users: async () => {
+    AllUsers: async () => {
       // console.log(args)
       try {
         const data = await db.query('SELECT * FROM users')

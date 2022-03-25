@@ -1,5 +1,11 @@
-const string = 'Diana'
-const empty = undefined;
 
-console.log(string+empty)
+
+function ret() {
+  const string = 'Diana'
+  const empty = undefined;
+
+  return string
+}
+
+console.log(ret())
 
