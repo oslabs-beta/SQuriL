@@ -58,9 +58,8 @@ gqlController.convertToGQLSchema = (req, res, next) => {
     }
     typeEachTable();
     typeQuery();
-    // query += typeQuery();
-    console.log(query)
-
+    // console.log(query)
+    res.locals.schema = query;
     return next();
   } catch (err) {
     return next({
