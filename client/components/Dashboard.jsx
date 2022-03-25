@@ -97,6 +97,24 @@ function Dashboard(props) {
       })
   }
 
+  const createGQLSchema = (uri_addr) => {
+    const url = `/createGqlSchema`
+    fetch(url, {
+      method: 'Post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        link: uri_addr
+      })
+    })
+    .then(data => data.json())
+    .then(data => {
+      const GQL = data.schema;
+      setSchema(GQL)
+    })
+  }
+
   return (
     <>
       {isLoaded === false ? (
@@ -111,6 +129,7 @@ function Dashboard(props) {
               <img src={isDarkTheme ? SQuriLts_logos_white : SQuriLts_logos_black} alt='logo' className='dash-logo' />
             </div>
             <URIInput
+              createGQLSchema={createGQLSchema}            
               value={schema}
               onChange={setSchema}
               uri={uri}

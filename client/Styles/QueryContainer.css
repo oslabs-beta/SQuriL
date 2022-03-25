@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 .query-container {
-    border-radius: 5px;
+    /* border-radius: 5px; */
     align-items: top;
     text-align: center;
     display: flex;

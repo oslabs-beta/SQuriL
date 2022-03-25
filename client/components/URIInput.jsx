@@ -7,7 +7,7 @@ import '../Styles/Dashboard.css';
 
 function URIInput(props) {
 
-    const { uri, setUri, loadingFunc, onChange, loading, setLoading } = props;
+    const { uri, setUri, loadingFunc, onChange, loading, setLoading, createGQLSchema } = props;
 
     return (
         <div
@@ -34,7 +34,7 @@ function URIInput(props) {
                     onClick={() => {
                         setLoading(true);
                         setTimeout(() => setLoading(false), 2000);
-                        onChange(MVPschema)
+                        createGQLSchema(uri)
                         setUri('')
                     }}
                     type='button'
