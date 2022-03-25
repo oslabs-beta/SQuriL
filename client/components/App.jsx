@@ -23,7 +23,7 @@ const dark = {
     palette: {
         mode: 'dark',
         primary: {
-            main: 'rgb(125, 54, 175)'
+            main: 'rgb(72, 20, 155)'
         }
     }, 
 
@@ -32,7 +32,7 @@ const dark = {
 function App() {
 
     // declare state for dark theme
-    const [isDarkTheme, setIsDarkTheme] = useState(false);
+    const [isDarkTheme, setIsDarkTheme] = useState(true);
     // declare state for login
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -62,7 +62,10 @@ function App() {
     return (
         <ThemeProvider theme={isDarkTheme ? createTheme(dark) : createTheme(light)}>
             <CssBaseline />
-            <div className='App'>
+            <div
+            className='App'
+            data-testid='app'
+            >
                 {isLoggedIn === false ? (
                     <Landing
                         isDarkTheme={isDarkTheme}

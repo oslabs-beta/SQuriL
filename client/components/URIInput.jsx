@@ -2,7 +2,7 @@ import React from 'react';
 import { TextField, Button } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import Computer from '@mui/icons-material/Computer';
-import { MVPschema } from '/server/sampleDB.js'
+import { MVPschema } from '../../server/sampleDB'
 import '../Styles/Dashboard.css';
 
 function URIInput(props) {
@@ -10,7 +10,10 @@ function URIInput(props) {
     const { uri, setUri, loadingFunc, onChange, loading, setLoading } = props;
 
     return (
-        <div className='uri-input'>
+        <div
+        className='uri-input'
+        data-testid='uri'
+        >
             <form>
                 <label form='postgreSQL'>Input your PostgreSQL URI here:</label><br></br>
                 <TextField
