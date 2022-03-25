@@ -11,6 +11,7 @@ import 'codemirror/theme/cobalt.css';
 import 'codemirror/mode/javascript/javascript';
 import '../Styles/SchemaContainer.css'
 import { Controlled } from 'react-codemirror2';
+
 import { MVPschema } from '/server/sampleDB';
 
 function SchemaContainer(props) {
@@ -48,13 +49,13 @@ function SchemaContainer(props) {
     // purple bar loading in schema container
     function loadingFunc() {
         setTimeout(() => setLoading(false), 2000)
-        onChange(SampleGQLServerCode)
+        onChange(MVPschema)
     };
 
     return (
         <div
         className='SchemaContainer'
-        style={isDarkTheme ? { border: '2px solid rgb(72, 20, 155)' } : { border: '2px solid black' }}
+        style={isDarkTheme ? { border: '1px solid rgb(189,0,255)' } : { border: '1px solid black' }}
         data-testid='schema-container'
         >
             <h2>{currentQueryId ? `Schema ${currentQueryId}` : 'Schema'}</h2>
@@ -80,7 +81,7 @@ function SchemaContainer(props) {
                 </Button>
                 {' '}
                 <Button
-                    variant='outlined'
+                    variant='contained'
                     onClick={() => { exportCode(); }}
                 >
                     Export
@@ -100,7 +101,7 @@ function SchemaContainer(props) {
                                 title="Copied to clipboard"
                                 >
                                 <Button
-                                    variant='outlined'
+                                    variant='contained'
                                     onClick={(e) => {
                                         setOpen(true)
                                         navigator.clipboard.writeText(value);
