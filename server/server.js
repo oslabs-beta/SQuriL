@@ -12,13 +12,11 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
 const queryRouter = require(path.join(__dirname, '/routers/queryRouter.js'));
 const apiRouter = require(path.join(__dirname, '/routers/apiRouter.js'));
 const userRouter = require(path.join(__dirname, '/routers/userRouter.js'));
 // const outputRouter = require(path.join(__dirname, '/routers/outputRouter.js'));
 const oauthRouter = require(path.join(__dirname, '/routers/oauthRouter.js'));
-
 
 // Route requests to queryRouter
 app.use('/query', queryRouter);
@@ -34,7 +32,6 @@ app.use('/user', userRouter);
 
 // Route requests to oauthRouter
 app.use('/oauth', oauthRouter);
-
 
 // Unknown Route Handler
 app.use((req, res) => res.sendStatus(404));

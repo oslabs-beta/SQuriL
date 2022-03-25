@@ -1,8 +1,7 @@
-const db = require('../db/db')
-const fs = require('fs')
+const db = require('../db/db');
+const fs = require('fs');
 const { Pool } = require('pg');
 const SQLTableInfo = fs.readFileSync('server/db/SQLTableInfo.sql', 'utf8');
-
 
 const apiController = {};
 
@@ -34,9 +33,13 @@ apiController.getDBName = (req, res, next) => {
     })
     .catch((err) => {
       next({
-        log: `apiController.getTableName: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
-        message: { err: 'Error occurred in apiController.getTableName. Check server log for more details.'},
-        })
+        log: `apiController.getTableName: ERROR: ${
+          typeof err === 'object' ? JSON.stringify(err) : err
+        }`,
+        message: {
+          err: 'Error occurred in apiController.getTableName. Check server log for more details.',
+        },
+      });
     });
 };
 
@@ -44,18 +47,22 @@ apiController.getTableInfo = (req, res, next) => {
   const { link } = req.body;
   const db = new Pool({ connectionString: link });
   db.query(SQLTableInfo)
-  .then((data) => {
-    // console.log(data.rows[0].tables.users.columns._id)
-    res.locals.SQLSchema = data.rows[0]; //[ { tables: { users: [Object], queries: [Object] } } ]
-    return next();
-  })
-  .catch(err => {
-    next({
-      log: `apiController.getTableInfo: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
-      message: { err: 'Error occurred in apiController.getTableInfo. Check server log for more details.'},
-      })
-  })
-}
+    .then((data) => {
+      // console.log(data.rows[0].tables.users.columns._id)
+      res.locals.SQLSchema = data.rows[0]; //[ { tables: { users: [Object], queries: [Object] } } ]
+      return next();
+    })
+    .catch((err) => {
+      next({
+        log: `apiController.getTableInfo: ERROR: ${
+          typeof err === 'object' ? JSON.stringify(err) : err
+        }`,
+        message: {
+          err: 'Error occurred in apiController.getTableInfo. Check server log for more details.',
+        },
+      });
+    });
+};
 
 apiController.createGQLmeta = (req, res, next) => {
   try {
@@ -65,13 +72,16 @@ apiController.createGQLmeta = (req, res, next) => {
         databaseName: 'PostgreSQL',
         tables: {},
       },
-    } 
+    };
     const { tables } = res.locals.SQLSchema;
     let tableCount = 0;
     let fieldCount = 0;
 
     for (const table in tables) {
-      const tableCache = (res.locals.GQLmeta[0].tables[tableCount] = { type: table, fields: {} });
+      const tableCache = (res.locals.GQLmeta[0].tables[tableCount] = {
+        type: table,
+        fields: {},
+      });
 
       const tableFields = tables[table].columns;
 
@@ -79,7 +89,10 @@ apiController.createGQLmeta = (req, res, next) => {
       for (const field in tableFields) {
         tableCache.fields[fieldCount] = {
           name: field,
-          type: tableFields[field].dataType === 'integer' ? 'Number' : tableFields[field].dataType,
+          type:
+            tableFields[field].dataType === 'integer'
+              ? 'Number'
+              : tableFields[field].dataType,
           primaryKey: tables[table].primaryKey === field,
 
           // DEFAULTED TO TEMPREF.js
@@ -101,13 +114,15 @@ apiController.createGQLmeta = (req, res, next) => {
     // console.log(res.locals.GQLmeta[0])
     next();
   } catch (err) {
-      next({
-        log: `apiController.createGQLmeta: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
-        message: { err: 'Error occurred in apiController.createGQLmeta. Check server log for more details.'},
-        })
-    }
-}
-
+    next({
+      log: `apiController.createGQLmeta: ERROR: ${
+        typeof err === 'object' ? JSON.stringify(err) : err
+      }`,
+      message: {
+        err: 'Error occurred in apiController.createGQLmeta. Check server log for more details.',
+      },
+    });
+  }
+};
 
 module.exports = apiController;
-

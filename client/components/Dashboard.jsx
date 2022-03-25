@@ -20,11 +20,11 @@ function Dashboard(props) {
   // all the queries which are shown in the QueryContainer
   const [queryCard, setQueryCard] = useState([]);
   // set state for schema window of a given query card
-  const [schema, setSchema] = useState();
+  const [schema, setSchema] = useState('');
   // set state for the output window of a submitted query
   const [output, setOutput] = useState();
   // set state for uri address bar at the top of the screen
-  const [uri, setUri] = useState();
+  const [uri, setUri] = useState('');
   // the current query id that the user has selected
   const [currentQueryId, setCurrentQueryId] = useState();
   // state for main loading screen
@@ -98,7 +98,7 @@ function Dashboard(props) {
   }
 
   const createGQLSchema = (uri_addr) => {
-    const url = `/createGqlSchema`
+    const url = `/api/createGqlSchema`
     fetch(url, {
       method: 'Post',
       headers: {
@@ -110,7 +110,7 @@ function Dashboard(props) {
     })
     .then(data => data.json())
     .then(data => {
-      const GQL = data.schema;
+      const GQL = data;
       setSchema(GQL)
     })
   }

@@ -37,7 +37,7 @@
     "jest-dom": "^4.0.0",
     "nodemon": "^2.0.15",
     "path": "^0.12.7",
-    "prettier": "^2.5.1",
+    "prettier": "^2.6.1",
     "react-test-renderer": "^17.0.2",
     "sass-loader": "^12.6.0",
     "supertest": "^6.2.2",
