@@ -11,7 +11,8 @@ import 'codemirror/theme/cobalt.css';
 import 'codemirror/mode/javascript/javascript';
 import '../Styles/SchemaContainer.css'
 import { Controlled } from 'react-codemirror2';
-import { MVPschema } from '../../server/sampleDB'
+
+import { MVPschema } from '/server/sampleDB';
 
 function SchemaContainer(props) {
     // schemawindow prop to be passed down
