@@ -20,7 +20,7 @@ function QueryContainer(props) {
     return (
         <div
         className='query-container'
-        style={isDarkTheme ? {border: '2px solid rgb(72, 20, 155)'} : {border: '2px solid black'}}
+        style={isDarkTheme ? {border: '1px solid rgb(189,0,255)'} : {border: '1px solid black'}}
         data-testid='query-container'
         >
             <div className='QueryContainerHeader'>

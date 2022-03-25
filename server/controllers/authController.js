@@ -10,13 +10,13 @@ authController.getToken = async (req, res, next) => {
   try {
     const tokenJSON = await fetch(url, {
       method: 'POST',
-      headers: {'Accept': 'application/json'}
+      headers: { Accept: 'application/json' },
     });
     const token = await tokenJSON.json();
     res.locals.access_token = token.access_token;
-    console.log(token)
+    console.log(token);
     return next();
-  } catch(err) {
+  } catch (err) {
     return next({
       log: `Error in authController.getToken Err: ${err.message}`,
       status: 500,
@@ -28,7 +28,7 @@ authController.getToken = async (req, res, next) => {
 authController.getProfile = async (req, res, next) => {
   const url = 'https://api.github.com/user';
   try {
-    const profileInfoJSON = await fetch(url,{
+    const profileInfoJSON = await fetch(url, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -38,7 +38,7 @@ authController.getProfile = async (req, res, next) => {
     const profileInfo = await profileInfoJSON.json();
     res.locals.profile = profileInfo;
     return next();
-  } catch(err) {
+  } catch (err) {
     return next({
       log: `Error in authController.getProfile Err: ${err.message}`,
       status: 500,
