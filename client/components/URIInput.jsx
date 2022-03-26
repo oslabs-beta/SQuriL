@@ -2,27 +2,27 @@ import React from 'react';
 import { TextField, Button } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import Computer from '@mui/icons-material/Computer';
-import { MVPschema } from '../../server/sampleDB';
 import '../Styles/Dashboard.css';
 
 function URIInput(props) {
-  const { uri, setUri, loadingFunc, loading, setLoading, createGQLSchema } = props;
+  const { uri, setUri, loadingFunc, loading, setLoading, createGQLSchema } =
+    props;
 
   return (
-    <div className='uri-input' data-testid='uri'>
+    <div className="uri-input" data-testid="uri">
       <form>
-        <label form='postgreSQL'>Input your PostgreSQL URI here:</label>
-        <br></br>
+        <label form="postgreSQL">Input your PostgreSQL URI here:</label>
+        <br />
         <TextField
           onChange={(e) => setUri(e.target.value)}
-          variant='outlined'
+          variant="outlined"
           value={uri}
-          size='small'
-          type='text'
-          className='uri-text'
+          size="small"
+          type="text"
+          className="uri-text"
           InputProps={{
             startAdornment: (
-              <InputAdornment position='start'>
+              <InputAdornment position="start">
                 <Computer />
               </InputAdornment>
             ),
@@ -36,11 +36,11 @@ function URIInput(props) {
             createGQLSchema(uri);
             setUri('');
           }}
-          type='button'
-          size='medium'
-          variant='contained'
+          type="button"
+          size="medium"
+          variant="contained"
           style={{ marginLeft: '5px' }}
-          className='uri-button'
+          className="uri-button"
         >
           Go!
         </Button>

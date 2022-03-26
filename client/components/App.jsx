@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Landing from './Landing';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
-import Dashboard from './Dashboard.jsx';
+import Landing from './Landing';
+import Dashboard from './Dashboard';
 import '../Styles/App.css';
 
 // set palette for light mode
@@ -39,7 +39,7 @@ function App() {
     setIsDarkTheme(!isDarkTheme);
   };
 
-  //function to check login status to either render landing or dashboard
+  // function to check login status to either render landing or dashboard
   const loginStatus = () => {
     const url = `/user/cookie`;
     fetch(url)
@@ -59,9 +59,14 @@ function App() {
   return (
     <ThemeProvider theme={isDarkTheme ? createTheme(dark) : createTheme(light)}>
       <CssBaseline />
-      <div className='App' data-testid='app'>
+      <div className="App" data-testid="app">
         {isLoggedIn === false ? (
-          <Landing isDarkTheme={isDarkTheme} changeTheme={changeTheme} light={light} dark={dark} />
+          <Landing
+            isDarkTheme={isDarkTheme}
+            changeTheme={changeTheme}
+            light={light}
+            dark={dark}
+          />
         ) : (
           <Dashboard
             isDarkTheme={isDarkTheme}

@@ -1,0 +1,10 @@
+{
+    "env": {
+        "browser": true
+    },
+    "extends": ["airbnb", "airbnb/hooks", "prettier"],
+    "plugins": ["react", "prettier"],
+    "rules": {
+        "no-console": "off"
+    }
+}

@@ -1,7 +1,0 @@
-{
-  "extends": ["airbnb", "airbnb-hooks", "prettier"],
-  "root": true,
-  "plugins": ["prettier"],
-  "ignorePatterns": ["**/__test__"],
-  "rules": 
-}
