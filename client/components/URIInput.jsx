@@ -9,19 +9,19 @@ function URIInput(props) {
   const { uri, setUri, setLoading, createGQLSchema } = props;
 
   return (
-    <div className="uri-input" data-testid="uri">
+    <div className='uri-input' data-testid='uri'>
       <h3>Input your PostgreSQL URI here:</h3>
       <br />
       <TextField
         onChange={(e) => setUri(e.target.value)}
-        variant="outlined"
+        variant='outlined'
         value={uri}
-        size="small"
-        type="text"
-        className="uri-text"
+        size='small'
+        type='text'
+        className='uri-text'
         InputProps={{
           startAdornment: (
-            <InputAdornment position="start">
+            <InputAdornment position='start'>
               <Computer />
             </InputAdornment>
           ),
@@ -35,11 +35,11 @@ function URIInput(props) {
           createGQLSchema(uri);
           setUri('');
         }}
-        type="button"
-        size="medium"
-        variant="contained"
+        type='button'
+        size='medium'
+        variant='contained'
         style={{ marginLeft: '5px' }}
-        className="uri-button"
+        className='uri-button'
       >
         Go!
       </Button>

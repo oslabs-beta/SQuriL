@@ -10,13 +10,9 @@ const Pulse = styled.div`
 
 function LoadingLogo() {
   return (
-    <div className="loading">
+    <div className='loading'>
       <Pulse>
-        <img
-          src={SQuriLts_logos_white_loading}
-          className="logo-load"
-          alt="SQuriL loading logo"
-        />
+        <img src={SQuriLts_logos_white_loading} className='logo-load' alt='SQuriL loading logo' />
       </Pulse>
     </div>
   );

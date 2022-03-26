@@ -115,14 +115,10 @@ function Dashboard(props) {
       {isLoaded === false ? (
         <LoadingLogo />
       ) : (
-        <div className="Dashboard" data-testid="dashboard">
+        <div className='Dashboard' data-testid='dashboard'>
           <header>
-            <div className="topright">
-              <img
-                src={isDarkTheme ? SQuriLts_logos_white : squirltsLogosBlack}
-                alt="logo"
-                className="dash-logo"
-              />
+            <div className='topright'>
+              <img src={isDarkTheme ? SQuriLts_logos_white : squirltsLogosBlack} alt='logo' className='dash-logo' />
             </div>
             <URIInput
               createGQLSchema={createGQLSchema}
@@ -135,17 +131,12 @@ function Dashboard(props) {
             />
             <span>
               {isDarkTheme ? 'dark mode' : 'light mode'}
-              <IconButton
-                sx={{ ml: 1 }}
-                size="small"
-                onClick={changeTheme}
-                color="inherit"
-              >
+              <IconButton sx={{ ml: 1 }} size='small' onClick={changeTheme} color='inherit'>
                 {isDarkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
               </IconButton>
             </span>
           </header>
-          <div className="main">
+          <div className='main'>
             <QueryContainer
               // drilling down of things happens here
               queryCard={queryCard}
@@ -167,20 +158,11 @@ function Dashboard(props) {
           </div>
           <br />
           <footer>
-            <a href="https://github.com/oslabs-beta/SQuriL">
-              <img
-                src={isDarkTheme ? github_white : github_black}
-                alt="logo"
-                className="github"
-              />
+            <a href='https://github.com/oslabs-beta/SQuriL'>
+              <img src={isDarkTheme ? github_white : github_black} alt='logo' className='github' />
             </a>
-            <a href="https://graphql.org/learn/">
-              <img
-                src={graphql_logo}
-                alt="graphql"
-                className="graphql"
-                style={{ marginLeft: '10px' }}
-              />
+            <a href='https://graphql.org/learn/'>
+              <img src={graphql_logo} alt='graphql' className='graphql' style={{ marginLeft: '10px' }} />
             </a>
           </footer>
         </div>

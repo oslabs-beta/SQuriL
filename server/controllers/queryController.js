@@ -9,8 +9,7 @@ queryController.createQuery = async (req, res, next) => {
   console.log(value);
   const { userid } = res.locals;
   // console.log(req.body)
-  const sqlQuery =
-    'INSERT INTO queries (value, user_id) VALUES ($1, $2) RETURNING *';
+  const sqlQuery = 'INSERT INTO queries (value, user_id) VALUES ($1, $2) RETURNING *';
   try {
     const query = await db.query(sqlQuery, [value, userid]);
     // const table = await pool.query('SELECT * FROM queries');
@@ -20,9 +19,7 @@ queryController.createQuery = async (req, res, next) => {
     next();
   } catch (err) {
     next({
-      log: `queryController.createQuery: ERROR: ${
-        typeof err === 'object' ? JSON.stringify(err) : err
-      }`,
+      log: `queryController.createQuery: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
       message: {
         err: 'Error occurred in queryController.createQuery. Check server log for more details.',
       },
@@ -39,9 +36,7 @@ queryController.getQuery = async (req, res, next) => {
     next();
   } catch (err) {
     next({
-      log: `queryController.getQuery: ERROR: ${
-        typeof err === 'object' ? JSON.stringify(err) : err
-      }`,
+      log: `queryController.getQuery: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
       message: {
         err: 'Error occurred in queryController.getQuery. Check server log for more details.',
       },
@@ -59,9 +54,7 @@ queryController.updateQuery = async (req, res, next) => {
     next();
   } catch (err) {
     next({
-      log: `queryController.updateQuery: ERROR: ${
-        typeof err === 'object' ? JSON.stringify(err) : err
-      }`,
+      log: `queryController.updateQuery: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
       message: {
         err: 'Error occurred in queryController.updateQuery. Check server log for more details.',
       },
@@ -78,9 +71,7 @@ queryController.deleteQuery = async (req, res, next) => {
     next();
   } catch (err) {
     next({
-      log: `queryController.deleteQuery: ERROR: ${
-        typeof err === 'object' ? JSON.stringify(err) : err
-      }`,
+      log: `queryController.deleteQuery: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
       message: {
         err: 'Error occurred in queryController.deleteQuery. Check server log for more details.',
       },

@@ -1,15 +1,16 @@
 const express = require('express');
+
 const router = express.Router();
 
-const queryController = require('../controllers/queryController.js');
-const userController = require('../controllers/userController.js');
-const sessionController = require('../controllers/sessionController.js');
+const queryController = require('../controllers/queryController');
+const userController = require('../controllers/userController');
+const sessionController = require('../controllers/sessionController');
 
 // ** change the naming of the query
 // CRUD functionalities
 router.post(
   '/createQuery',
-  sessionController.verifySession, //decording the cookie to get the userID
+  sessionController.verifySession, // decording the cookie to get the userID
   userController.getUserID,
   queryController.createQuery,
   (req, res) => {

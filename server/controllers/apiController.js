@@ -17,9 +17,7 @@ apiController.getDBName = (req, res, next) => {
     })
     .catch((err) => {
       next({
-        log: `apiController.getTableName: ERROR: ${
-          typeof err === 'object' ? JSON.stringify(err) : err
-        }`,
+        log: `apiController.getTableName: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
         message: {
           err: 'Error occurred in apiController.getTableName. Check server log for more details.',
         },
@@ -38,9 +36,7 @@ apiController.getTableInfo = (req, res, next) => {
     })
     .catch((err) => {
       next({
-        log: `apiController.getTableInfo: ERROR: ${
-          typeof err === 'object' ? JSON.stringify(err) : err
-        }`,
+        log: `apiController.getTableInfo: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
         message: {
           err: 'Error occurred in apiController.getTableInfo. Check server log for more details.',
         },
@@ -73,10 +69,7 @@ apiController.createGQLmeta = (req, res, next) => {
       for (const field in tableFields) {
         tableCache.fields[fieldCount] = {
           name: field,
-          type:
-            tableFields[field].dataType === 'integer'
-              ? 'Number'
-              : tableFields[field].dataType,
+          type: tableFields[field].dataType === 'integer' ? 'Number' : tableFields[field].dataType,
           primaryKey: tables[table].primaryKey === field,
 
           // DEFAULTED TO TEMPREF.js
@@ -99,9 +92,7 @@ apiController.createGQLmeta = (req, res, next) => {
     next();
   } catch (err) {
     next({
-      log: `apiController.createGQLmeta: ERROR: ${
-        typeof err === 'object' ? JSON.stringify(err) : err
-      }`,
+      log: `apiController.createGQLmeta: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
       message: {
         err: 'Error occurred in apiController.createGQLmeta. Check server log for more details.',
       },

@@ -57,9 +57,7 @@ describe('QueryCard h3 click to fetch schema works successfully', () => {
     const mockOnClick = jest.fn();
 
     // render QueryCard component with getByTestId destructured, with onClick and baseProps passed in
-    const { getByTestId } = render(
-      <QueryCard onClick={mockOnClick()} {...baseProps} />
-    );
+    const { getByTestId } = render(<QueryCard onClick={mockOnClick()} {...baseProps} />);
 
     // declare clickIndicator variable for h3 querycard
     const clickIndicator = getByTestId('query-card-h3');
@@ -85,9 +83,7 @@ describe('QueryCard delete button works successfully', () => {
     const mockOnClick = jest.fn();
 
     // render QueryCard component with getByTestId destructured, with onClick and baseProps passed in
-    const { getByTestId } = render(
-      <QueryCard onClick={mockOnClick()} {...baseProps} />
-    );
+    const { getByTestId } = render(<QueryCard onClick={mockOnClick()} {...baseProps} />);
 
     // declare clickIndicator variable for delete button
     const clickIndicator = getByTestId('query-delete');

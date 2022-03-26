@@ -59,21 +59,11 @@ function App() {
   return (
     <ThemeProvider theme={isDarkTheme ? createTheme(dark) : createTheme(light)}>
       <CssBaseline />
-      <div className="App" data-testid="app">
+      <div className='App' data-testid='app'>
         {isLoggedIn === false ? (
-          <Landing
-            isDarkTheme={isDarkTheme}
-            changeTheme={changeTheme}
-            light={light}
-            dark={dark}
-          />
+          <Landing isDarkTheme={isDarkTheme} changeTheme={changeTheme} light={light} dark={dark} />
         ) : (
-          <Dashboard
-            isDarkTheme={isDarkTheme}
-            changeTheme={changeTheme}
-            light={light}
-            dark={dark}
-          />
+          <Dashboard isDarkTheme={isDarkTheme} changeTheme={changeTheme} light={light} dark={dark} />
         )}
       </div>
     </ThemeProvider>

@@ -17,15 +17,7 @@ import { MVPschema } from '../../server/sampleDB';
 
 function SchemaContainer(props) {
   // schemawindow prop to be passed down
-  const {
-    value,
-    onChange,
-    currentQueryId,
-    createQuery,
-    isDarkTheme,
-    setLoading,
-    loading,
-  } = props;
+  const { value, onChange, currentQueryId, createQuery, isDarkTheme, setLoading, loading } = props;
   // const [sample, setSample] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -66,29 +58,20 @@ function SchemaContainer(props) {
 
   return (
     <div
-      className="SchemaContainer"
-      style={
-        isDarkTheme
-          ? { border: '1px solid rgb(189,0,255)' }
-          : { border: '1px solid black' }
-      }
-      data-testid="schema-container"
+      className='SchemaContainer'
+      style={isDarkTheme ? { border: '1px solid rgb(189,0,255)' } : { border: '1px solid black' }}
+      data-testid='schema-container'
     >
       <h2>{currentQueryId ? `Schema ${currentQueryId}` : 'Schema'}</h2>
       <span>
-        <Button
-          type="button"
-          className="save-schema"
-          variant="contained"
-          onClick={() => handleSubmit()}
-        >
+        <Button type='button' className='save-schema' variant='contained' onClick={() => handleSubmit()}>
           Save
         </Button>{' '}
         {/* <button type='submit' className='updateSchema' value="Update">Update</button> */}
         <Button
-          type="button"
-          className="sample-schema"
-          variant="contained"
+          type='button'
+          className='sample-schema'
+          variant='contained'
           onClick={() => {
             setLoading(true);
             loadingFunc();
@@ -97,7 +80,7 @@ function SchemaContainer(props) {
           Sample
         </Button>{' '}
         <Button
-          variant="contained"
+          variant='contained'
           onClick={() => {
             exportCode();
           }}
@@ -111,14 +94,14 @@ function SchemaContainer(props) {
             }}
             onClose={handleTooltipClose}
             open={open}
-            placement="top"
+            placement='top'
             disableFocusListener
             disableHoverListener
             disableTouchListener
-            title="Copied to clipboard"
+            title='Copied to clipboard'
           >
             <Button
-              variant="contained"
+              variant='contained'
               onClick={() => {
                 setOpen(true);
                 navigator.clipboard.writeText(value);
@@ -130,11 +113,7 @@ function SchemaContainer(props) {
           </Tooltip>
         </ClickAwayListener>
       </span>
-      <FormControlLabel
-        control={<Switch />}
-        label="TypeScript"
-        className="switch"
-      />
+      <FormControlLabel control={<Switch />} label='TypeScript' className='switch' />
       {loading === false ? (
         <Controlled
           onBeforeChange={handleChange}

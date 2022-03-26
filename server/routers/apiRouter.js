@@ -1,8 +1,9 @@
 const express = require('express');
+
 const router = express.Router();
 
-const apiController = require('../controllers/apiController.js');
-const gqlController = require('../controllers/gqlController.js');
+const apiController = require('../controllers/apiController');
+const gqlController = require('../controllers/gqlController');
 
 router.post(
   '/createGqlSchema',

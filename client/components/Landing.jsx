@@ -19,38 +19,23 @@ function Landing(props) {
   const { isDarkTheme, changeTheme } = props;
 
   return (
-    <div className="App">
-      <div className="logos">
-        <a href="https://github.com/oslabs-beta/SQuriL">
-          <img
-            src={isDarkTheme ? github_white : github_black}
-            alt="logo"
-            className="github"
-          />
+    <div className='App'>
+      <div className='logos'>
+        <a href='https://github.com/oslabs-beta/SQuriL'>
+          <img src={isDarkTheme ? github_white : github_black} alt='logo' className='github' />
         </a>
-        <a href="https://graphql.org/learn/">
-          <img src={graphql_logo} alt="graphql" className="graphql" />
+        <a href='https://graphql.org/learn/'>
+          <img src={graphql_logo} alt='graphql' className='graphql' />
         </a>
       </div>
       <span>
         {isDarkTheme ? 'dark mode' : 'light mode'}
-        <IconButton sx={{ ml: 1 }} onClick={changeTheme} color="inherit">
+        <IconButton sx={{ ml: 1 }} onClick={changeTheme} color='inherit'>
           {isDarkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
         </IconButton>
       </span>
-      <div
-        className="app-welcome"
-        style={
-          isDarkTheme
-            ? { border: '2px solid white' }
-            : { border: '2px solid black' }
-        }
-      >
-        <img
-          src={isDarkTheme ? SQuriLts_logos_white : squirltsLogosBlack}
-          alt="logo"
-          className="logo"
-        />
+      <div className='app-welcome' style={isDarkTheme ? { border: '2px solid white' } : { border: '2px solid black' }}>
+        <img src={isDarkTheme ? SQuriLts_logos_white : squirltsLogosBlack} alt='logo' className='logo' />
         <OAuth />
       </div>
     </div>
