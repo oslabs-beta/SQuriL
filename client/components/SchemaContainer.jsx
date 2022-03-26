@@ -13,7 +13,6 @@ import 'codemirror/mode/javascript/javascript';
 import '../Styles/SchemaContainer.css';
 import { Controlled } from 'react-codemirror2';
 import Loading from './Loading';
-import { MVPschema } from '../../server/sampleDB';
 
 function SchemaContainer(props) {
   // schemawindow prop to be passed down
@@ -53,8 +52,26 @@ function SchemaContainer(props) {
   // purple bar loading in schema container
   function loadingFunc() {
     setTimeout(() => setLoading(false), 2000);
-    onChange(MVPschema);
+    createSampleSchema();
   }
+
+  const createSampleSchema = () => {
+    const url = `/api/createGqlSchema`;
+    fetch(url, {
+      method: 'Post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        link: 'postgres://itjbbwxw:B0wiXF4aypk5kOpWNXmiU2JFV6CEvTW8@raja.db.elephantsql.com/itjbbwxw',
+      }),
+    })
+      .then((data) => data.json())
+      .then((data) => {
+        const GQL = data;
+        onChange(GQL);
+      });
+  };
 
   return (
     <div
