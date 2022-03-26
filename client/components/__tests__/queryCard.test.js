@@ -77,6 +77,7 @@ describe('QueryCard delete button works successfully', () => {
     const baseProps = {
       deleteQuery: jest.fn(),
       getSchema: jest.fn(),
+      setCurrentQueryId: jest.fn(),
     };
 
     // declare mock function for onClick function
