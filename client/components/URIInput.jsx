@@ -56,14 +56,11 @@ function URIInput(props) {
   );
 }
 
-URIInput.defaultProps = {
-  uri: '',
-};
 URIInput.propTypes = {
   uri: PropTypes.string,
-  setUri: PropTypes.func.isRequired,
-  setLoading: PropTypes.func.isRequired,
-  createGQLSchema: PropTypes.func.isRequired,
+  setUri: PropTypes.func,
+  setLoading: PropTypes.func,
+  createGQLSchema: PropTypes.func,
 };
 
 export default URIInput;

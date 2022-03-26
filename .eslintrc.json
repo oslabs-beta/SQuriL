@@ -31,6 +31,8 @@
         "import/no-extraneous-dependencies": "off",
         "no-template-curly-in-string": "off",
         "import/no-dynamic-require": "off",
-        "prefer-object-spread": "off"
+        "prefer-object-spread": "off",
+        "react/require-default-props": "off"
+        
     }
 }

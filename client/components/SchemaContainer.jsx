@@ -20,6 +20,7 @@ function SchemaContainer(props) {
   // const [sample, setSample] = useState(false);
   const [open, setOpen] = useState(false);
 
+  console.log(setLoading);
   // tooltip function close - copy button
   const handleTooltipClose = () => {
     setOpen(false);
@@ -151,17 +152,14 @@ function SchemaContainer(props) {
   );
 }
 
-SchemaContainer.defaultProps = {
-  currentQueryId: 0,
-};
 SchemaContainer.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
   currentQueryId: PropTypes.number,
-  createQuery: PropTypes.func.isRequired,
-  isDarkTheme: PropTypes.bool.isRequired,
-  loading: PropTypes.bool.isRequired,
-  setLoading: PropTypes.func.isRequired,
+  createQuery: PropTypes.func,
+  isDarkTheme: PropTypes.bool,
+  loading: PropTypes.bool,
+  setLoading: PropTypes.func,
 };
 
 export default SchemaContainer;

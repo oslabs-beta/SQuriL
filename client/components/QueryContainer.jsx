@@ -23,16 +23,12 @@ function QueryContainer(props) {
   );
 }
 
-QueryContainer.defaultProps = {
-  queryCard: [''],
-  currentQueryId: 0,
-};
 QueryContainer.propTypes = {
   queryCard: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])),
-  getSchema: PropTypes.func.isRequired,
-  deleteQuery: PropTypes.func.isRequired,
+  getSchema: PropTypes.func,
+  deleteQuery: PropTypes.func,
   currentQueryId: PropTypes.number,
-  isDarkTheme: PropTypes.bool.isRequired,
+  isDarkTheme: PropTypes.bool,
 };
 
 export default QueryContainer;

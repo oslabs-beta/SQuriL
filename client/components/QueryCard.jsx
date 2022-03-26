@@ -37,15 +37,11 @@ function QueryCard(props) {
   );
 }
 
-QueryCard.defaultProps = {
-  queryCard: [''],
-};
-
 QueryCard.propTypes = {
   queryCard: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  getSchema: PropTypes.func.isRequired,
-  deleteQuery: PropTypes.func.isRequired,
-  currentQueryId: PropTypes.number.isRequired,
+  getSchema: PropTypes.func,
+  deleteQuery: PropTypes.func,
+  currentQueryId: PropTypes.number,
 };
 
 export default QueryCard;
