@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { TextField, Button, autocompleteClasses } from '@mui/material';
-import Loading from './Loading';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Button } from '@mui/material';
+import { saveAs } from 'file-saver';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Tooltip from '@mui/material/Tooltip';
@@ -11,47 +12,50 @@ import 'codemirror/theme/cobalt.css';
 import 'codemirror/mode/javascript/javascript';
 import '../Styles/SchemaContainer.css';
 import { Controlled } from 'react-codemirror2';
+import Loading from './Loading';
 import { MVPschema } from '../../server/sampleDB';
 
 function SchemaContainer(props) {
   // schemawindow prop to be passed down
-  let {
+  const {
     value,
     onChange,
     currentQueryId,
     createQuery,
     isDarkTheme,
-    queryCard,
-    loading,
     setLoading,
+    loading,
   } = props;
-  const [sample, setSample] = useState(false);
+  // const [sample, setSample] = useState(false);
   const [open, setOpen] = useState(false);
-  // const [loading, setLoading] = useState(false);
 
   // tooltip function close - copy button
   const handleTooltipClose = () => {
     setOpen(false);
   };
 
-  // tooltip function open - copy button
-  const handleTooltipOpen = () => {
-    setOpen(true);
-  };
+  // // tooltip function open - copy button
+  // const handleTooltipOpen = () => {
+  //   setOpen(true);
+  // };
 
   // handleChange function for code-mirror editor window
-  function handleChange(editor, data, value) {
-    onChange(value);
+  function handleChange(editor, data, valueCM) {
+    onChange(valueCM);
   }
 
   // save schema functionality
-  function handleSubmit(e) {
+  function handleSubmit() {
     createQuery(value);
   }
 
   // export code functionality
   const exportCode = () => {
-    saveAs(new File([`${value}`], 'schemaExport.js', { type: 'text/plain;charset=utf-8' }));
+    saveAs(
+      new File([`${value}`], 'schemaExport.js', {
+        type: 'text/plain;charset=utf-8',
+      })
+    );
   };
 
   // purple bar loading in schema container
@@ -62,26 +66,30 @@ function SchemaContainer(props) {
 
   return (
     <div
-      className='SchemaContainer'
-      style={isDarkTheme ? { border: '1px solid rgb(189,0,255)' } : { border: '1px solid black' }}
-      data-testid='schema-container'
+      className="SchemaContainer"
+      style={
+        isDarkTheme
+          ? { border: '1px solid rgb(189,0,255)' }
+          : { border: '1px solid black' }
+      }
+      data-testid="schema-container"
     >
       <h2>{currentQueryId ? `Schema ${currentQueryId}` : 'Schema'}</h2>
       <span>
         <Button
-          type='button'
-          className='save-schema'
-          variant='contained'
-          onClick={(e) => handleSubmit()}
+          type="button"
+          className="save-schema"
+          variant="contained"
+          onClick={() => handleSubmit()}
         >
           Save
         </Button>{' '}
         {/* <button type='submit' className='updateSchema' value="Update">Update</button> */}
         <Button
-          type='button'
-          className='sample-schema'
-          variant='contained'
-          onClick={(e) => {
+          type="button"
+          className="sample-schema"
+          variant="contained"
+          onClick={() => {
             setLoading(true);
             loadingFunc();
           }}
@@ -89,7 +97,7 @@ function SchemaContainer(props) {
           Sample
         </Button>{' '}
         <Button
-          variant='contained'
+          variant="contained"
           onClick={() => {
             exportCode();
           }}
@@ -103,15 +111,15 @@ function SchemaContainer(props) {
             }}
             onClose={handleTooltipClose}
             open={open}
-            placement='top'
+            placement="top"
             disableFocusListener
             disableHoverListener
             disableTouchListener
-            title='Copied to clipboard'
+            title="Copied to clipboard"
           >
             <Button
-              variant='contained'
-              onClick={(e) => {
+              variant="contained"
+              onClick={() => {
                 setOpen(true);
                 navigator.clipboard.writeText(value);
                 setTimeout(() => setOpen(false), 1000);
@@ -122,15 +130,18 @@ function SchemaContainer(props) {
           </Tooltip>
         </ClickAwayListener>
       </span>
-      <FormControlLabel control={<Switch />} label='TypeScript' className='switch' />
+      <FormControlLabel
+        control={<Switch />}
+        label="TypeScript"
+        className="switch"
+      />
       {loading === false ? (
         <Controlled
           onBeforeChange={handleChange}
-          value={sample ? SampleGQLServerCode : value}
+          value={value}
           options={{
             lineWrapping: true,
             showCursorWhenSelecting: true,
-            scrollbarStyle: null,
             lint: true,
             mode: 'javascript',
             lineNumbers: true,
@@ -143,5 +154,18 @@ function SchemaContainer(props) {
     </div>
   );
 }
+
+SchemaContainer.defaultProps = {
+  currentQueryId: 0,
+};
+SchemaContainer.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  currentQueryId: PropTypes.number,
+  createQuery: PropTypes.func.isRequired,
+  isDarkTheme: PropTypes.bool.isRequired,
+  loading: PropTypes.bool.isRequired,
+  setLoading: PropTypes.func.isRequired,
+};
 
 export default SchemaContainer;

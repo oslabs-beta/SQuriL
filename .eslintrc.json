@@ -5,6 +5,10 @@
     "extends": ["airbnb", "airbnb/hooks", "prettier"],
     "plugins": ["react", "prettier"],
     "rules": {
-        "no-console": "off"
+        "no-console": "off",
+        "camelcase": "off",
+        "jsx-a11y/no-noninteractive-element-interactions": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "react/jsx-no-bind": "off"
     }
 }

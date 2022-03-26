@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import IconButton from '@mui/material/IconButton';
-import { saveAs } from 'file-saver';
 import squirltsLogosBlack from '../Public/squirltsLogosBlack.png';
 import SQuriLts_logos_white from '../Public/SQuriLts_logos_white.png';
 import github_white from '../Public/github_white.png';
@@ -16,13 +16,13 @@ import '../Styles/Dashboard.css';
 
 function Dashboard(props) {
   // pulling from props
-  const { isDarkTheme, changeTheme, light, dark } = props;
+  const { isDarkTheme, changeTheme } = props;
   // all the queries which are shown in the QueryContainer
   const [queryCard, setQueryCard] = useState([]);
   // set state for schema window of a given query card
   const [schema, setSchema] = useState('');
   // set state for the output window of a submitted query
-  const [output, setOutput] = useState();
+  // const [output, setOutput] = useState();
   // set state for uri address bar at the top of the screen
   const [uri, setUri] = useState('');
   // the current query id that the user has selected
@@ -188,5 +188,10 @@ function Dashboard(props) {
     </div>
   );
 }
+
+Dashboard.propTypes = {
+  isDarkTheme: PropTypes.bool.isRequired,
+  changeTheme: PropTypes.func.isRequired,
+};
 
 export default Dashboard;

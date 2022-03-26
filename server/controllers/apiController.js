@@ -1,6 +1,8 @@
 const db = require('../db/db');
 const fs = require('fs');
+
 const { Pool } = require('pg');
+
 const SQLTableInfo = fs.readFileSync('server/db/SQLTableInfo.sql', 'utf8');
 
 const apiController = {};
@@ -31,7 +33,7 @@ apiController.getTableInfo = (req, res, next) => {
   db.query(SQLTableInfo)
     .then((data) => {
       // console.log(data.rows[0].tables.users.columns._id)
-      res.locals.SQLSchema = data.rows[0]; //[ { tables: { users: [Object], queries: [Object] } } ]
+      res.locals.SQLSchema = data.rows[0]; // [ { tables: { users: [Object], queries: [Object] } } ]
       return next();
     })
     .catch((err) => {
@@ -87,11 +89,11 @@ apiController.createGQLmeta = (req, res, next) => {
           },
           refBy: {},
         };
-        fieldCount++;
+        fieldCount += 1;
       }
 
       fieldCount = 0;
-      tableCount++;
+      tableCount += 1;
     }
     // console.log(res.locals.GQLmeta[0])
     next();
