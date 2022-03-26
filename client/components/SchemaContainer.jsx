@@ -20,7 +20,6 @@ function SchemaContainer(props) {
   // const [sample, setSample] = useState(false);
   const [open, setOpen] = useState(false);
 
-  console.log(setLoading);
   // tooltip function close - copy button
   const handleTooltipClose = () => {
     setOpen(false);

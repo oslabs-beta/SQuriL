@@ -7,7 +7,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Divider from '@mui/material/Divider';
 
 function QueryCard(props) {
-  const { queryCard, getSchema, deleteQuery, currentQueryId } = props;
+  const { queryCard, getSchema, deleteQuery, currentQueryId, setCurrentQueryId } = props;
 
   return (
     <div className='QueryCard' data-testid='query-card'>
@@ -27,6 +27,7 @@ function QueryCard(props) {
           className='delete-Query'
           onClick={() => {
             deleteQuery(queryCard);
+            setCurrentQueryId(0);
           }}
         >
           <DeleteIcon />
@@ -42,6 +43,7 @@ QueryCard.propTypes = {
   getSchema: PropTypes.func,
   deleteQuery: PropTypes.func,
   currentQueryId: PropTypes.number,
+  setCurrentQueryId: PropTypes.func,
 };
 
 export default QueryCard;

@@ -1,4 +1,5 @@
 import React from 'react';
+// import unmountComponentAtNode used in afterEach function
 import { unmountComponentAtNode } from 'react-dom';
 // import React testing methods
 import { render, fireEvent } from '@testing-library/react';
@@ -6,7 +7,6 @@ import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 // import OAuth component
 import OAuth from '../OAuth';
-// import unmountComponentAtNode used in afterEach function
 
 let container = null;
 beforeEach(() => {

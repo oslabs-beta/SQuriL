@@ -57,6 +57,7 @@ function App() {
   }, []);
 
   return (
+    // Passing down settings for both light and dark mode
     <ThemeProvider theme={isDarkTheme ? createTheme(dark) : createTheme(light)}>
       <CssBaseline />
       <div className='App' data-testid='app'>

@@ -13,7 +13,6 @@ function URIInput(props) {
   return (
     <div className='uri-input' data-testid='uri'>
       <h3>Input your PostgreSQL URI here:</h3>
-      <br />
       <TextField
         onChange={(e) => setUri(e.target.value)}
         variant='outlined'

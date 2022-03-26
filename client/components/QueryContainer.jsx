@@ -6,10 +6,19 @@ import '../Styles/QueryContainer.css';
 function QueryContainer(props) {
   // array of QueryCard components
   const queryList = [];
-  const { queryCard, deleteQuery, getSchema, isDarkTheme, currentQueryId } = props;
+  const { queryCard, deleteQuery, getSchema, isDarkTheme, currentQueryId, setCurrentQueryId } = props;
   // iterate through props.queryCard
   for (let i = 0; i < queryCard.length; i += 1) {
-    queryList.push(<QueryCard key={queryCard[i]} queryCard={queryCard[i]} deleteQuery={deleteQuery} getSchema={getSchema} currentQueryId={currentQueryId} />);
+    queryList.push(
+      <QueryCard
+        key={queryCard[i]}
+        queryCard={queryCard[i]}
+        setCurrentQueryId={setCurrentQueryId}
+        deleteQuery={deleteQuery}
+        getSchema={getSchema}
+        currentQueryId={currentQueryId}
+      />
+    );
   }
 
   return (
@@ -29,6 +38,7 @@ QueryContainer.propTypes = {
   deleteQuery: PropTypes.func,
   currentQueryId: PropTypes.number,
   isDarkTheme: PropTypes.bool,
+  setCurrentQueryId: PropTypes.func,
 };
 
 export default QueryContainer;

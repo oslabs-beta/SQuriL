@@ -87,7 +87,6 @@ function Dashboard(props) {
     })
       .then((data) => data.json())
       .then((data) => {
-        console.log(data);
         getQuery();
       });
   };
@@ -144,6 +143,7 @@ function Dashboard(props) {
               getSchema={getSchema}
               isDarkTheme={isDarkTheme}
               currentQueryId={currentQueryId}
+              setCurrentQueryId={setCurrentQueryId}
             />
             <SchemaContainer
               onChange={setSchema} // to use in the save and update buttons in SchemaContainer?
