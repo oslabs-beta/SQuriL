@@ -9,6 +9,9 @@
         "camelcase": "off",
         "jsx-a11y/no-noninteractive-element-interactions": "off",
         "jsx-a11y/click-events-have-key-events": "off",
-        "react/jsx-no-bind": "off"
+        "react/jsx-no-bind": "off",
+        "no-undef": "off",
+        "react/jsx-filename-extension": "off",
+        "react/jsx-props-no-spreading": "off"
     }
 }
