@@ -5,24 +5,6 @@ const SQLTableInfo = fs.readFileSync('server/db/SQLTableInfo.sql', 'utf8');
 
 const apiController = {};
 
-// const userURIDecrypted = (link) => {
-
-// }
-
-// apiController.decryptURI = () => {
-//   try {
-//     // decrypt URI link and store in res.locals
-//     const { link } = req.body;
-//     res.locals.userURIDecrypted = userURIDecrypted(link);
-//     return next();
-//   } catch (error) {
-//     next({
-//       log: `apiController.decryptURI: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
-//       message: { err: 'Error occurred in apiController.decryptURI. Check server log for more details.'},
-//     })
-//   }
-// }
-
 apiController.getDBName = (req, res, next) => {
   const { link } = req.body;
   const db = new Pool({ connectionString: link });

@@ -29,18 +29,14 @@ const typeDefs = gql`
   # ! means its required
   type Query {
     Users_id(_id: ID!): [Users]
-    Allusers: [Users]
+    AllUsers: [Users]
 
     Queries_id(_id: ID!): [Queries]
     AllQueries: [Queries]
     # show me all queries(many) by this user(one)
     # filter 'many' --> by foreign keys
     # filter_Queries_by_Users(find: UsersFind): [Queries]
-    Queries_by_foreign_keys: [Queries]
-  }
-  extend type Query {
     Queries_by_foreign_keys(find: UsersFind!): [Queries]
-    #queries(find: {_id: #}) {}
   }
   # indicate by what filters selections will be availabe for the user input
   input UsersFind {

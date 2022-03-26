@@ -6,10 +6,10 @@ const gqlController = require('../controllers/gqlController.js');
 
 router.post(
   '/createGqlSchema',
-  // grab all table values and their relations
+  // grab all table values and structures
   apiController.getDBName,
   apiController.getTableInfo,
-  gqlController.convertToGQLSchema,
+  gqlController.generateTypeDef,
   (req, res) => {
     res.status(200).json(res.locals.schema);
   }
