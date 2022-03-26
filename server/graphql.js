@@ -22,38 +22,34 @@ const typeDefs = gql`
   type Queries {
     _id: ID!
     value: String
-    user_id: [Users] #make sure its in [] 
+    user_id: [Users] #make sure its in []
   }
 
   # this schema allows the following query:
   # ! means its required
   type Query {
     Users_id(_id: ID!): [Users]
-    Allusers: [Users]
+    AllUsers: [Users]
 
-    Queries_id(_id:ID!): [Queries]
+    Queries_id(_id: ID!): [Queries]
     AllQueries: [Queries]
     # show me all queries(many) by this user(one)
-    # filter 'many' --> by foreign keys 
+    # filter 'many' --> by foreign keys
     # filter_Queries_by_Users(find: UsersFind): [Queries]
-    Queries_by_foreign_keys: [Queries]
-  }
-  extend type Query {
-    Queries_by_foreign_keys(find: UsersFind!): [Queries] 
-    #queries(find: {_id: #}) {}
+    Queries_by_foreign_keys(find: UsersFind!): [Queries]
   }
   # indicate by what filters selections will be availabe for the user input
   input UsersFind {
-    user_id: Int! 
+    user_id: Int!
   }
-`
+`;
 const resolvers = {
   // resolver for Query type
   Query: {
     AllUsers: async () => {
       // console.log(args)
       try {
-        const data = await db.query('SELECT * FROM users')
+        const data = await db.query('SELECT * FROM users');
         return data.rows;
       } catch (error) {
         throw new Error(error);
@@ -61,7 +57,7 @@ const resolvers = {
     },
     AllQueries: async (parent, args, context, info) => {
       try {
-        const data = await db.query(`SELECT * FROM queries`)
+        const data = await db.query(`SELECT * FROM queries`);
         return data.rows;
       } catch (error) {
         throw new Error(error);
@@ -69,7 +65,9 @@ const resolvers = {
     },
     Users_id: async (parent, args, context, info) => {
       try {
-        const data = await db.query(`SELECT * FROM users WHERE _id='${args._id}'`)
+        const data = await db.query(
+          `SELECT * FROM users WHERE _id='${args._id}'`
+        );
         return data.rows;
       } catch (error) {
         throw new Error(error);
@@ -77,7 +75,9 @@ const resolvers = {
     },
     Queries_id: async (parent, args, context, info) => {
       try {
-        const data = await db.query(`SELECT * FROM queries WHERE _id='${args._id}'`)
+        const data = await db.query(
+          `SELECT * FROM queries WHERE _id='${args._id}'`
+        );
         return data.rows;
       } catch (error) {
         throw new Error(error);
@@ -85,11 +85,13 @@ const resolvers = {
     },
     // filter by foreign keys aka give queries based on used_id
     Queries_by_foreign_keys: async (parent, args, context, info) => {
-      const { find } = args
-      console.log(args.find.user_id)
+      const { find } = args;
+      console.log(args.find.user_id);
       try {
-        const data = await db.query(`SELECT * FROM queries WHERE user_id='${find.user_id}'`) //where _id is just a integer
-        console.log(data.rows)
+        const data = await db.query(
+          `SELECT * FROM queries WHERE user_id='${find.user_id}'`
+        ); //where _id is just a integer
+        console.log(data.rows);
         return data.rows;
       } catch (error) {
         throw new Error(error);
@@ -97,26 +99,28 @@ const resolvers = {
     },
   },
   // resolver for ONLY subfields of the table types
-  // define the specific subquery of the root Queries 
+  // define the specific subquery of the root Queries
   // parent is the result of the queries: [Queries]
   // this will not show in the queries -> only for the purposes of def spec. fields on types
   // useful for avoiding joining the tables if they are connected by primary and foreign keys
   Queries: {
     user_id: async (parent, args) => {
       try {
-        const data = await db.query(`SELECT * FROM users WHERE _id='${parent.user_id}'`)
+        const data = await db.query(
+          `SELECT * FROM users WHERE _id='${parent.user_id}'`
+        );
         return data.rows;
       } catch (error) {
         throw new Error(error);
       }
     },
-  }  
-}
+  },
+};
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers
-})
+  resolvers,
+});
 
 const PORT = 5000;
 server.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));

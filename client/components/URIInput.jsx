@@ -6,7 +6,7 @@ import { MVPschema } from '../../server/sampleDB';
 import '../Styles/Dashboard.css';
 
 function URIInput(props) {
-  const { uri, setUri, loadingFunc, onChange, loading, setLoading, createGQLSchema } = props;
+  const { uri, setUri, loadingFunc, loading, setLoading, createGQLSchema } = props;
 
   return (
     <div className='uri-input' data-testid='uri'>
@@ -14,6 +14,7 @@ function URIInput(props) {
         <label form='postgreSQL'>Input your PostgreSQL URI here:</label>
         <br></br>
         <TextField
+          onChange={(e) => setUri(e.target.value)}
           variant='outlined'
           value={uri}
           size='small'
@@ -29,6 +30,7 @@ function URIInput(props) {
         />
         <Button
           onClick={() => {
+            // console.log(uri);
             setLoading(true);
             setTimeout(() => setLoading(false), 2000);
             createGQLSchema(uri);

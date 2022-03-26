@@ -3,7 +3,5 @@
   "root": true,
   "plugins": ["prettier"],
   "ignorePatterns": ["**/__test__"],
-  "rules": {
-    "prettier/prettier": ["error"]
-  }
+  "rules": 
 }
