@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { TextField, Button } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -7,6 +7,8 @@ import '../Styles/Dashboard.css';
 
 function URIInput(props) {
   const { uri, setUri, setLoading, createGQLSchema } = props;
+  const [errorMsg, setErrorMsg] = useState('');
+  const [isError, setIsError] = useState(false);
 
   return (
     <div className='uri-input' data-testid='uri'>
@@ -29,11 +31,16 @@ function URIInput(props) {
       />
       <Button
         onClick={() => {
-          // console.log(uri);
-          setLoading(true);
-          setTimeout(() => setLoading(false), 2000);
-          createGQLSchema(uri);
-          setUri('');
+          if (uri < 0 || !uri.includes('postgres://')) {
+            setErrorMsg('Please enter a valid PostgreSQL URI');
+            setIsError(true);
+          } else {
+            setIsError(false);
+            setLoading(true);
+            setTimeout(() => setLoading(false), 2000);
+            createGQLSchema(uri);
+            setUri('');
+          }
         }}
         type='button'
         size='medium'
@@ -43,6 +50,8 @@ function URIInput(props) {
       >
         Go!
       </Button>
+      <br />
+      {isError ? <span>{errorMsg}</span> : null}
     </div>
   );
 }
