@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import QueryCard from './QueryCard';
 import '../Styles/QueryContainer.css';
+import { borderRadius } from '@mui/system';
 
 function QueryContainer(props) {
   // array of QueryCard components
@@ -22,9 +23,13 @@ function QueryContainer(props) {
   }
 
   return (
-    <div className='query-container' style={isDarkTheme ? { border: '1px solid rgb(189,0,255)' } : { border: '1px solid black' }} data-testid='query-container'>
+    <div
+      className='query-container'
+      style={isDarkTheme ? { background: 'rgba(255, 255, 255, 0.3)', borderRadius: '25px' } : { border: '1px solid black' }}
+      data-testid='query-container'
+    >
       <div className='QueryContainerHeader'>
-        <h2>Schema List</h2>
+        <h3>Schema List</h3>
       </div>
       <br />
       {queryList}

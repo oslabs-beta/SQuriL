@@ -23,7 +23,11 @@ const dark = {
   palette: {
     mode: 'dark',
     primary: {
-      main: 'rgb(214,0,255)',
+      main: 'rgb(72, 20, 155)',
+    },
+    secondary: {
+      main: '#ffffff',
+      contrastText: 'rgb(72, 20, 155)',
     },
   },
 };

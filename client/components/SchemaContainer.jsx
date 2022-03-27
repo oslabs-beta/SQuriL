@@ -7,7 +7,7 @@ import Switch from '@mui/material/Switch';
 import Tooltip from '@mui/material/Tooltip';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/duotone-dark.css';
+import 'codemirror/theme/material-darker.css';
 import 'codemirror/theme/cobalt.css';
 import 'codemirror/mode/javascript/javascript';
 import '../Styles/SchemaContainer.css';
@@ -76,10 +76,10 @@ function SchemaContainer(props) {
   return (
     <div
       className='SchemaContainer'
-      style={isDarkTheme ? { border: '1px solid rgb(189,0,255)' } : { border: '1px solid black' }}
+      style={isDarkTheme ? { background: 'rgba(255, 255, 255, 0.3)', borderRadius: '25px' } : { border: '1px solid black' }}
       data-testid='schema-container'
     >
-      <h2>{currentQueryId ? `Schema ${currentQueryId}` : 'Schema'}</h2>
+      <h3>{currentQueryId ? `Schema ${currentQueryId}` : 'Schema'}</h3>
       <span>
         <Button type='button' className='save-schema' variant='contained' onClick={() => handleSubmit()}>
           Save
@@ -141,7 +141,7 @@ function SchemaContainer(props) {
             lint: true,
             mode: 'javascript',
             lineNumbers: true,
-            theme: isDarkTheme ? 'duotone-dark' : 'cobalt',
+            theme: isDarkTheme ? 'material-darker' : 'cobalt',
           }}
         />
       ) : (
