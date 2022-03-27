@@ -14,6 +14,7 @@ function URIInput(props) {
     <div className='uri-input' data-testid='uri'>
       <h3>Input your PostgreSQL URI here:</h3>
       <TextField
+        sx={{ borderRadius: 12.5 }}
         onChange={(e) => setUri(e.target.value)}
         variant='outlined'
         value={uri}
@@ -29,6 +30,7 @@ function URIInput(props) {
         }}
       />
       <Button
+        sx={{ borderRadius: 12.5, fontWeight: 'bold' }}
         onClick={() => {
           if (uri < 0 || !uri.includes('postgres://')) {
             setErrorMsg('Please enter a valid PostgreSQL URI');

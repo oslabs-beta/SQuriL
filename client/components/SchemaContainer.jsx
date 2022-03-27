@@ -8,7 +8,7 @@ import Tooltip from '@mui/material/Tooltip';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material-darker.css';
-import 'codemirror/theme/cobalt.css';
+import 'codemirror/theme/eclipse.css';
 import 'codemirror/mode/javascript/javascript';
 import '../Styles/SchemaContainer.css';
 import { Controlled } from 'react-codemirror2';
@@ -76,16 +76,17 @@ function SchemaContainer(props) {
   return (
     <div
       className='SchemaContainer'
-      style={isDarkTheme ? { background: 'rgba(255, 255, 255, 0.3)', borderRadius: '25px' } : { border: '1px solid black' }}
+      style={isDarkTheme ? { background: '#212121', borderRadius: '25px' } : { background: '#fff', borderRadius: '25px' }}
       data-testid='schema-container'
     >
       <h3>{currentQueryId ? `Schema ${currentQueryId}` : 'Schema'}</h3>
       <span>
-        <Button type='button' className='save-schema' variant='contained' onClick={() => handleSubmit()}>
+        <Button type='button' className='save-schema' variant='contained' onClick={() => handleSubmit()} sx={{ borderRadius: 12.5, fontWeight: 'bold' }}>
           Save
         </Button>{' '}
         {/* <button type='submit' className='updateSchema' value="Update">Update</button> */}
         <Button
+          sx={{ borderRadius: 12.5, fontWeight: 'bold' }}
           type='button'
           className='sample-schema'
           variant='contained'
@@ -97,6 +98,7 @@ function SchemaContainer(props) {
           Sample
         </Button>{' '}
         <Button
+          sx={{ borderRadius: 12.5, fontWeight: 'bold' }}
           variant='contained'
           onClick={() => {
             exportCode();
@@ -118,6 +120,7 @@ function SchemaContainer(props) {
             title='Copied to clipboard'
           >
             <Button
+              sx={{ borderRadius: 12.5, fontWeight: 'bold' }}
               variant='contained'
               onClick={() => {
                 setOpen(true);
@@ -141,11 +144,13 @@ function SchemaContainer(props) {
             lint: true,
             mode: 'javascript',
             lineNumbers: true,
-            theme: isDarkTheme ? 'material-darker' : 'cobalt',
+            theme: isDarkTheme ? 'material-darker' : 'eclipse',
           }}
         />
       ) : (
-        <Loading />
+        <Loading
+        isDarkTheme={isDarkTheme}
+        />
       )}
     </div>
   );

@@ -10,7 +10,14 @@ function OAuth() {
 
   return (
     <div data-testid='OAuth-1'>
-      <Button data-testid='OAuth-2' variant='contained' size='large' startIcon={<GitHubIcon />} onClick={oAuthGo}>
+      <Button
+        data-testid='OAuth-2'
+        variant='contained'
+        size='large'
+        startIcon={<GitHubIcon />}
+        sx={{ borderRadius: 12.5, fontWeight: 'bold' }}
+        onClick={oAuthGo}
+      >
         github
       </Button>
     </div>

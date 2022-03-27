@@ -9,11 +9,16 @@ import '../Styles/App.css';
 const light = {
   palette: {
     primary: {
-      light: '#9162e4',
-      main: 'rgb(72, 20, 155)',
-      dark: '#280680',
+      main: '#aedb95',
       mode: 'light',
-      contrastText: '#ffffff',
+      contrastText: '#000',
+    },
+    secondary: {
+      main: '#fff',
+      contrastText: '#000',
+    },
+    background: {
+      default: '#f1f1f1',
     },
   },
 };
@@ -26,8 +31,8 @@ const dark = {
       main: 'rgb(72, 20, 155)',
     },
     secondary: {
-      main: '#ffffff',
-      contrastText: 'rgb(72, 20, 155)',
+      main: '#212121',
+      contrastText: '#fff',
     },
   },
 };

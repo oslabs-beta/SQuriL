@@ -18,6 +18,7 @@ function QueryContainer(props) {
         deleteQuery={deleteQuery}
         getSchema={getSchema}
         currentQueryId={currentQueryId}
+        isDarkTheme={isDarkTheme}
       />
     );
   }
@@ -25,7 +26,7 @@ function QueryContainer(props) {
   return (
     <div
       className='query-container'
-      style={isDarkTheme ? { background: 'rgba(255, 255, 255, 0.3)', borderRadius: '25px' } : { border: '1px solid black' }}
+      style={isDarkTheme ? { background: 'rgb(72, 20, 155)', borderRadius: '25px' } : { background: '#aedb95', borderRadius: '25px' }}
       data-testid='query-container'
     >
       <div className='QueryContainerHeader'>

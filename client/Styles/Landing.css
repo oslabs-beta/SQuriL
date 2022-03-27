@@ -1,43 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 .Landing {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(122, 64, 163);
-    display: grid;
-    /* grid: 400px / 400px; */
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;
+  border-radius: 20px;
 }
 
 .logoLanding {
-    height: 400px;
-    width: 400px;
-    box-sizing: border-box; 
+  height: 400px;
+  width: 400px;
+  box-sizing: border-box;
 }
 
 .OAuth {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .Tagline {
-    font-family: Roboto;
-    font-size: 40px;
-    color: white;
-    text-align: center;
-    height: 10px;
-    margin: 0px;
+  font-family: Roboto;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  height: 10px;
+  margin: 0px;
 }
 
 .graphql {
-    height: 64px;
-    width: 64px;
+  height: 64px;
+  width: 64px;
 }
 
 .logos {
-    display: flex;
-
+  display: flex;
+  margin-top: 20px;
 }

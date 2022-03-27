@@ -12,14 +12,24 @@ import SQuriLts_logos_white from '../Public/SQuriLts_logos_white.png';
 import github_white from '../Public/github_white.png';
 import github_black from '../Public/github_black.png';
 import graphql_logo from '../Public/graphql_logo.png';
-import '../Styles/App.css';
+import '../Styles/Landing.css';
 
 function Landing(props) {
   // grab probs from App
   const { isDarkTheme, changeTheme } = props;
 
   return (
-    <div className='App'>
+    <div className='Landing'>
+      <span>
+        {isDarkTheme ? 'dark mode' : 'light mode'}
+        <IconButton className='switch' sx={{ ml: 1 }} onClick={changeTheme} color='inherit'>
+          {isDarkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
+      </span>
+      <div className='app-welcome' style={isDarkTheme ? { background: '#212121', borderRadius: '25px' } : { background: '#fff', borderRadius: '25px' }}>
+        <img src={isDarkTheme ? SQuriLts_logos_white : squirltsLogosBlack} alt='logo' className='logo' />
+        <OAuth />
+      </div>
       <div className='logos'>
         <a href='https://github.com/oslabs-beta/SQuriL'>
           <img src={isDarkTheme ? github_white : github_black} alt='logo' className='github' />
@@ -27,16 +37,6 @@ function Landing(props) {
         <a href='https://graphql.org/learn/'>
           <img src={graphql_logo} alt='graphql' className='graphql' />
         </a>
-      </div>
-      <span>
-        {isDarkTheme ? 'dark mode' : 'light mode'}
-        <IconButton sx={{ ml: 1 }} onClick={changeTheme} color='inherit'>
-          {isDarkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
-        </IconButton>
-      </span>
-      <div className='app-welcome' style={isDarkTheme ? { border: '2px solid white' } : { border: '2px solid black' }}>
-        <img src={isDarkTheme ? SQuriLts_logos_white : squirltsLogosBlack} alt='logo' className='logo' />
-        <OAuth />
       </div>
     </div>
   );
