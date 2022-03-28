@@ -110,7 +110,15 @@ function Dashboard(props) {
       });
   };
 
-  const createTsSchema = () => {};
+  const createTsSchema = () => {
+    const url = `/api/readOutput`;
+    fetch(url)
+      .then((data) => data.json())
+      .then((data) => {
+        const TsGQL = data;
+        setTsSchema(TsGQL);
+      });
+  };
 
   return (
     <div>
@@ -124,6 +132,7 @@ function Dashboard(props) {
             </div>
             <URIInput
               createGQLSchema={createGQLSchema}
+              createTsSchema={createTsSchema}
               value={schema}
               onChange={setSchema}
               uri={uri}

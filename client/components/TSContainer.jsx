@@ -110,6 +110,7 @@ function TSContainer(props) {
           options={{
             lineWrapping: true,
             showCursorWhenSelecting: true,
+            scrollbarStyle: null,
             lint: true,
             mode: 'javascript',
             lineNumbers: true,
