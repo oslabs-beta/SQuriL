@@ -1,8 +1,8 @@
-const gqlController = {};
+const typeDefController = {};
 
 const tab = `  `;
 
-gqlController.generateTypeDef = (req, res, next) => {
+typeDefController.generateTypeDef = (req, res, next) => {
   try {
     // start with the empty string
     let query = '';
@@ -114,12 +114,9 @@ gqlController.generateTypeDef = (req, res, next) => {
 
     //close the typeDef with closing tick `
     query += '\n`;';
-
     //send to the response
-    res.locals.schema = query;
-
-    console.log(query);
-
+    res.locals.typeDefs = query;
+    // console.log(res.locals);
     return next();
   } catch (err) {
     return next({
@@ -223,4 +220,4 @@ function typeData(sqlType) {
   else return '[_input data type_]';
 }
 
-module.exports = gqlController;
+module.exports = typeDefController;
