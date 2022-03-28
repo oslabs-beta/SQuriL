@@ -159,10 +159,19 @@ function Dashboard(props) {
           <br />
           {/* <footer>
             <a href='https://github.com/oslabs-beta/SQuriL'>
-              <img src={isDarkTheme ? github_white : github_black} alt='logo' className='github' />
+              <img
+                src={isDarkTheme ? github_white : github_black}
+                alt='logo'
+                className='github'
+              />
             </a>
             <a href='https://graphql.org/learn/'>
-              <img src={graphql_logo} alt='graphql' className='graphql' style={{ marginLeft: '10px' }} />
+              <img
+                src={graphql_logo}
+                alt='graphql'
+                className='graphql'
+                style={{ marginLeft: '10px' }}
+              />
             </a>
           </footer> */}
         </div>
