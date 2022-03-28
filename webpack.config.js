@@ -1,4 +1,4 @@
-//direct the files
+// direct the files
 const path = require('path');
 // plugin automatically add css, js ,... assets from your entry point to your html output.
 const HtmlWebpackPlugin = require('html-webpack-plugin');
