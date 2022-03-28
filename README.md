@@ -5,13 +5,21 @@
 
 <!-- SQuriL -->
 <div id='top' align='center'>
-<img src='/home/mtrapani/SQuriL/client/Public/readmeLogo.png'>
+<img src='./client/Public/readmeLogo.png'>
 </br>
+<!-- PROJECT SHIELDS -->
+
+[![Contributors][contributors-shield]][contributors-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Forks][forks-shield]][forks-url]
+
 </div>
+
+<!-- TABLE OF CONTENTS -->
 
 <!-- ABOUT -->
 
-## About SQuriL
+## About SQuriL.ts
 
 <!-- BACKGROUND -->
 
@@ -39,7 +47,7 @@ SQuriL was built using the following frameworks and libraries:
 
 <!-- PROJECT SETUP -->
 
-### Project Setup
+## Project Setup
 
 Required software for setting up this application:
 
@@ -73,12 +81,23 @@ Required software for setting up this application:
 
 ## Contributors
 
-[Diana Kim](https://www.linkedin.com/in/diana-r-kim-a25a36157/) [ | @ruslanovna](https://github.com/ruslanovna)
+Diana Kim [LinkedIn](https://www.linkedin.com/in/diana-r-kim-a25a36157/) | [GitHub](https://github.com/ruslanovna)
 
-[Frank Nguyen](https://www.linkedin.com/in/frankknguyen/) [ | @franknguyen](https://github.com/frankknguyen)
+Frank Nguyen [LinkedIn](https://www.linkedin.com/in/frankknguyen/) | [GitHub](https://github.com/frankknguyen)
 
-[Mark Charles Smith](https://www.linkedin.com/in/mark-charles-smith/) [ | @markcharlessmith](https://github.com/markcharlessmith)
+Mark Charles Smith [LinkedIn](https://www.linkedin.com/in/mark-charles-smith/) | [GitHub](https://github.com/markcharlessmith)
 
-[Michael Trapani](https://www.linkedin.com/in/michael-a-trapani/) [ | @michaeltraps](https://github.com/michaeltraps)
+Michael Trapani [LinkedIn](https://www.linkedin.com/in/michael-a-trapani/) | [GitHub](https://github.com/michaeltraps)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/oslabs-beta/SQuriL/blob/main/LICENSE) file for details.
+
+[contributors-shield]: https://img.shields.io/github/contributors/oslabs-beta/SQuriL.svg?style=for-the-badge
+[contributors-url]: https://github.com/oslabs-beta/SQuriL/graphs/contributors
+[stars-shield]: https://img.shields.io/github/stars/oslabs-beta/SQuriL.svg?style=for-the-badge
+[stars-url]: https://github.com/oslabs-beta/SQuriL/stargazers
+[forks-shield]: https://img.shields.io/github/forks/oslabs-beta/SQuriL.svg?style=for-the-badge
+[forks-url]: https://github.com/oslabs-beta/SQuriL/network/members
