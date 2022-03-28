@@ -1,5 +1,5 @@
 require('dotenv').config();
-const db = require('../db/db.js');
+const db = require('../db/db');
 
 const userController = {};
 
@@ -17,9 +17,7 @@ userController.checkUser = async (req, res, next) => {
     const query = await db.query(sqlQuery);
     // If the query returns with an empty array, that means the user does not exist in the database
     // Set res.locals.exist to true/false for if a user is in the database or not
-    query.rows.length === 0
-      ? (res.locals.exists = false)
-      : (res.locals.exists = true);
+    query.rows.length === 0 ? (res.locals.exists = false) : (res.locals.exists = true);
     // console.log(res.locals.exists)
     return next();
   } catch (err) {
@@ -85,16 +83,12 @@ userController.allQueries = async (req, res, next) => {
     console.log('There is no user currently logged in');
     return next();
   }
-  console.log(
-    'In the allQueries middleware, res.locals.username is set to ' +
-      res.locals.username
-  );
+  console.log('In the allQueries middleware, res.locals.username is set to ' + res.locals.username);
 
   // Else use username stored in res.locals.username to make the query
   const { username } = res.locals; // Used for build
   // const username = 'michaeltraps' // Used for testing
-  const sqlQuery =
-    'SELECT q._id, q.value FROM queries q LEFT OUTER JOIN users u on q.user_id=u._id WHERE u.username=$1';
+  const sqlQuery = 'SELECT q._id, q.value FROM queries q LEFT OUTER JOIN users u on q.user_id=u._id WHERE u.username=$1';
 
   try {
     const query = await db.query(sqlQuery, [username]);
@@ -105,7 +99,7 @@ userController.allQueries = async (req, res, next) => {
       arr.push(element['_id']);
     });
     // console.log(arr);
-    res.locals.allQueries = arr; //array of ids
+    res.locals.allQueries = arr; // array of ids
     return next();
   } catch (err) {
     next({

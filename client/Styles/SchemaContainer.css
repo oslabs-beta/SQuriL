@@ -1,49 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 .SchemaContainer {
-    text-align: center;
-    border: 10px;
-    display: flex;
-    flex-direction: column;
-    /* border-radius: 5px; */
-    padding: 0px 20px 0px 20px;
-    margin-left: 5px;
-    font-family: Roboto;
-    width: 80vw;
-    height: 65vh;
+  text-align: center;
+  border: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10px 0px 10px;
+  margin-left: 5px;
+  font-family: Roboto;
+  width: 80vw;
+  height: 65vh;
 }
 
 .h4 {
-    width: 40px;
-    color: rgb(151, 3, 114)
-}
-
-.schemaWindow-wrapper {
-    margin-bottom: 10px;
+  width: 40px;
+  color: rgb(151, 3, 114);
 }
 
 .save-schema {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .sample-schema {
-    margin-left: 20px;
+  margin-left: 20px;
+}
+
+.react-codemirror2 {
+  height: 100%;
 }
 
 .CodeMirror {
-    height: 100px;
-    text-align:left;
-    border-radius: 5px;
+  height: 600px;
+  text-align: left;
 }
 
 .loading {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .switch {
-    justify-content: right;
+  justify-content: right;
 }

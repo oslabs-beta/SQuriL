@@ -1,30 +1,38 @@
 {
-  "root": true,
-  "ignorePatterns": ["**/test", "**/__tests__"],
-  "env": {
-    "node": true,
-    "browser": true,
-    "es2021": true
-  },
-  "plugins": ["react"],
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
+    "env": {
+        "browser": true
+    },
+    "extends": ["airbnb", "airbnb/hooks", "prettier"],
+    "plugins": ["react", "prettier"],
+    "rules": {
+        "no-console": "off",
+        "camelcase": "off",
+        "jsx-a11y/no-noninteractive-element-interactions": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "react/jsx-no-bind": "off",
+        "no-undef": "off",
+        "react/jsx-filename-extension": "off",
+        "react/jsx-props-no-spreading": "off",
+        "no-restricted-syntax": "off",
+        "guard-for-in": "off",
+        "no-multi-assign": "off",
+        "no-shadow": "off",
+        "prefer-destructuring": "off",
+        "prefer-template": "off",
+        "no-inner-declarations": "off",
+        "no-unused-vars": "off",
+        "no-use-before-define": "off",
+        "eqeqeq": "off",
+        "import/order": "off",
+        "no-unused-expressions": "off",
+        "consistent-return": "off",
+        "no-underscore-dangle": "off",
+        "dot-notation": "off",
+        "import/no-extraneous-dependencies": "off",
+        "no-template-curly-in-string": "off",
+        "import/no-dynamic-require": "off",
+        "prefer-object-spread": "off",
+        "react/require-default-props": "off"
+        
     }
-  },
-  "rules": {
-    "indent": ["warn", 2],
-    "no-unused-vars": ["off", { "vars": "local" }],
-    "no-case-declarations": "off",
-    "prefer-const": "warn",
-    "quotes": ["warn", "single"],
-    "react/prop-types": "off",
-    "semi": ["warn", "always"],
-    "space-infix-ops": "warn"
-  },
-  "settings": {
-    "react": { "version": "detect"}
-  }
-} 
+}

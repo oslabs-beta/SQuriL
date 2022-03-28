@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactLoading from 'react-loading';
-import '../Styles/SchemaContainer.css'
+import PropTypes from 'prop-types';
+import '../Styles/SchemaContainer.css';
 
-function Loading () {
-    return(
-        <div className='loading'>
-            <ReactLoading type='bars' color="rgb(72, 20, 155)"/>
-        </div>
-    );
+function Loading(props) {
+  const { isDarkTheme } = props;
+  return (
+    <div className='loading'>
+      <ReactLoading type='bars' color={isDarkTheme ? 'rgb(72, 20, 155)' : '#aedb95'} />
+    </div>
+  );
 }
+
+Loading.propTypes = {
+  isDarkTheme: PropTypes.bool.isRequired,
+};
 
 export default Loading;

@@ -67,9 +67,7 @@ const resolvers = {
     },
     Queries_id: async (parent, args, context, info) => {
       try {
-        const data = await db.query(
-          `SELECT * FROM queries WHERE _id='${args._id}'`
-        );
+        const data = await db.query(`SELECT * FROM users WHERE _id='${args._id}'`);
         return data.rows;
       } catch (error) {
         throw new Error(error);
@@ -87,9 +85,8 @@ const resolvers = {
     Queries_by_foreign_keys: async (parent, args, context, info) => {
       const { find } = args;
       try {
-        const data = await db.query(
-          `SELECT * FROM queries WHERE user_id='${find.user_id}'`
-        ); //where _id is just a integer
+        const data = await db.query(`SELECT * FROM queries WHERE user_id='${find.user_id}'`); // where _id is just a integer
+        console.log(data.rows);
         return data.rows;
       } catch (error) {
         throw new Error(error);
@@ -104,9 +101,7 @@ const resolvers = {
   Queries: {
     user_id: async (parent, args) => {
       try {
-        const data = await db.query(
-          `SELECT * FROM users WHERE _id='${parent.user_id}'`
-        );
+        const data = await db.query(`SELECT * FROM users WHERE _id='${parent.user_id}'`);
         return data.rows;
       } catch (error) {
         throw new Error(error);

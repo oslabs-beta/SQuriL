@@ -2,7 +2,6 @@
 // import OutputWindow from './OutputWindow';
 // import '../Styles/z.css'
 
-
 // function OutputContainer(props) {
 //     const { output, setOutput } = props;
 //     return (
