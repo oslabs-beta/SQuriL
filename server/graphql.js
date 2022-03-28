@@ -46,28 +46,20 @@ const typeDefs = gql`
 const resolvers = {
   // resolver for Query type
   Query: {
-    AllUsers: async () => {
-      // console.log(args)
-      try {
-        const data = await db.query('SELECT * FROM users');
-        return data.rows;
-      } catch (error) {
-        throw new Error(error);
-      }
-    },
-    AllQueries: async (parent, args, context, info) => {
-      try {
-        const data = await db.query(`SELECT * FROM queries`);
-        return data.rows;
-      } catch (error) {
-        throw new Error(error);
-      }
-    },
     Users_id: async (parent, args, context, info) => {
       try {
         const data = await db.query(
           `SELECT * FROM users WHERE _id='${args._id}'`
         );
+        return data.rows;
+      } catch (error) {
+        throw new Error(error);
+      }
+    },
+    AllUsers: async () => {
+      // console.log(args)
+      try {
+        const data = await db.query('SELECT * FROM users');
         return data.rows;
       } catch (error) {
         throw new Error(error);
@@ -83,15 +75,21 @@ const resolvers = {
         throw new Error(error);
       }
     },
+    AllQueries: async (parent, args, context, info) => {
+      try {
+        const data = await db.query(`SELECT * FROM queries`);
+        return data.rows;
+      } catch (error) {
+        throw new Error(error);
+      }
+    },
     // filter by foreign keys aka give queries based on used_id
     Queries_by_foreign_keys: async (parent, args, context, info) => {
       const { find } = args;
-      console.log(args.find.user_id);
       try {
         const data = await db.query(
           `SELECT * FROM queries WHERE user_id='${find.user_id}'`
         ); //where _id is just a integer
-        console.log(data.rows);
         return data.rows;
       } catch (error) {
         throw new Error(error);
