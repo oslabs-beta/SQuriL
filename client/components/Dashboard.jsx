@@ -12,6 +12,7 @@ import SchemaContainer from './SchemaContainer';
 import URIInput from './URIInput';
 import graphql_logo from '../Public/graphql_logo.png';
 import LoadingLogo from './LoadingLogo';
+import TSContainer from './TSContainer';
 import '../Styles/Dashboard.css';
 
 function Dashboard(props) {
@@ -22,7 +23,7 @@ function Dashboard(props) {
   // set state for schema window of a given query card
   const [schema, setSchema] = useState('');
   // set state for the output window of a submitted query
-  // const [output, setOutput] = useState();
+  const [tsSchema, setTsSchema] = useState();
   // set state for uri address bar at the top of the screen
   const [uri, setUri] = useState('');
   // the current query id that the user has selected
@@ -109,6 +110,16 @@ function Dashboard(props) {
       });
   };
 
+  const createTsSchema = () => {
+    const url = `/api/readOutput`;
+    fetch(url)
+      .then((data) => data.json())
+      .then((data) => {
+        const TsGQL = data;
+        setTsSchema(TsGQL);
+      });
+  };
+
   return (
     <div>
       {isLoaded === false ? (
@@ -121,6 +132,7 @@ function Dashboard(props) {
             </div>
             <URIInput
               createGQLSchema={createGQLSchema}
+              createTsSchema={createTsSchema}
               value={schema}
               onChange={setSchema}
               uri={uri}
@@ -155,6 +167,7 @@ function Dashboard(props) {
               loading={loading}
               setLoading={setLoading}
             />
+            <TSContainer isDarkTheme={isDarkTheme} value={tsSchema} onChange={setTsSchema} loading={loading} setLoading={setLoading} />
           </div>
           <br />
           {/* <footer>
