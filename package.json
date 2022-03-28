@@ -10,7 +10,9 @@
     "dev": " NODE_ENV=development nodemon server/server.js --open & NODE_ENV=development webpack-dev-server --open --hot",
     "server": "nodemon server/server.js",
     "api-dev": "nodemon server/graphql.js",
-    "tsc-test": "tsc type-test.ts"
+    "tsc-test": "tsc type-test.ts",
+    "codegen-init": "graphql-codegen init",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "author": "",
   "license": "ISC",
@@ -44,11 +46,16 @@
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4",
-    "webpack-hot-middleware": "^2.25.1"
+    "webpack-hot-middleware": "^2.25.1",
+    "@graphql-codegen/typescript": "2.4.8",
+    "@graphql-codegen/typescript-resolvers": "2.6.1",
+    "@graphql-codegen/introspection": "2.1.1",
+    "@graphql-codegen/cli": "2.6.2"
   },
   "dependencies": {
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
+    "@graphql-codegen/cli": "^2.6.2",
     "@material-ui/styles": "^4.11.4",
     "@mui/icons-material": "^5.5.0",
     "@mui/material": "^5.5.0",
