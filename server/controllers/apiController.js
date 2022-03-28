@@ -4,8 +4,14 @@ const fs = require('fs');
 const { Pool } = require('pg');
 
 const SQLTableInfo = fs.readFileSync('server/db/SQLTableInfo.sql', 'utf8');
+const test = fs.readFileSync('server/schemas/output/outputSchema.ts', 'utf8');
 
 const apiController = {};
+
+apiController.readFile = (req, res, next) => {
+  res.locals.read = test;
+  return next();
+};
 
 apiController.getDBName = (req, res, next) => {
   const { link } = req.body;
