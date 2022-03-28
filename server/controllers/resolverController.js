@@ -74,7 +74,7 @@ resolverController.generateResolvers = (req, res, next) => {
     // combine typeDefs + resolvers and return
     const GQLschema = typeDefs + resolvers;
     res.locals.schema = GQLschema;
-    console.log(GQLschema);
+    // console.log(GQLschema);
     return next();
   } catch (err) {
     return next({
