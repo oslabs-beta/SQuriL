@@ -1,11 +1,10 @@
-require('dotenv').config();
-const { ApolloServer } = require('apollo-server');
-const gql = require('graphql-tag');
-const ts = require('./outputSchema.ts');
+import { ApolloServer } from 'apollo-server';
+import gql from 'graphql-tag';
+import * as ts from './outputSchema.ts';
 
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+  // typeDefs,
+  // resolvers,
 });
 
 const PORT = 5000;
