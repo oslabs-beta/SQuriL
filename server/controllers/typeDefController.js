@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const typeDefController = {};
 
 const tab = `  `;
@@ -135,6 +137,11 @@ function typeEachTabletTemplate(databases, name, pk_name, pk_type, fk_name, fk_r
       query += `\n${tab}${tab}${column}: ${column_type}`;
     }
   }
+  codegenInput(query);
+  // fs.appendFileSync('server/schemas/input/inputSchema.graphql', query, (err) => {
+  //   if (err) console.log(err);
+  //   else console.log('Written successfully');
+  // }); // Frank - Leaving this here temporarily until I figure out where to put it
   return query;
 }
 
@@ -166,6 +173,16 @@ function typeInputTemplate(fk_name, fk_type, fk_ref_table) {
     inputDefTemplate += `\n${tab}}`;
   }
   return inputDefTemplate;
+}
+
+function codegenInput(query) {
+  let newQuery = query;
+  newQuery += `\n${tab}}`;
+  newQuery += '\n';
+  fs.appendFileSync('server/schemas/input/inputSchema.graphql', newQuery, (err) => {
+    if (err) console.log(err);
+    else console.log('Written successfully');
+  }); // Frank - Leaving this here temporarily until I figure out where to put it
 }
 
 function typeData(sqlType) {
