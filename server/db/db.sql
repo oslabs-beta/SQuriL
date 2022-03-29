@@ -4,18 +4,33 @@ CREATE DATABASE squril;
 
 CREATE TABLE users (
   _id SERIAL NOT NULL PRIMARY KEY,
-  username VARCHAR NOT NULL, 
+  username VARCHAR(100) NOT NULL, 
 )
 
 
-CREATE TABLE schemas (
+-- CREATE TABLE queries (
+--   _id SERIAL NOT NULL PRIMARY KEY,
+--   value VARCHAR,
+--   user_id BIGINT NOT NULL REFERENCES users (_id)
+-- );
+
+
+-- added TS schemas
+ CREATE TABLE schemas (
+   _id SERIAL NOT NULL PRIMARY KEY, 
+   gqlSchema VARCHAR, 
+   tsSchema VARCHAR, 
+   user_id BIGINT NOT NULL REFERENCES users (_id)
+   );
+
+-- for QGL generation testing
+CREATE TABLE dataTypes (
   _id SERIAL NOT NULL PRIMARY KEY,
-  gqlSchema VARCHAR,
-  tsSchema VARCHAR, 
-  user_id BIGINT NOT NULL REFERENCES users (_id)
+  bool boolean,
+  date DATE,
+  float float(4)
 );
 
-CREATE TABLE schemas (_id SERIAL NOT NULL PRIMARY KEY, gqlSchema VARCHAR, tsSchema VARCHAR, user_id BIGINT NOT NULL REFERENCES users (_id));
 
 -- -- FOR TESTING:
 -- CREATE TABLE tests (
