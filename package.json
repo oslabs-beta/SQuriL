@@ -16,15 +16,18 @@
     "install-client": "npm install",
     "heroku-build": "npm run build",
     "heroku-postbuild": "npm run install-client && npm run heroku-build"
-
   },
-  "author": "", 
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
+    "@graphql-codegen/cli": "2.6.2",
+    "@graphql-codegen/introspection": "2.1.1",
+    "@graphql-codegen/typescript": "2.4.8",
+    "@graphql-codegen/typescript-resolvers": "2.6.1",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
@@ -57,11 +60,7 @@
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4",
-    "webpack-hot-middleware": "^2.25.1",
-    "@graphql-codegen/typescript": "2.4.8",
-    "@graphql-codegen/typescript-resolvers": "2.6.1",
-    "@graphql-codegen/introspection": "2.1.1",
-    "@graphql-codegen/cli": "2.6.2"
+    "webpack-hot-middleware": "^2.25.1"
   },
   "dependencies": {
     "@emotion/react": "^11.8.1",
