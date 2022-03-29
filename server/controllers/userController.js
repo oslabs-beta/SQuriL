@@ -77,7 +77,7 @@ userController.addUser = async (req, res, next) => {
 };
 
 // Retreive all saved queries as User logs
-userController.allQueries = async (req, res, next) => {
+userController.allSchemas = async (req, res, next) => {
   // If verifySession did not find a cookie then res.locals.username does not exist and nothing needs to be done here, move to next middleware
   if (!res.locals.username) {
     console.log('There is no user currently logged in');
@@ -88,24 +88,24 @@ userController.allQueries = async (req, res, next) => {
   // Else use username stored in res.locals.username to make the query
   const { username } = res.locals; // Used for build
   // const username = 'michaeltraps' // Used for testing
-  const sqlQuery = 'SELECT q._id, q.value FROM queries q LEFT OUTER JOIN users u on q.user_id=u._id WHERE u.username=$1';
+  const sqlQuery = 'SELECT s._id, s.gqlSchema FROM schemas s LEFT OUTER JOIN users u on s.user_id=u._id WHERE u.username=$1';
 
   try {
     const query = await db.query(sqlQuery, [username]);
-    // console.log('From allQueries controller', query.rows)
+    console.log('From allQueries controller', query.rows);
     // added logic to convert this to an array of ids
     const arr = [];
     query.rows.forEach((element) => {
       arr.push(element['_id']);
     });
     // console.log(arr);
-    res.locals.allQueries = arr; // array of ids
+    res.locals.allSchemas = arr; // array of ids
     return next();
   } catch (err) {
     next({
-      log: `userController.allQueries: ERROR: ${err}`,
+      log: `userController.allSchemas: ERROR: ${err}`,
       message: {
-        err: 'Error occurred in userController.allQueries. Check server log for more details.',
+        err: 'Error occurred in userController.allSchemas. Check server log for more details.',
       },
     });
   }
