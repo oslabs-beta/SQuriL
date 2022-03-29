@@ -15,6 +15,7 @@ function QueryCard(props) {
         sx={{ borderRadius: 12.5 }}
         data-testid='query-card-h3'
         color='secondary'
+        size='small'
         variant='contained'
         style={currentQueryId === queryCard ? { fontWeight: 'bold', textDecoration: 'underline' } : { fontWeight: 'bold' }}
         onClick={() => getSchema(queryCard)}

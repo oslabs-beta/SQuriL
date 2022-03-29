@@ -18,4 +18,8 @@ router.post(
   }
 );
 
+router.get('/readOutput', apiController.readFile, (req, res) => {
+  res.status(200).json(res.locals.read);
+});
+
 module.exports = router;

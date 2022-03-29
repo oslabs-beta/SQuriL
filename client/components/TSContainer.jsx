@@ -1,23 +1,15 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Controlled } from 'react-codemirror2';
 import { Button } from '@mui/material';
 import { saveAs } from 'file-saver';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
 import Tooltip from '@mui/material/Tooltip';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/material-darker.css';
-import 'codemirror/theme/eclipse.css';
-import 'codemirror/mode/javascript/javascript';
-import '../Styles/SchemaContainer.css';
-import { Controlled } from 'react-codemirror2';
 import Loading from './Loading';
+import '../Styles/TSContainer.css';
 
-function SchemaContainer(props) {
-  // schemawindow prop to be passed down
-  const { value, onChange, currentQueryId, createQuery, isDarkTheme, setLoading, loading } = props;
-  // const [sample, setSample] = useState(false);
+function TSContainer(props) {
+  const { value, onChange, isDarkTheme, setLoading, loading } = props;
   const [open, setOpen] = useState(false);
 
   // tooltip function close - copy button
@@ -43,60 +35,38 @@ function SchemaContainer(props) {
   // export code functionality
   const exportCode = () => {
     saveAs(
-      new File([`${value}`], 'schemaExport.js', {
+      new File([`${value}`], 'TSschemaExport.ts', {
         type: 'text/plain;charset=utf-8',
       })
     );
   };
 
-  // purple bar loading in schema container
-  function loadingFunc() {
-    setTimeout(() => setLoading(false), 2000);
-    createSampleSchema();
-  }
-
-  const createSampleSchema = () => {
-    const url = `/api/createGqlSchema`;
-    fetch(url, {
-      method: 'Post',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        link: 'postgres://itjbbwxw:B0wiXF4aypk5kOpWNXmiU2JFV6CEvTW8@raja.db.elephantsql.com/itjbbwxw',
-      }),
-    })
-      .then((data) => data.json())
-      .then((data) => {
-        const GQL = data;
-        onChange(GQL);
-      });
-  };
+  // const createSampleSchema = () => {
+  //   const url = `/api/createGqlSchema`;
+  //   fetch(url, {
+  //     method: 'Post',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       link: 'postgres://itjbbwxw:B0wiXF4aypk5kOpWNXmiU2JFV6CEvTW8@raja.db.elephantsql.com/itjbbwxw',
+  //     }),
+  //   })
+  //     .then((data) => data.json())
+  //     .then((data) => {
+  //       const GQL = data;
+  //       onChange(GQL);
+  //     });
+  // };
 
   return (
     <div
-      className='SchemaContainer'
+      className='TSContainer'
       style={isDarkTheme ? { background: '#212121', borderRadius: '25px' } : { background: '#fff', borderRadius: '25px' }}
       data-testid='schema-container'
     >
-      <h3>{currentQueryId ? `JS Schema ${currentQueryId}` : 'JS Schema'}</h3>
+      <h3>TS Schema</h3>
       <span>
-        <Button type='button' className='save-schema' variant='contained' onClick={() => handleSubmit()} sx={{ borderRadius: 12.5, fontWeight: 'bold' }}>
-          Save
-        </Button>{' '}
-        {/* <button type='submit' className='updateSchema' value="Update">Update</button> */}
-        <Button
-          sx={{ borderRadius: 12.5, fontWeight: 'bold' }}
-          type='button'
-          className='sample-schema'
-          variant='contained'
-          onClick={() => {
-            setLoading(true);
-            loadingFunc();
-          }}
-        >
-          Sample
-        </Button>{' '}
         <Button
           sx={{ borderRadius: 12.5, fontWeight: 'bold' }}
           variant='contained'
@@ -133,7 +103,6 @@ function SchemaContainer(props) {
           </Tooltip>
         </ClickAwayListener>
       </span>
-      {/* <FormControlLabel control={<Switch />} label='TypeScript' className='switch' /> */}
       {loading === false ? (
         <Controlled
           onBeforeChange={handleChange}
@@ -155,14 +124,12 @@ function SchemaContainer(props) {
   );
 }
 
-SchemaContainer.propTypes = {
+TSContainer.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
-  currentQueryId: PropTypes.number,
-  createQuery: PropTypes.func,
-  isDarkTheme: PropTypes.bool,
+  isDarkTheme: PropTypes.func,
   loading: PropTypes.bool,
   setLoading: PropTypes.func,
 };
 
-export default SchemaContainer;
+export default TSContainer;
