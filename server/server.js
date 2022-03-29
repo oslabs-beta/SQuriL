@@ -20,7 +20,7 @@ const userRouter = require(path.join(__dirname, '/routers/userRouter.js'));
 const oauthRouter = require(path.join(__dirname, '/routers/oauthRouter.js'));
 
 // telling the host site that if we are in prod -> serve this build file
-app.use(express.static('./build'));
+app.use('/', express.static('./build'));
 
 // Route requests to queryRouter
 app.use('/query', queryRouter);
