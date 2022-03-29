@@ -1,5 +1,6 @@
 const db = require('../db/db');
 const fs = require('fs');
+const { exec } = require('child_process');
 
 const { Pool } = require('pg');
 
@@ -105,5 +106,7 @@ apiController.createGQLmeta = (req, res, next) => {
     });
   }
 };
+
+apiController.codegen = (req, res, next) => {};
 
 module.exports = apiController;
