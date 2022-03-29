@@ -53,5 +53,5 @@ app.use((err, req, res, next) => {
 });
 
 // for Heroku to choose first available port || 3000 is used of running on the local server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
+// const PORT = process.env.PORT || 3000;
+app.listen(process.env.PORT || 3000, () => console.log(`Listening on PORT: ${process.env.PORT}`));
