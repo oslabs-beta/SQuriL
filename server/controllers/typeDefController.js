@@ -204,7 +204,7 @@ function typeData(sqlType) {
   if (lowerCaseSqlType === 'timestamp without time zone') return 'String';
   if (lowerCaseSqlType === 'double precision') return 'Float';
   if (typeMatch[lowerCaseSqlType]) return typeMatch[lowerCaseSqlType];
-  return '[_input data type_]';
+  return 'String';
 }
 
 module.exports = typeDefController;

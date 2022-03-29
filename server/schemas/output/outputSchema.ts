@@ -74,6 +74,13 @@ export type Planets_In_Films = {
   planet_id?: Maybe<Scalars['Int']>;
 };
 
+export type Queries = {
+  __typename?: 'queries';
+  query_id: Scalars['ID'];
+  user_id?: Maybe<Array<Maybe<Users>>>;
+  value?: Maybe<Scalars['String']>;
+};
+
 export type Species = {
   __typename?: 'species';
   _id: Scalars['ID'];
@@ -214,6 +221,7 @@ export type ResolversTypes = ResolversObject<{
   pilots: ResolverTypeWrapper<Pilots>;
   planets: ResolverTypeWrapper<Planets>;
   planets_in_films: ResolverTypeWrapper<Planets_In_Films>;
+  queries: ResolverTypeWrapper<Queries>;
   species: ResolverTypeWrapper<Species>;
   species_in_films: ResolverTypeWrapper<Species_In_Films>;
   starship_specs: ResolverTypeWrapper<Starship_Specs>;
@@ -234,6 +242,7 @@ export type ResolversParentTypes = ResolversObject<{
   pilots: Pilots;
   planets: Planets;
   planets_in_films: Planets_In_Films;
+  queries: Queries;
   species: Species;
   species_in_films: Species_In_Films;
   starship_specs: Starship_Specs;
@@ -300,6 +309,13 @@ export type Planets_In_FilmsResolvers<ContextType = any, ParentType extends Reso
   _id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   film_id?: Resolver<Maybe<Array<Maybe<ResolversTypes['films']>>>, ParentType, ContextType>;
   planet_id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueriesResolvers<ContextType = any, ParentType extends ResolversParentTypes['queries'] = ResolversParentTypes['queries']> = ResolversObject<{
+  query_id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  user_id?: Resolver<Maybe<Array<Maybe<ResolversTypes['users']>>>, ParentType, ContextType>;
+  value?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
@@ -370,6 +386,7 @@ export type Resolvers<ContextType = any> = ResolversObject<{
   pilots?: PilotsResolvers<ContextType>;
   planets?: PlanetsResolvers<ContextType>;
   planets_in_films?: Planets_In_FilmsResolvers<ContextType>;
+  queries?: QueriesResolvers<ContextType>;
   species?: SpeciesResolvers<ContextType>;
   species_in_films?: Species_In_FilmsResolvers<ContextType>;
   starship_specs?: Starship_SpecsResolvers<ContextType>;
