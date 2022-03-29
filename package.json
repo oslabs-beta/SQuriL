@@ -15,7 +15,7 @@
     "codegen": "graphql-codegen --config codegen.yml",
     "install-client": "npm install",
     "heroku-build": "npm run build",
-    "heroku-postbuild": "npm run install-client && npm run build"
+    "heroku-postbuild": "npm run install-client && npm run heroku-build"
 
   },
   "author": "",
