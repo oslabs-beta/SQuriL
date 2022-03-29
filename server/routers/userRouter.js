@@ -6,12 +6,12 @@ const userController = require('../controllers/userController');
 const sessionController = require('../controllers/sessionController');
 
 router.get(
-  '/allQueries',
+  '/allSchemas',
   sessionController.verifySession,
-  userController.allQueries,
+  userController.allSchemas,
   (req, res) =>
     // return res.status(200).send('reached the end of allqueries route') // Used for testing
-    res.status(200).json(res.locals.allQueries) // Used with frontend
+    res.status(200).json(res.locals.allSchemas) // Used with frontend
 );
 
 // check if the user has been logged in
