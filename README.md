@@ -46,13 +46,19 @@
 
 ## Background
 
+[GraphQL](https://graphql.org/) is a query language and server-side runtime for application programming interfaces (APIs) that prioritizes giving users the exact data they request and nothing more. GraphQL provides a complete and understandable description of the data in a client's API, making it easier to evolve APIs over time and enables powerful developer tools.
+
+The barrier of entry for GraphQL can be daunting - making the switch to GraphQL can be labor intensive and time consuming. On top of that, there aren't many options for both generating usable GraphQL schema for both JavaScript and TypeScript environments and also storing them for future use and reference.
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- MEET SQURIL.TS -->
 
 ## Meet SQuriL.ts
 
-Meet SQuriL.ts, a GraphQL schema generation and storage tool that creates GraphQL schemas from a PostgreSQL URI for both JavaScript and TypeScript compatible environments.
+Meet SQuriL.ts, an open source GraphQL schema generation and storage tool that creates customized, production-ready GraphQL schemas from a PostgreSQL URI for both JavaScript and TypeScript compatible environments. Simply log in with your GitHub account and start generating and saving your GraphQL schemas today! Check out our [medium](www.medium.com) article detailing the inspiration behind SQuriL.
+
+Accelerated by <a href="https://github.com/oslabs-beta/" >OS Labs</a>.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -84,6 +90,10 @@ Once generated, both JavaScript and TypeScript schemas can be saved by users for
 
 With a simple click, users can both copy their code to clipboard for immediate use or export their schema code to .js and .ts files for local storage.
 
+<div  align="center">
+<img src='./client/Public/squrilGif4.gif'>
+</div>
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- For Developers -->
@@ -100,7 +110,9 @@ SQuriL was built using the following frameworks and libraries:
 - [Express](https://expressjs.com/)
 - [Material-UI](https://mui.com/)
 - [PostgreSQL](https://postgresql.org/)
+- [Apollo](https://www.apollographql.com/)
 - [CodeMirror](https://codemirror.net/)
+- [GraphQL Code Generator](https://www.graphql-code-generator.com/)
 - [Typescript](https://www.typescriptlang.org/)
 - [React Animations](https://formidable.com/open-source/react-animations/#:~:text=A%20collection%20of%20animations%20that,css.)
 - [Jest](https://jestjs.io/)

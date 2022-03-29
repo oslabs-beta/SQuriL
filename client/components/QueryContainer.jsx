@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import QueryCard from './QueryCard';
 import '../Styles/QueryContainer.css';
-import { borderRadius } from '@mui/system';
 
 function QueryContainer(props) {
   // array of QueryCard components

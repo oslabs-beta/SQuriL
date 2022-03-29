@@ -16,7 +16,7 @@ import Loading from './Loading';
 
 function SchemaContainer(props) {
   // schemawindow prop to be passed down
-  const { value, onChange, currentQueryId, createQuery, isDarkTheme, setLoading, loading } = props;
+  const { value, tsSchema, onChange, currentQueryId, createQuery, isDarkTheme, setLoading, loading } = props;
   // const [sample, setSample] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -37,7 +37,7 @@ function SchemaContainer(props) {
 
   // save schema functionality
   function handleSubmit() {
-    createQuery(value);
+    createQuery(value, tsSchema);
   }
 
   // export code functionality
@@ -163,6 +163,7 @@ SchemaContainer.propTypes = {
   isDarkTheme: PropTypes.bool,
   loading: PropTypes.bool,
   setLoading: PropTypes.func,
+  tsSchema: PropTypes.string,
 };
 
 export default SchemaContainer;
