@@ -17,6 +17,31 @@
 
 <!-- TABLE OF CONTENTS -->
 
+<details open='open'>
+  <summary>Table of Contents</summary>
+  <ol>
+      <li><a href='#about-squirl'>About SQuriL</a></li>
+      <li><a href='#background'>Background</a></li>
+      <li><a href='#getting-started'>Getting Started</a></li>
+      <li><a href='#meet-squirl'>Meet SQuriL</a></li>
+          <ul>
+            <li><a href='#link-your-database'>Link Your Database</a></li>
+            <li><a href='#generate-your-graphql-schema'>Generate Your GraphQL Schema</a></li>
+            <li><a href='#save-your-schema'>Save Your Schema</a></li>
+            <li><a href='#copy-or-export-your-code'>Copy Or Export Your Code</a></li>
+          </ul>
+      <li><a href='#for-developers'>For Developers</a></li>
+          <ul>
+            <li><a href='#built-with'>Built With</a></li>
+            <li><a href='#project-setup'>Project Setup</a></li>
+          </ul>
+      <li><a href='#contributors'>Contributors</a></li>
+      <li><a href='#license'>License</a></li>
+  </ol>
+</details>
+
+</br>
+
 <!-- ABOUT -->
 
 ## About SQuriL.ts
@@ -25,9 +50,23 @@
 
 ## Background
 
-<!-- BACKGROUND -->
+<!-- Meet SQuriL -->
 
-## Built With
+## Meet SQuriL
+
+### Link Your Database
+
+### Generate Your GraphQL Schema
+
+### Save Your Schema
+
+### Copy or Export Your Code
+
+<!-- For Developers -->
+
+## For Developers 
+
+### Built With
 
 SQuriL was built using the following frameworks and libraries:
 
@@ -47,7 +86,7 @@ SQuriL was built using the following frameworks and libraries:
 
 <!-- PROJECT SETUP -->
 
-## Project Setup
+### Project Setup
 
 Required software for setting up this application:
 
