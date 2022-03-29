@@ -59,6 +59,7 @@ function Dashboard(props) {
       },
     }).then(() => {
       setSchema('');
+      setTsSchema('');
       getQuery();
     });
   };
@@ -70,7 +71,7 @@ function Dashboard(props) {
       .then((data) => data.json())
       .then((data) => {
         setSchema(data.gqlschema);
-        setTsSchema(data.tsschema)
+        setTsSchema(data.tsschema);
         // console.log(data.gqlschema);
         setCurrentQueryId(queryId);
       });
@@ -115,7 +116,7 @@ function Dashboard(props) {
   };
 
   const createTsSchema = () => {
-    const url = `/api/readOutput`;
+    const url = `/api/codegen`;
     fetch(url)
       .then((data) => data.json())
       .then((data) => {
