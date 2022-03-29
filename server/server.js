@@ -49,5 +49,10 @@ app.use((err, req, res, next) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-const PORT = 3000;
+// telling the host site that if we are in prod -> serve this build file
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('./build'));
+}
+// for Heroku to choose first available port || 3000 is used of running on the local server
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));

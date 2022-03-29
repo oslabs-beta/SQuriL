@@ -4,24 +4,18 @@ CREATE DATABASE squril;
 
 CREATE TABLE users (
   _id SERIAL NOT NULL PRIMARY KEY,
-  username VARCHAR(100) NOT NULL, 
+  username VARCHAR NOT NULL, 
 )
 
 
-CREATE TABLE queries (
+CREATE TABLE schemas (
   _id SERIAL NOT NULL PRIMARY KEY,
-  value VARCHAR,
+  gqlSchema VARCHAR,
+  tsSchema VARCHAR, 
   user_id BIGINT NOT NULL REFERENCES users (_id)
 );
 
-
-CREATE TABLE dataTypes (
-  _id SERIAL NOT NULL PRIMARY KEY,
-  bool boolean,
-  date DATE,
-  float float(4)
-);
-
+CREATE TABLE schemas (_id SERIAL NOT NULL PRIMARY KEY, gqlSchema VARCHAR, tsSchema VARCHAR, user_id BIGINT NOT NULL REFERENCES users (_id));
 
 -- -- FOR TESTING:
 -- CREATE TABLE tests (
