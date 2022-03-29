@@ -53,7 +53,7 @@ function URIInput(props) {
         Go!
       </Button>
       <br />
-      {isError ? <span>{errorMsg}</span> : null}
+      <div className='error'>{isError ? <span>{errorMsg}</span> : null}</div>
     </div>
   );
 }
