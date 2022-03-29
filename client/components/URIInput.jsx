@@ -6,7 +6,7 @@ import Computer from '@mui/icons-material/Computer';
 import '../Styles/Dashboard.css';
 
 function URIInput(props) {
-  const { uri, setUri, setLoading, createGQLSchema } = props;
+  const { uri, setUri, setLoading, createGQLSchema, createTsSchema } = props;
   const [errorMsg, setErrorMsg] = useState('');
   const [isError, setIsError] = useState(false);
 
@@ -40,6 +40,7 @@ function URIInput(props) {
             setLoading(true);
             setTimeout(() => setLoading(false), 2000);
             createGQLSchema(uri);
+            createTsSchema();
             setUri('');
           }
         }}
@@ -62,6 +63,7 @@ URIInput.propTypes = {
   setUri: PropTypes.func,
   setLoading: PropTypes.func,
   createGQLSchema: PropTypes.func,
+  createTsSchema: PropTypes.func,
 };
 
 export default URIInput;
