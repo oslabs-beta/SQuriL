@@ -5,15 +5,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: top;
 }
 
 .app-welcome {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 100px;
+  padding: 10px 20px 30px 20px;
   border-radius: 20px;
+}
+
+.squril-info {
+  display: flex;
+  flex-direction: column;
 }
 
 .logoLanding {
@@ -24,6 +29,12 @@
 
 .OAuth {
   box-sizing: border-box;
+}
+
+.squril-info {
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align: center;
 }
 
 .Tagline {
@@ -40,7 +51,30 @@
   width: 64px;
 }
 
-.logos {
+.meet-the-team {
   display: flex;
-  margin-top: 20px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.photo {
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+  margin: 5px;
+}
+
+.team-members {
+  display: flex;
+  margin: 5px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logos {
+  height: 40px;
+  width: 40px;
+  margin: 0px 15px 0px 15px;
 }
