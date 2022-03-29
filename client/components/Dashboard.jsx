@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import IconButton from '@mui/material/IconButton';
-import squirltsLogosBlack from '../Public/squirltsLogosBlack.png';
-import SQuriLts_logos_white from '../Public/SQuriLts_logos_white.png';
+import squirltsLogosBlack2 from '../Public/squirltsLogosBlack2.png';
+import SQuriLts_logos_white2 from '../Public/SQuriLts_logos_white2.png';
 import github_white from '../Public/github_white.png';
 import github_black from '../Public/github_black.png';
 import QueryContainer from './QueryContainer';
@@ -35,7 +35,7 @@ function Dashboard(props) {
 
   // getQuery functionality still needs to be determined based on user login info
   const getQuery = () => {
-    const url = `/user/allQueries`;
+    const url = `/user/allSchemas`;
     fetch(url)
       .then((data) => data.json())
       .then((data) => {
@@ -52,42 +52,47 @@ function Dashboard(props) {
 
   // deleteQuery functionality works - just need to test once we have proper user connection
   const deleteQuery = (queryId) => {
-    fetch(`/query/deleteQuery/${queryId}`, {
+    fetch(`/schemas/deleteSchemas/${queryId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
       },
     }).then(() => {
       setSchema('');
+      setTsSchema('');
       getQuery();
     });
   };
 
   // getSchema function that fetches schema from database and populates schemaWindow CodeMirror component
   const getSchema = (queryId) => {
-    const url = `/query/getQuery/${queryId}`;
+    const url = `/schemas/getSchemas/${queryId}`;
     fetch(url)
       .then((data) => data.json())
       .then((data) => {
-        setSchema(data.value);
+        setSchema(data.gqlschema);
+        setTsSchema(data.tsschema);
+        // console.log(data.gqlschema);
         setCurrentQueryId(queryId);
       });
   };
 
   // createQuery function that saves Schema to DB
-  const createQuery = (schemaValue) => {
-    const url = `/query/createQuery`;
+  const createQuery = (schemaValue, tsValue) => {
+    const url = `/schemas/createSchemas`;
     fetch(url, {
       method: 'Post',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        value: schemaValue,
+        gqlSchema: schemaValue,
+        tsSchema: tsValue,
       }),
     })
       .then((data) => data.json())
       .then((data) => {
+        // console.log('schema', data.gqlschema, 'ts schema', data.tsschema);
         getQuery();
       });
   };
@@ -111,7 +116,7 @@ function Dashboard(props) {
   };
 
   const createTsSchema = () => {
-    const url = `/api/readOutput`;
+    const url = `/api/codegen`;
     fetch(url)
       .then((data) => data.json())
       .then((data) => {
@@ -128,7 +133,7 @@ function Dashboard(props) {
         <div className='Dashboard' data-testid='dashboard'>
           <header>
             <div className='topright'>
-              <img src={isDarkTheme ? SQuriLts_logos_white : squirltsLogosBlack} alt='logo' className='dash-logo' />
+              <img src={isDarkTheme ? SQuriLts_logos_white2 : squirltsLogosBlack2} alt='logo' className='dash-logo' />
             </div>
             <URIInput
               createGQLSchema={createGQLSchema}
@@ -166,6 +171,7 @@ function Dashboard(props) {
               queryCard={queryCard}
               loading={loading}
               setLoading={setLoading}
+              tsSchema={tsSchema}
             />
             <TSContainer isDarkTheme={isDarkTheme} value={tsSchema} onChange={setTsSchema} loading={loading} setLoading={setLoading} />
           </div>

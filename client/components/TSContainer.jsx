@@ -127,7 +127,7 @@ function TSContainer(props) {
 TSContainer.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
-  isDarkTheme: PropTypes.func,
+  isDarkTheme: PropTypes.bool,
   loading: PropTypes.bool,
   setLoading: PropTypes.func,
 };
