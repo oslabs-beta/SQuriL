@@ -8,13 +8,22 @@ CREATE TABLE users (
 )
 
 
-CREATE TABLE queries (
-  _id SERIAL NOT NULL PRIMARY KEY,
-  value VARCHAR,
-  user_id BIGINT NOT NULL REFERENCES users (_id)
-);
+-- CREATE TABLE queries (
+--   _id SERIAL NOT NULL PRIMARY KEY,
+--   value VARCHAR,
+--   user_id BIGINT NOT NULL REFERENCES users (_id)
+-- );
 
 
+-- replacing quesries table with added TS schemas
+ CREATE TABLE schemas (
+   _id SERIAL NOT NULL PRIMARY KEY, 
+   gqlSchema VARCHAR, 
+   tsSchema VARCHAR, 
+   user_id BIGINT NOT NULL REFERENCES users (_id)
+   );
+
+-- for QGL generation testing
 CREATE TABLE dataTypes (
   _id SERIAL NOT NULL PRIMARY KEY,
   bool boolean,

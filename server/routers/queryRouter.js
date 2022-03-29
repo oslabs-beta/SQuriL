@@ -9,25 +9,25 @@ const sessionController = require('../controllers/sessionController');
 // ** change the naming of the query
 // CRUD functionalities
 router.post(
-  '/createQuery',
+  '/createSchemas',
   sessionController.verifySession, // decording the cookie to get the userID
   userController.getUserID,
-  queryController.createQuery,
+  queryController.createSchemas,
   (req, res) => {
-    res.status(200).json(res.locals.query);
+    res.status(200).json(res.locals.newSchemas);
   }
 );
 
-router.get('/getQuery/:id', queryController.getQuery, (req, res) => {
+router.get('/getSchemas/:id', queryController.getSchemas, (req, res) => {
   // console.log(res.locals.value)
-  res.status(200).json(res.locals.value);
+  res.status(200).json(res.locals.schemas);
 });
 
-router.put('/updateQuery/', queryController.updateQuery, (req, res) => {
-  res.status(200).json(res.locals.updatedQuery);
+router.put('/updateSchemas/', queryController.updateSchemas, (req, res) => {
+  res.status(200).json(res.locals.updatedSchemas);
 });
 
-router.delete('/deleteQuery/:id', queryController.deleteQuery, (req, res) => {
+router.delete('/deleteSchemas/:id', queryController.deleteSchemas, (req, res) => {
   res.status(200).json(res.locals.message);
 });
 
