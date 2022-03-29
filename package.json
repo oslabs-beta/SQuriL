@@ -16,7 +16,7 @@
     "codegen-init": "graphql-codegen init",
     "codegen": "graphql-codegen --config codegen.yml",
     "start": "node server/server.js",
-    "build": "webpack --mode none",
+    "build": "webpack --config ./webpack.config.js",
     "install-client": "npm install",
     "heroku-build": "npm run build",
     "heroku-postbuild": "npm run install-client && npm run heroku-build"
