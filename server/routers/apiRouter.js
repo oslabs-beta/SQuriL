@@ -18,4 +18,8 @@ router.post(
   }
 );
 
+router.get('/codegen', apiController.codegen, apiController.readFile, (req, res) => {
+  res.status(200).json(res.locals.output);
+});
+
 module.exports = router;

@@ -15,7 +15,11 @@ CREATE TABLE users (
 -- );
 
 
+<<<<<<< HEAD
 -- added TS schemas
+=======
+-- replacing quesries table with added TS schemas
+>>>>>>> dev
  CREATE TABLE schemas (
    _id SERIAL NOT NULL PRIMARY KEY, 
    gqlSchema VARCHAR, 

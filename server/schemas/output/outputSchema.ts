@@ -1,10 +1,9 @@
-import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
+import { GraphQLResolveInfo } from 'graphql';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type RequireFields<T, K extends keyof T> = Omit<T, K> & { [P in K]-?: NonNullable<T[P]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -12,63 +11,138 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  Date: any;
 };
 
-export type Chat = Node & {
-  __typename?: 'Chat';
-  id: Scalars['ID'];
-  messages: Array<ChatMessage>;
-  users: Array<User>;
+export type Films = {
+  __typename?: 'films';
+  _id: Scalars['ID'];
+  director?: Maybe<Scalars['String']>;
+  episode_id?: Maybe<Scalars['Int']>;
+  opening_crawl?: Maybe<Scalars['String']>;
+  producer?: Maybe<Scalars['String']>;
+  release_date?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
 };
 
-export type ChatMessage = Node & {
-  __typename?: 'ChatMessage';
-  content: Scalars['String'];
-  id: Scalars['ID'];
-  time: Scalars['Date'];
-  user: User;
+export type People = {
+  __typename?: 'people';
+  _id: Scalars['ID'];
+  birth_year?: Maybe<Scalars['String']>;
+  eye_color?: Maybe<Scalars['String']>;
+  gender?: Maybe<Scalars['String']>;
+  hair_color?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['Int']>;
+  homeworld_id?: Maybe<Scalars['Int']>;
+  mass?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  skin_color?: Maybe<Scalars['String']>;
+  species_id?: Maybe<Array<Maybe<Species>>>;
 };
 
-export type Node = {
-  id: Scalars['ID'];
+export type People_In_Films = {
+  __typename?: 'people_in_films';
+  _id: Scalars['ID'];
+  film_id?: Maybe<Scalars['Int']>;
+  person_id?: Maybe<Array<Maybe<People>>>;
 };
 
-export type Query = {
-  __typename?: 'Query';
-  allUsers?: Maybe<Array<Maybe<User>>>;
-  me: User;
-  myChats: Array<Chat>;
-  search: Array<SearchResult>;
-  user?: Maybe<User>;
+export type Pilots = {
+  __typename?: 'pilots';
+  _id: Scalars['ID'];
+  person_id?: Maybe<Array<Maybe<People>>>;
+  vessel_id?: Maybe<Scalars['Int']>;
 };
 
-
-export type QuerySearchArgs = {
-  term: Scalars['String'];
+export type Planets = {
+  __typename?: 'planets';
+  _id: Scalars['ID'];
+  climate?: Maybe<Scalars['String']>;
+  diameter?: Maybe<Scalars['Int']>;
+  gravity?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  orbital_period?: Maybe<Scalars['Int']>;
+  population?: Maybe<Scalars['Int']>;
+  rotation_period?: Maybe<Scalars['Int']>;
+  surface_water?: Maybe<Scalars['String']>;
+  terrain?: Maybe<Scalars['String']>;
 };
 
-
-export type QueryUserArgs = {
-  id: Scalars['ID'];
+export type Planets_In_Films = {
+  __typename?: 'planets_in_films';
+  _id: Scalars['ID'];
+  film_id?: Maybe<Array<Maybe<Films>>>;
+  planet_id?: Maybe<Scalars['Int']>;
 };
 
-export enum Role {
-  Admin = 'ADMIN',
-  User = 'USER'
-}
-
-export type SearchResult = Chat | ChatMessage | User;
-
-export type User = Node & {
-  __typename?: 'User';
-  email: Scalars['String'];
-  id: Scalars['ID'];
-  role: Role;
-  username: Scalars['String'];
+export type Queries = {
+  __typename?: 'queries';
+  query_id: Scalars['ID'];
+  user_id?: Maybe<Array<Maybe<Users>>>;
+  value?: Maybe<Scalars['String']>;
 };
 
+export type Species = {
+  __typename?: 'species';
+  _id: Scalars['ID'];
+  average_height?: Maybe<Scalars['String']>;
+  average_lifespan?: Maybe<Scalars['String']>;
+  classification?: Maybe<Scalars['String']>;
+  eye_colors?: Maybe<Scalars['String']>;
+  hair_colors?: Maybe<Scalars['String']>;
+  homeworld_id?: Maybe<Array<Maybe<Planets>>>;
+  language?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  skin_colors?: Maybe<Scalars['String']>;
+};
 
+export type Species_In_Films = {
+  __typename?: 'species_in_films';
+  _id: Scalars['ID'];
+  film_id?: Maybe<Array<Maybe<Films>>>;
+  species_id?: Maybe<Scalars['Int']>;
+};
+
+export type Starship_Specs = {
+  __typename?: 'starship_specs';
+  MGLT?: Maybe<Scalars['String']>;
+  _id: Scalars['ID'];
+  hyperdrive_rating?: Maybe<Scalars['String']>;
+  vessel_id?: Maybe<Array<Maybe<Vessels>>>;
+};
+
+export type Users = {
+  __typename?: 'users';
+  token?: Maybe<Scalars['String']>;
+  user_id: Scalars['ID'];
+  username?: Maybe<Scalars['String']>;
+};
+
+export type Vessels = {
+  __typename?: 'vessels';
+  _id: Scalars['ID'];
+  cargo_capacity?: Maybe<Scalars['String']>;
+  consumables?: Maybe<Scalars['String']>;
+  cost_in_credits?: Maybe<Scalars['Int']>;
+  crew?: Maybe<Scalars['Int']>;
+  length?: Maybe<Scalars['String']>;
+  manufacturer?: Maybe<Scalars['String']>;
+  max_atmosphering_speed?: Maybe<Scalars['String']>;
+  model?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  passengers?: Maybe<Scalars['Int']>;
+  vessel_class?: Maybe<Scalars['String']>;
+  vessel_type?: Maybe<Scalars['String']>;
+};
+
+export type Vessels_In_Films = {
+  __typename?: 'vessels_in_films';
+  _id: Scalars['ID'];
+  film_id?: Maybe<Scalars['Int']>;
+  vessel_id?: Maybe<Array<Maybe<Vessels>>>;
+};
+
+export type WithIndex<TObject> = TObject & Record<string, any>;
+export type ResolversObject<TObject> = WithIndex<TObject>;
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
 
@@ -136,85 +210,188 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 ) => TResult | Promise<TResult>;
 
 /** Mapping between all available schema types and the resolvers types */
-export type ResolversTypes = {
+export type ResolversTypes = ResolversObject<{
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
-  Chat: ResolverTypeWrapper<Chat>;
-  ChatMessage: ResolverTypeWrapper<ChatMessage>;
-  Date: ResolverTypeWrapper<Scalars['Date']>;
   ID: ResolverTypeWrapper<Scalars['ID']>;
-  Node: ResolversTypes['Chat'] | ResolversTypes['ChatMessage'] | ResolversTypes['User'];
-  Query: ResolverTypeWrapper<{}>;
-  Role: Role;
-  SearchResult: ResolversTypes['Chat'] | ResolversTypes['ChatMessage'] | ResolversTypes['User'];
+  Int: ResolverTypeWrapper<Scalars['Int']>;
   String: ResolverTypeWrapper<Scalars['String']>;
-  User: ResolverTypeWrapper<User>;
-};
+  films: ResolverTypeWrapper<Films>;
+  people: ResolverTypeWrapper<People>;
+  people_in_films: ResolverTypeWrapper<People_In_Films>;
+  pilots: ResolverTypeWrapper<Pilots>;
+  planets: ResolverTypeWrapper<Planets>;
+  planets_in_films: ResolverTypeWrapper<Planets_In_Films>;
+  queries: ResolverTypeWrapper<Queries>;
+  species: ResolverTypeWrapper<Species>;
+  species_in_films: ResolverTypeWrapper<Species_In_Films>;
+  starship_specs: ResolverTypeWrapper<Starship_Specs>;
+  users: ResolverTypeWrapper<Users>;
+  vessels: ResolverTypeWrapper<Vessels>;
+  vessels_in_films: ResolverTypeWrapper<Vessels_In_Films>;
+}>;
 
 /** Mapping between all available schema types and the resolvers parents */
-export type ResolversParentTypes = {
+export type ResolversParentTypes = ResolversObject<{
   Boolean: Scalars['Boolean'];
-  Chat: Chat;
-  ChatMessage: ChatMessage;
-  Date: Scalars['Date'];
   ID: Scalars['ID'];
-  Node: ResolversParentTypes['Chat'] | ResolversParentTypes['ChatMessage'] | ResolversParentTypes['User'];
-  Query: {};
-  SearchResult: ResolversParentTypes['Chat'] | ResolversParentTypes['ChatMessage'] | ResolversParentTypes['User'];
+  Int: Scalars['Int'];
   String: Scalars['String'];
-  User: User;
-};
+  films: Films;
+  people: People;
+  people_in_films: People_In_Films;
+  pilots: Pilots;
+  planets: Planets;
+  planets_in_films: Planets_In_Films;
+  queries: Queries;
+  species: Species;
+  species_in_films: Species_In_Films;
+  starship_specs: Starship_Specs;
+  users: Users;
+  vessels: Vessels;
+  vessels_in_films: Vessels_In_Films;
+}>;
 
-export type ChatResolvers<ContextType = any, ParentType extends ResolversParentTypes['Chat'] = ResolversParentTypes['Chat']> = {
-  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
-  messages?: Resolver<Array<ResolversTypes['ChatMessage']>, ParentType, ContextType>;
-  users?: Resolver<Array<ResolversTypes['User']>, ParentType, ContextType>;
+export type FilmsResolvers<ContextType = any, ParentType extends ResolversParentTypes['films'] = ResolversParentTypes['films']> = ResolversObject<{
+  _id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  director?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  episode_id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  opening_crawl?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  producer?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  release_date?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  title?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
+}>;
 
-export type ChatMessageResolvers<ContextType = any, ParentType extends ResolversParentTypes['ChatMessage'] = ResolversParentTypes['ChatMessage']> = {
-  content?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
-  time?: Resolver<ResolversTypes['Date'], ParentType, ContextType>;
-  user?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
+export type PeopleResolvers<ContextType = any, ParentType extends ResolversParentTypes['people'] = ResolversParentTypes['people']> = ResolversObject<{
+  _id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  birth_year?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  eye_color?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  gender?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  hair_color?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  height?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  homeworld_id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  mass?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  skin_color?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  species_id?: Resolver<Maybe<Array<Maybe<ResolversTypes['species']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
+}>;
 
-export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Date'], any> {
-  name: 'Date';
-}
-
-export type NodeResolvers<ContextType = any, ParentType extends ResolversParentTypes['Node'] = ResolversParentTypes['Node']> = {
-  __resolveType: TypeResolveFn<'Chat' | 'ChatMessage' | 'User', ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
-};
-
-export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  allUsers?: Resolver<Maybe<Array<Maybe<ResolversTypes['User']>>>, ParentType, ContextType>;
-  me?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
-  myChats?: Resolver<Array<ResolversTypes['Chat']>, ParentType, ContextType>;
-  search?: Resolver<Array<ResolversTypes['SearchResult']>, ParentType, ContextType, RequireFields<QuerySearchArgs, 'term'>>;
-  user?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<QueryUserArgs, 'id'>>;
-};
-
-export type SearchResultResolvers<ContextType = any, ParentType extends ResolversParentTypes['SearchResult'] = ResolversParentTypes['SearchResult']> = {
-  __resolveType: TypeResolveFn<'Chat' | 'ChatMessage' | 'User', ParentType, ContextType>;
-};
-
-export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = {
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
-  role?: Resolver<ResolversTypes['Role'], ParentType, ContextType>;
-  username?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+export type People_In_FilmsResolvers<ContextType = any, ParentType extends ResolversParentTypes['people_in_films'] = ResolversParentTypes['people_in_films']> = ResolversObject<{
+  _id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  film_id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  person_id?: Resolver<Maybe<Array<Maybe<ResolversTypes['people']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
+}>;
 
-export type Resolvers<ContextType = any> = {
-  Chat?: ChatResolvers<ContextType>;
-  ChatMessage?: ChatMessageResolvers<ContextType>;
-  Date?: GraphQLScalarType;
-  Node?: NodeResolvers<ContextType>;
-  Query?: QueryResolvers<ContextType>;
-  SearchResult?: SearchResultResolvers<ContextType>;
-  User?: UserResolvers<ContextType>;
-};
+export type PilotsResolvers<ContextType = any, ParentType extends ResolversParentTypes['pilots'] = ResolversParentTypes['pilots']> = ResolversObject<{
+  _id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  person_id?: Resolver<Maybe<Array<Maybe<ResolversTypes['people']>>>, ParentType, ContextType>;
+  vessel_id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type PlanetsResolvers<ContextType = any, ParentType extends ResolversParentTypes['planets'] = ResolversParentTypes['planets']> = ResolversObject<{
+  _id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  climate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  diameter?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  gravity?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  orbital_period?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  population?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  rotation_period?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  surface_water?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  terrain?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type Planets_In_FilmsResolvers<ContextType = any, ParentType extends ResolversParentTypes['planets_in_films'] = ResolversParentTypes['planets_in_films']> = ResolversObject<{
+  _id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  film_id?: Resolver<Maybe<Array<Maybe<ResolversTypes['films']>>>, ParentType, ContextType>;
+  planet_id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type QueriesResolvers<ContextType = any, ParentType extends ResolversParentTypes['queries'] = ResolversParentTypes['queries']> = ResolversObject<{
+  query_id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  user_id?: Resolver<Maybe<Array<Maybe<ResolversTypes['users']>>>, ParentType, ContextType>;
+  value?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type SpeciesResolvers<ContextType = any, ParentType extends ResolversParentTypes['species'] = ResolversParentTypes['species']> = ResolversObject<{
+  _id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  average_height?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  average_lifespan?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  classification?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  eye_colors?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  hair_colors?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  homeworld_id?: Resolver<Maybe<Array<Maybe<ResolversTypes['planets']>>>, ParentType, ContextType>;
+  language?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  skin_colors?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type Species_In_FilmsResolvers<ContextType = any, ParentType extends ResolversParentTypes['species_in_films'] = ResolversParentTypes['species_in_films']> = ResolversObject<{
+  _id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  film_id?: Resolver<Maybe<Array<Maybe<ResolversTypes['films']>>>, ParentType, ContextType>;
+  species_id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type Starship_SpecsResolvers<ContextType = any, ParentType extends ResolversParentTypes['starship_specs'] = ResolversParentTypes['starship_specs']> = ResolversObject<{
+  MGLT?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  _id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  hyperdrive_rating?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  vessel_id?: Resolver<Maybe<Array<Maybe<ResolversTypes['vessels']>>>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type UsersResolvers<ContextType = any, ParentType extends ResolversParentTypes['users'] = ResolversParentTypes['users']> = ResolversObject<{
+  token?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  user_id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  username?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type VesselsResolvers<ContextType = any, ParentType extends ResolversParentTypes['vessels'] = ResolversParentTypes['vessels']> = ResolversObject<{
+  _id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  cargo_capacity?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  consumables?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  cost_in_credits?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  crew?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  length?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  manufacturer?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  max_atmosphering_speed?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  model?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  passengers?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  vessel_class?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  vessel_type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type Vessels_In_FilmsResolvers<ContextType = any, ParentType extends ResolversParentTypes['vessels_in_films'] = ResolversParentTypes['vessels_in_films']> = ResolversObject<{
+  _id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  film_id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  vessel_id?: Resolver<Maybe<Array<Maybe<ResolversTypes['vessels']>>>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type Resolvers<ContextType = any> = ResolversObject<{
+  films?: FilmsResolvers<ContextType>;
+  people?: PeopleResolvers<ContextType>;
+  people_in_films?: People_In_FilmsResolvers<ContextType>;
+  pilots?: PilotsResolvers<ContextType>;
+  planets?: PlanetsResolvers<ContextType>;
+  planets_in_films?: Planets_In_FilmsResolvers<ContextType>;
+  queries?: QueriesResolvers<ContextType>;
+  species?: SpeciesResolvers<ContextType>;
+  species_in_films?: Species_In_FilmsResolvers<ContextType>;
+  starship_specs?: Starship_SpecsResolvers<ContextType>;
+  users?: UsersResolvers<ContextType>;
+  vessels?: VesselsResolvers<ContextType>;
+  vessels_in_films?: Vessels_In_FilmsResolvers<ContextType>;
+}>;
 

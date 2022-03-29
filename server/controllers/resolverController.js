@@ -11,11 +11,11 @@ resolverController.generateResolvers = (req, res, next) => {
     // get necessary data to write query resolvers templates
     function queryResolvers() {
       for (const [tableName, props] of Object.entries(databases)) {
-        let name = tableName; //users
+        const name = tableName; // users
         // PRIMARY KEYS
-        let pk_name = databases[name].primaryKey;
+        const pk_name = databases[name].primaryKey;
         // FOREIGN KEYS (assuming only 1fk per table)
-        let fk_name = databases[name].foreignKeys; //if fk = null -> shows up as a string
+        let fk_name = databases[name].foreignKeys; // if fk = null -> shows up as a string
         // let fk_type = '';
         let fk_ref_table = '';
         if (fk_name) {
@@ -26,20 +26,15 @@ resolverController.generateResolvers = (req, res, next) => {
           fk_ref_table = databases[name].foreignKeys[fk_name].referenceTable;
         }
 
-        resolvers += queryResolversTemplate(
-          tableName,
-          pk_name,
-          fk_name,
-          fk_ref_table
-        );
+        resolvers += queryResolversTemplate(tableName, pk_name, fk_name, fk_ref_table);
       }
     }
     // get necessary data to write fields with foreign keys (to its relational pk table data)
     function foreignKeyFieldsResolvers() {
       for (const [tableName, props] of Object.entries(databases)) {
-        let name = tableName; //users
+        const name = tableName; // users
         // FOREIGN KEYS (assuming only 1fk per table)
-        let fk_name = databases[name].foreignKeys; //if fk = null -> shows up as a string
+        let fk_name = databases[name].foreignKeys; // if fk = null -> shows up as a string
         // let fk_type = '';
         let fk_ref_table = '';
         let fk_ref_table_pk = '';
@@ -52,12 +47,7 @@ resolverController.generateResolvers = (req, res, next) => {
           fk_ref_table_pk = databases[name].foreignKeys[fk_name].referenceKey;
         }
 
-        resolvers += fkResolversTemplate(
-          tableName,
-          fk_name,
-          fk_ref_table,
-          fk_ref_table_pk
-        );
+        resolvers += fkResolversTemplate(tableName, fk_name, fk_ref_table, fk_ref_table_pk);
       }
     }
     // build query resolvers
@@ -106,12 +96,7 @@ function queryResolversTemplate(tableName, pk_name, fk_name, fk_ref_table) {
   return resolver;
 }
 
-function fkResolversTemplate(
-  tableName,
-  fk_name,
-  fk_ref_table,
-  fk_ref_table_pk
-) {
+function fkResolversTemplate(tableName, fk_name, fk_ref_table, fk_ref_table_pk) {
   resolver = '';
   if (fk_name) {
     resolver += `\n${tab}${tableName}: {\n${tab}${tab}${fk_name}: async (parent, args, context, info) => {\n${tab}${tab}${tab}try {\n${tab}${tab}${tab}${tab}const data = await db.query(\`SELECT * FROM ${fk_ref_table} WHERE ${fk_ref_table_pk}='\${parent.${fk_name}}'\`);\n${tab}${tab}${tab}${tab}return data.rows;\n${tab}${tab}${tab}} catch (error) {\n${tab}${tab}${tab}${tab}throw new Error(error);\n${tab}${tab}${tab}}\n${tab}${tab}},\n${tab}},`;

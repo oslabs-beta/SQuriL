@@ -16,7 +16,7 @@ import Loading from './Loading';
 
 function SchemaContainer(props) {
   // schemawindow prop to be passed down
-  const { value, onChange, currentQueryId, createQuery, isDarkTheme, setLoading, loading } = props;
+  const { value, tsSchema, onChange, currentQueryId, createQuery, isDarkTheme, setLoading, loading } = props;
   // const [sample, setSample] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -37,7 +37,7 @@ function SchemaContainer(props) {
 
   // save schema functionality
   function handleSubmit() {
-    createQuery(value);
+    createQuery(value, tsSchema);
   }
 
   // export code functionality
@@ -79,7 +79,7 @@ function SchemaContainer(props) {
       style={isDarkTheme ? { background: '#212121', borderRadius: '25px' } : { background: '#fff', borderRadius: '25px' }}
       data-testid='schema-container'
     >
-      <h3>{currentQueryId ? `Schema ${currentQueryId}` : 'Schema'}</h3>
+      <h3>{currentQueryId ? `JS Schema ${currentQueryId}` : 'JS Schema'}</h3>
       <span>
         <Button type='button' className='save-schema' variant='contained' onClick={() => handleSubmit()} sx={{ borderRadius: 12.5, fontWeight: 'bold' }}>
           Save
@@ -133,7 +133,7 @@ function SchemaContainer(props) {
           </Tooltip>
         </ClickAwayListener>
       </span>
-      <FormControlLabel control={<Switch />} label='TypeScript' className='switch' />
+      {/* <FormControlLabel control={<Switch />} label='TypeScript' className='switch' /> */}
       {loading === false ? (
         <Controlled
           onBeforeChange={handleChange}
@@ -141,6 +141,7 @@ function SchemaContainer(props) {
           options={{
             lineWrapping: true,
             showCursorWhenSelecting: true,
+            scrollbarStyle: null,
             lint: true,
             mode: 'javascript',
             lineNumbers: true,
@@ -148,9 +149,7 @@ function SchemaContainer(props) {
           }}
         />
       ) : (
-        <Loading
-        isDarkTheme={isDarkTheme}
-        />
+        <Loading isDarkTheme={isDarkTheme} />
       )}
     </div>
   );
@@ -164,6 +163,7 @@ SchemaContainer.propTypes = {
   isDarkTheme: PropTypes.bool,
   loading: PropTypes.bool,
   setLoading: PropTypes.func,
+  tsSchema: PropTypes.string,
 };
 
 export default SchemaContainer;

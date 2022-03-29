@@ -1,5 +1,5 @@
 {
-  "name": "squril",
+  "name": "SQuriL",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,13 +13,14 @@
     "server": "nodemon server/server.js",
     "api-dev": "nodemon server/graphql.js",
     "tsc-test": "tsc type-test.ts",
-    "codegen-init": "graphql-codegen init",
     "codegen": "graphql-codegen --config codegen.yml",
+    "codegen-server": "node --loader ts-node/esm server/schemas/output/testServer.js",
+    "codegen-init": "graphql-codegen init",
     "start": "node server/server.js",
     "build": "webpack --config ./webpack.config.js",
     "install-client": "npm install",
     "heroku-build": "npm run build",
-    "heroku-postbuild": "npm run install-client && npm run heroku-build"
+    "heroku-postbuild": "npm run install-client && npm run heroku-build",
   },
   "author": "",
   "license": "ISC",

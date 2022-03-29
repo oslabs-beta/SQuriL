@@ -13,7 +13,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const queryRouter = require(path.join(__dirname, '/routers/queryRouter.js'));
+const schemaRouter = require(path.join(__dirname, '/routers/schemaRouter.js'));
 const apiRouter = require(path.join(__dirname, '/routers/apiRouter.js'));
 const userRouter = require(path.join(__dirname, '/routers/userRouter.js'));
 // const outputRouter = require(path.join(__dirname, '/routers/outputRouter.js'));
