@@ -1,17 +1,12 @@
 const db = require('../db/db');
 const fs = require('fs');
+const { execSync } = require('child_process');
 
 const { Pool } = require('pg');
 
 const SQLTableInfo = fs.readFileSync('server/db/SQLTableInfo.sql', 'utf8');
-const test = fs.readFileSync('server/schemas/output/outputSchema.ts', 'utf8');
 
 const apiController = {};
-
-apiController.readFile = (req, res, next) => {
-  res.locals.read = test;
-  return next();
-};
 
 apiController.getDBName = (req, res, next) => {
   const { link } = req.body;
@@ -104,6 +99,17 @@ apiController.createGQLmeta = (req, res, next) => {
       },
     });
   }
+};
+
+apiController.codegen = (req, res, next) => {
+  execSync('npm run codegen');
+  return next();
+};
+
+apiController.readFile = (req, res, next) => {
+  const output = fs.readFileSync('server/schemas/output/outputSchema.ts', 'utf8');
+  res.locals.output = output;
+  return next();
 };
 
 module.exports = apiController;
