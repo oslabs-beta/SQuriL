@@ -12,7 +12,7 @@ function QueryCard(props) {
   return (
     <div className='QueryCard' data-testid='query-card'>
       <Button
-        sx={{ borderRadius: 12.5 }}
+        sx={{ borderRadius: 12.5, padding: '0px, 20px, 0px, 20px' }}
         data-testid='query-card-h3'
         color='secondary'
         size='small'
@@ -21,22 +21,22 @@ function QueryCard(props) {
         onClick={() => getSchema(queryCard)}
       >
         {`Schema ${queryCard}`}
-        <IconButton
-          type='button'
-          data-testid='query-delete'
-          style={{ marginLeft: '20px' }}
-          variant='text'
-          // color='secondary'
-          size='small'
-          className='delete-Query'
-          onClick={() => {
-            deleteQuery(queryCard);
-            setCurrentQueryId(0);
-          }}
-        >
-          <DeleteIcon />
-        </IconButton>
       </Button>
+      <IconButton
+        type='button'
+        data-testid='query-delete'
+        style={{ marginLeft: '20px' }}
+        variant='text'
+        // color='secondary'
+        size='small'
+        className='delete-Query'
+        onClick={() => {
+          deleteQuery(queryCard);
+          setCurrentQueryId(0);
+        }}
+      >
+        <DeleteIcon />
+      </IconButton>
     </div>
   );
 }

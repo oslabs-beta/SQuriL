@@ -57,7 +57,6 @@ function Landing(props) {
         <h2>Login with your GitHub Account</h2>
         <OAuth />
       </div>
-      <hr />
       <div className='getting-started'>
         <div className='item'>
           <h1>Getting Started</h1>
@@ -90,7 +89,6 @@ function Landing(props) {
           <img src={squrilGif2} alt='landing-page' className='instruction-photo' />
         </div>
       </div>
-      <hr />
       <h2>Connect With Team SQuriL</h2>
       <div className='meet-the-team'>
         <div className='team-members'>
