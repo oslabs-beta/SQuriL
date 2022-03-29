@@ -5,21 +5,92 @@
 
 <!-- SQuriL -->
 <div id='top' align='center'>
-<img src='/home/mtrapani/SQuriL/client/Public/readmeLogo.png'>
+<img src='./client/Public/readmeLogo.png'>
 </br>
+<!-- PROJECT SHIELDS -->
+
+[![Contributors][contributors-shield]][contributors-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Forks][forks-shield]][forks-url]
+
 </div>
 
-<!-- ABOUT -->
+<!-- TABLE OF CONTENTS -->
 
-## About SQuriL
+<details open='open'>
+  <summary>Table of Contents</summary>
+  <ol>
+      <li><a href='#background'>Background</a></li>
+      <li><a href='#meet-squril.ts'>About SQuriL</a></li>
+      <li><a href='#getting-started'>Getting Started</a></li>
+          <ul>
+            <li><a href='#sign-in-using-github-oauth'>Sign In Using GitHub OAuth</a></li>
+            <li><a href='#link-your-database-and-generate-your-graphql-schema'>Link Your Database</a></li>
+            <li><a href='#generate-your-graphql-schema'>Generate Your GraphQL Schema</a></li>
+            <li><a href='#save-your-schema'>Save Your Schema</a></li>
+            <li><a href='#copy-or-export-your-code'>Copy Or Export Your Code</a></li>
+          </ul>
+      <li><a href='#for-developers'>For Developers</a></li>
+          <ul>
+            <li><a href='#built-with'>Built With</a></li>
+            <li><a href='#project-setup'>Project Setup</a></li>
+          </ul>
+      <li><a href='#contributors'>Contributors</a></li>
+      <li><a href='#license'>License</a></li>
+  </ol>
+</details>
+
+</br>
 
 <!-- BACKGROUND -->
 
 ## Background
 
-<!-- BACKGROUND -->
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-## Built With
+<!-- MEET SQURIL.TS -->
+
+## Meet SQuriL.ts
+
+Meet SQuriL.ts, a GraphQL schema generation and storage tool that creates GraphQL schemas from a PostgreSQL URI for both JavaScript and TypeScript compatible environments.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+
+## Getting Started
+
+### Sign In Using GitHub OAuth
+
+No need to create a new username and password - users simply login with their already established GitHub accounts through SQuriL's GitHub OAuth option on the main landing page.
+
+<div  align="center">
+<img src='./client/Public/squrilGif1.gif'>
+</div>
+
+### Link Your Database and Generate Your GraphQL Schema
+
+Simply copy and paste your PostgreSQL URI into the address bar at the top of the application dashboard page and hit -Go- Within seconds, both your JavaScript and TypeScript compatible GraphQL schema code will be populated within the application's code windows.
+
+<div  align="center">
+<img src='./client/Public/squrilGif2.gif'>
+</div>
+
+### Save Your Schema
+
+Once generated, both JavaScript and TypeScript schemas can be saved by users for future database querying needs.
+
+### Copy or Export Your Code
+
+With a simple click, users can both copy their code to clipboard for immediate use or export their schema code to .js and .ts files for local storage.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- For Developers -->
+
+## For Developers
+
+### Built With
 
 SQuriL was built using the following frameworks and libraries:
 
@@ -35,8 +106,6 @@ SQuriL was built using the following frameworks and libraries:
 - [Jest](https://jestjs.io/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 <!-- PROJECT SETUP -->
 
 ### Project Setup
@@ -44,7 +113,7 @@ SQuriL was built using the following frameworks and libraries:
 Required software for setting up this application:
 
 - [Node.js](https://nodejs.org/en/)
-- [NPM ](https://www.npmjs.com/)
+- [NPM](https://www.npmjs.com/)
 
 1. Clone the repo.
    ```sh
@@ -73,12 +142,25 @@ Required software for setting up this application:
 
 ## Contributors
 
-[Diana Kim](https://www.linkedin.com/in/diana-r-kim-a25a36157/) [ | @ruslanovna](https://github.com/ruslanovna)
+Diana Kim [LinkedIn](https://www.linkedin.com/in/diana-r-kim-a25a36157/) | [GitHub](https://github.com/ruslanovna)
 
-[Frank Nguyen](https://www.linkedin.com/in/frankknguyen/) [ | @franknguyen](https://github.com/frankknguyen)
+Frank Nguyen [LinkedIn](https://www.linkedin.com/in/frankknguyen/) | [GitHub](https://github.com/frankknguyen)
 
-[Mark Charles Smith](https://www.linkedin.com/in/mark-charles-smith/) [ | @markcharlessmith](https://github.com/markcharlessmith)
+Mark Charles Smith [LinkedIn](https://www.linkedin.com/in/mark-charles-smith/) | [GitHub](https://github.com/markcharlessmith)
 
-[Michael Trapani](https://www.linkedin.com/in/michael-a-trapani/) [ | @michaeltraps](https://github.com/michaeltraps)
+Michael Trapani [LinkedIn](https://www.linkedin.com/in/michael-a-trapani/) | [GitHub](https://github.com/michaeltraps)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/oslabs-beta/SQuriL/blob/main/LICENSE) file for details.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+[contributors-shield]: https://img.shields.io/github/contributors/oslabs-beta/SQuriL.svg?style=for-the-badge
+[contributors-url]: https://github.com/oslabs-beta/SQuriL/graphs/contributors
+[stars-shield]: https://img.shields.io/github/stars/oslabs-beta/SQuriL.svg?style=for-the-badge
+[stars-url]: https://github.com/oslabs-beta/SQuriL/stargazers
+[forks-shield]: https://img.shields.io/github/forks/oslabs-beta/SQuriL.svg?style=for-the-badge
+[forks-url]: https://github.com/oslabs-beta/SQuriL/network/members
