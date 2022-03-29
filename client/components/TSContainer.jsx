@@ -17,11 +17,6 @@ function TSContainer(props) {
     setOpen(false);
   };
 
-  // // tooltip function open - copy button
-  // const handleTooltipOpen = () => {
-  //   setOpen(true);
-  // };
-
   // handleChange function for code-mirror editor window
   function handleChange(editor, data, valueCM) {
     onChange(valueCM);
@@ -40,24 +35,6 @@ function TSContainer(props) {
       })
     );
   };
-
-  // const createSampleSchema = () => {
-  //   const url = `/api/createGqlSchema`;
-  //   fetch(url, {
-  //     method: 'Post',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       link: 'postgres://itjbbwxw:B0wiXF4aypk5kOpWNXmiU2JFV6CEvTW8@raja.db.elephantsql.com/itjbbwxw',
-  //     }),
-  //   })
-  //     .then((data) => data.json())
-  //     .then((data) => {
-  //       const GQL = data;
-  //       onChange(GQL);
-  //     });
-  // };
 
   return (
     <div

@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '@mui/material';
 import { saveAs } from 'file-saver';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
 import Tooltip from '@mui/material/Tooltip';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import 'codemirror/lib/codemirror.css';
@@ -24,11 +22,6 @@ function SchemaContainer(props) {
   const handleTooltipClose = () => {
     setOpen(false);
   };
-
-  // // tooltip function open - copy button
-  // const handleTooltipOpen = () => {
-  //   setOpen(true);
-  // };
 
   // handleChange function for code-mirror editor window
   function handleChange(editor, data, valueCM) {
@@ -84,7 +77,6 @@ function SchemaContainer(props) {
         <Button type='button' className='save-schema' variant='contained' onClick={() => handleSubmit()} sx={{ borderRadius: 12.5, fontWeight: 'bold' }}>
           Save
         </Button>{' '}
-        {/* <button type='submit' className='updateSchema' value="Update">Update</button> */}
         <Button
           sx={{ borderRadius: 12.5, fontWeight: 'bold' }}
           type='button'

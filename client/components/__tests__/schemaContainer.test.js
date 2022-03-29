@@ -43,6 +43,6 @@ describe('SchemaContainer renders successfully', () => {
     render(<SchemaContainer currentQueryId={id} />);
 
     // expect h2 component to contain text of 'Schema 100' when rendered
-    expect(screen.getByText(`Schema ${id}`)).toBeInTheDocument();
+    expect(screen.getByText(`JS Schema ${id}`)).toBeInTheDocument();
   });
 });
