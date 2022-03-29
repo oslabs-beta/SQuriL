@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "node server.js",
-    "build": "webpack --mode production",
+    "build": "webpack --mode development",
     "dev": " NODE_ENV=development nodemon server/server.js --open & NODE_ENV=development webpack-dev-server --open --hot",
     "server": "nodemon server/server.js",
     "api-dev": "nodemon server/graphql.js",
