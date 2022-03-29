@@ -75,7 +75,7 @@ module.exports = {
         secure: false,
       },
       // for managing the saved queries
-      '/query/*': {
+      '/schemas/*': {
         target: 'http://localhost:3000/',
         secure: false,
       },

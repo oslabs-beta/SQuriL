@@ -1,9 +1,9 @@
 // require db
 const db = require('../db/db');
 
-const queryController = {};
+const schemasController = {};
 
-queryController.createSchemas = async (req, res, next) => {
+schemasController.createSchemas = async (req, res, next) => {
   const { gqlSchema, tsSchema } = req.body;
   const { userid } = res.locals;
   // console.log(req.body)
@@ -14,15 +14,15 @@ queryController.createSchemas = async (req, res, next) => {
     next();
   } catch (err) {
     next({
-      log: `queryController.createSchemas: ERROR: ${err}`,
+      log: `schemasController.createSchemas: ERROR: ${err}`,
       message: {
-        err: 'Error occurred in queryController.createSchemas. Check server log for more details.',
+        err: 'Error occurred in schemasController.createSchemas. Check server log for more details.',
       },
     });
   }
 };
 
-queryController.getSchemas = async (req, res, next) => {
+schemasController.getSchemas = async (req, res, next) => {
   const { id } = req.params;
   const sqlQuery = 'SELECT gqlSchema, tsSchema FROM schemas WHERE _id=$1';
   try {
@@ -31,15 +31,15 @@ queryController.getSchemas = async (req, res, next) => {
     next();
   } catch (err) {
     next({
-      log: `queryController.getSchemas: ERROR: ${err}`,
+      log: `schemasController.getSchemas: ERROR: ${err}`,
       message: {
-        err: 'Error occurred in queryController.getSchemas. Check server log for more details.',
+        err: 'Error occurred in schemasController.getSchemas. Check server log for more details.',
       },
     });
   }
 };
 
-queryController.updateSchemas = async (req, res, next) => {
+schemasController.updateSchemas = async (req, res, next) => {
   const { _id, gqlSchema, tsSchema } = req.body;
   const sqlQuery = 'UPDATE schemas SET gqlSchema=$1, tsSchema=$2 WHERE _id=$2 RETURNING *';
   try {
@@ -48,15 +48,15 @@ queryController.updateSchemas = async (req, res, next) => {
     next();
   } catch (err) {
     next({
-      log: `queryController.updateSchemas: ERROR: ${err}`,
+      log: `schemasController.updateSchemas: ERROR: ${err}`,
       message: {
-        err: 'Error occurred in queryController.updateSchemas. Check server log for more details.',
+        err: 'Error occurred in schemasController.updateSchemas. Check server log for more details.',
       },
     });
   }
 };
 
-queryController.deleteSchemas = async (req, res, next) => {
+schemasController.deleteSchemas = async (req, res, next) => {
   const { id } = req.params;
   const sqlQuery = 'DELETE FROM schemas WHERE _id=$1';
   try {
@@ -65,13 +65,13 @@ queryController.deleteSchemas = async (req, res, next) => {
     next();
   } catch (err) {
     next({
-      log: `queryController.deleteSchemas: ERROR: ${err}`,
+      log: `schemasController.deleteSchemas: ERROR: ${err}`,
       message: {
-        err: 'Error occurred in queryController.deleteSchemas. Check server log for more details.',
+        err: 'Error occurred in schemasController.deleteSchemas. Check server log for more details.',
       },
     });
   }
 };
 
-// export the queryController
-module.exports = queryController;
+// export the schemasController
+module.exports = schemasController;
