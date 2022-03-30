@@ -41,7 +41,7 @@ function App() {
   // declare state for dark theme
   const [isDarkTheme, setIsDarkTheme] = useState(true);
   // declare state for login
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   // function to change theme
   const changeTheme = () => {
@@ -50,7 +50,7 @@ function App() {
 
   // function to check login status to either render landing or dashboard
   const loginStatus = () => {
-    const url = `/user/cookie`;
+    const url = `https://squril2.herokuapp.com/user/cookie`;
     fetch(url)
       .then((data) => data.json())
       .then((data) => {
@@ -62,7 +62,7 @@ function App() {
 
   // runs loginStatus function on page load
   useEffect(() => {
-    loginStatus();
+    // loginStatus();
   }, []);
 
   return (

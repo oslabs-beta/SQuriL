@@ -32,7 +32,7 @@ function Dashboard(props) {
 
   // getQuery functionality still needs to be determined based on user login info
   const getQuery = () => {
-    const url = `/user/allSchemas`;
+    const url = `https://squril2.herokuapp.com/user/allSchemas`;
     fetch(url)
       .then((data) => data.json())
       .then((data) => {
@@ -49,7 +49,7 @@ function Dashboard(props) {
 
   // deleteQuery functionality works - just need to test once we have proper user connection
   const deleteQuery = (queryId) => {
-    fetch(`/schemas/deleteSchemas/${queryId}`, {
+    fetch(`https://squril2.herokuapp.com/schemas/deleteSchemas/${queryId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ function Dashboard(props) {
 
   // getSchema function that fetches schema from database and populates schemaWindow CodeMirror component
   const getSchema = (queryId) => {
-    const url = `/schemas/getSchemas/${queryId}`;
+    const url = `https://squril2.herokuapp.com/schemas/getSchemas/${queryId}`;
     fetch(url)
       .then((data) => data.json())
       .then((data) => {
@@ -75,7 +75,7 @@ function Dashboard(props) {
 
   // createQuery function that saves Schema to DB
   const createQuery = (schemaValue, tsValue) => {
-    const url = `/schemas/createSchemas`;
+    const url = `https://squril2.herokuapp.com/schemas/createSchemas`;
     fetch(url, {
       method: 'Post',
       headers: {
@@ -93,7 +93,7 @@ function Dashboard(props) {
   };
 
   const createGQLSchema = (uriAddr) => {
-    const url = `/api/createGqlSchema`;
+    const url = `https://squril2.herokuapp.com/api/createGqlSchema`;
     fetch(url, {
       method: 'Post',
       headers: {
@@ -111,7 +111,7 @@ function Dashboard(props) {
   };
 
   const createTsSchema = () => {
-    const url = `/api/codegen`;
+    const url = `https://squril2.herokuapp.com/api/codegen`;
     fetch(url)
       .then((data) => data.json())
       .then((data) => {

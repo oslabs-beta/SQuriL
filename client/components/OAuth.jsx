@@ -5,7 +5,7 @@ import '../Styles/Landing.css';
 
 function OAuth() {
   const oAuthGo = () => {
-    window.location = '/oauth/authorize';
+    window.location = 'https://squril2.herokuapp.com/oauth/authorize';
   };
 
   return (
