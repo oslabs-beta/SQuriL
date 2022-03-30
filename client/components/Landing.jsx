@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import GitHubButton from 'react-github-btn';
 import OAuth from './OAuth';
-import squirltsLogosBlack2 from '../Public/squirltsLogosBlack2.png';
 import github_white from '../Public/github_white.png';
 import github_black from '../Public/github_black.png';
 import squrilLogosWhiteLandscape from '../Public/squrilLogosWhiteLandscape.png';
@@ -24,7 +23,7 @@ function Landing(props) {
 
   return (
     <div className='Landing'>
-      <img src={isDarkTheme ? squrilLogosWhiteLandscape : squirltsLogosBlack2} alt='logo' className='' />
+      <img src={isDarkTheme ? squrilLogosWhiteLandscape : squrilLogosWhiteLandscape} alt='logo' className='' />
       <GitHubButton
         href='https://github.com/oslabs-beta/SQuriL'
         target='_blank'
