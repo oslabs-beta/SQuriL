@@ -9,7 +9,6 @@
 
 .dash-logo {
   height: 200px;
-  /* width: 250px; */
   margin-left: 45px;
 }
 
@@ -65,4 +64,8 @@ footer {
 .github {
   height: 50px;
   width: 50px;
+}
+
+.error {
+  margin-top: 11px;
 }

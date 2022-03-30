@@ -5,12 +5,9 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import IconButton from '@mui/material/IconButton';
 import squirltsLogosBlack2 from '../Public/squirltsLogosBlack2.png';
 import SQuriLts_logos_white2 from '../Public/SQuriLts_logos_white2.png';
-import github_white from '../Public/github_white.png';
-import github_black from '../Public/github_black.png';
 import QueryContainer from './QueryContainer';
 import SchemaContainer from './SchemaContainer';
 import URIInput from './URIInput';
-import graphql_logo from '../Public/graphql_logo.png';
 import LoadingLogo from './LoadingLogo';
 import TSContainer from './TSContainer';
 import '../Styles/Dashboard.css';
@@ -72,7 +69,6 @@ function Dashboard(props) {
       .then((data) => {
         setSchema(data.gqlschema);
         setTsSchema(data.tsschema);
-        // console.log(data.gqlschema);
         setCurrentQueryId(queryId);
       });
   };
@@ -92,7 +88,6 @@ function Dashboard(props) {
     })
       .then((data) => data.json())
       .then((data) => {
-        // console.log('schema', data.gqlschema, 'ts schema', data.tsschema);
         getQuery();
       });
   };
@@ -120,6 +115,7 @@ function Dashboard(props) {
     fetch(url)
       .then((data) => data.json())
       .then((data) => {
+        console.log(data);
         const TsGQL = data;
         setTsSchema(TsGQL);
       });
@@ -173,26 +169,17 @@ function Dashboard(props) {
               setLoading={setLoading}
               tsSchema={tsSchema}
             />
-            <TSContainer isDarkTheme={isDarkTheme} value={tsSchema} onChange={setTsSchema} loading={loading} setLoading={setLoading} />
+            <TSContainer
+              isDarkTheme={isDarkTheme}
+              value={tsSchema}
+              onChange={setTsSchema}
+              loading={loading}
+              currentQueryId={currentQueryId}
+              setLoading={setLoading}
+              createTsSchema={createTsSchema}
+            />
           </div>
           <br />
-          {/* <footer>
-            <a href='https://github.com/oslabs-beta/SQuriL'>
-              <img
-                src={isDarkTheme ? github_white : github_black}
-                alt='logo'
-                className='github'
-              />
-            </a>
-            <a href='https://graphql.org/learn/'>
-              <img
-                src={graphql_logo}
-                alt='graphql'
-                className='graphql'
-                style={{ marginLeft: '10px' }}
-              />
-            </a>
-          </footer> */}
         </div>
       )}
     </div>

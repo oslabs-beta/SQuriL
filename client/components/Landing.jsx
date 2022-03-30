@@ -1,11 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import Dashboard from './Dashboard';
-// import { Button, CssBaseline } from '@mui/material';
-// import { createTheme, ThemeProvider } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
 import GitHubButton from 'react-github-btn';
 import OAuth from './OAuth';
 import squirltsLogosBlack2 from '../Public/squirltsLogosBlack2.png';
@@ -14,8 +8,8 @@ import github_white from '../Public/github_white.png';
 import github_black from '../Public/github_black.png';
 import squrilGif1 from '../Public/squrilGif1.gif';
 import squrilGif2 from '../Public/squrilGif2.gif';
+import squrilGif3 from '../Public/squrilGif3.gif';
 import squrilGif4 from '../Public/squrilGif4.gif';
-import graphql_logo from '../Public/graphql_logo.png';
 import Mark from '../Public/Mark.jpg';
 import Frank from '../Public/Frank.jpg';
 import Diana from '../Public/Diana.jpg';
@@ -30,12 +24,6 @@ function Landing(props) {
 
   return (
     <div className='Landing'>
-      {/* <span>
-        {isDarkTheme ? 'dark mode' : 'light mode'}
-        <IconButton className='switch' sx={{ ml: 1 }} onClick={changeTheme} color='inherit'>
-          {isDarkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
-        </IconButton>
-      </span> */}
       <img src={isDarkTheme ? SQuriLts_logos_white2 : squirltsLogosBlack2} alt='logo' className='' />
       <GitHubButton
         href='https://github.com/oslabs-beta/SQuriL'
@@ -78,7 +66,7 @@ function Landing(props) {
         <div className='item'>
           <h2>Save Your Schema</h2>
           <h3>Once generated, both JavaScript and TypeScript schemas can be saved by users for future database querying needs.</h3>
-          <img src={squrilGif2} alt='landing-page' className='instruction-photo' />
+          <img src={squrilGif3} alt='landing-page' className='instruction-photo' />
         </div>
         <div className='item'>
           <h2>Copy or Export Your Code</h2>
@@ -86,7 +74,7 @@ function Landing(props) {
             With a simple click, users can both copy their code to clipboard for immediate use or export their schema code to .js and .ts files for local
             storage.
           </h3>
-          <img src={squrilGif2} alt='landing-page' className='instruction-photo' />
+          <img src={squrilGif4} alt='landing-page' className='instruction-photo' />
         </div>
       </div>
       <h2>Connect With Team SQuriL</h2>
@@ -140,14 +128,6 @@ function Landing(props) {
           </span>
         </div>
       </div>
-      {/* <div className='logos'>
-        <a href='https://github.com/oslabs-beta/SQuriL'>
-          <img src={isDarkTheme ? github_white : github_black} alt='logo' className='github' />
-        </a>
-        <a href='https://graphql.org/learn/'>
-          <img src={graphql_logo} alt='graphql' className='graphql' />
-        </a>
-      </div> */}
     </div>
   );
 }

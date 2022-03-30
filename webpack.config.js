@@ -59,7 +59,7 @@ module.exports = {
   devServer: {
     // its where the bundle.js will live on RAM during development?
     static: {
-      publicPath: '/build',
+      publicPath: '/',
       directory: path.resolve(__dirname, 'build'),
     },
     // set up the proxy such that you can call API requests from hot-reload webpack server to the express back-end server
