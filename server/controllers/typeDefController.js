@@ -138,10 +138,6 @@ function typeEachTabletTemplate(databases, name, pk_name, pk_type, fk_name, fk_r
     }
   }
   codegenInput(query);
-  // fs.appendFileSync('server/schemas/input/inputSchema.graphql', query, (err) => {
-  //   if (err) console.log(err);
-  //   else console.log('Written successfully');
-  // }); // Frank - Leaving this here temporarily until I figure out where to put it
   return query;
 }
 
@@ -182,7 +178,7 @@ function codegenInput(query) {
   fs.appendFileSync('server/schemas/input/inputSchema.graphql', newQuery, (err) => {
     if (err) console.log(err);
     else console.log('Written successfully');
-  }); // Frank - Leaving this here temporarily until I figure out where to put it
+  });
 }
 
 function typeData(sqlType) {

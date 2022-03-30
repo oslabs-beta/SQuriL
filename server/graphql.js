@@ -1,3 +1,5 @@
+// this is a GQL Schema for this application -> it was used to develop general template schemas for other DBs
+
 /* ********* graphQL + Apollo ********* */
 // we are using Appolo Server to configure GQL API
 // if you want to use alternatives with our template please use graphql-tools and import makeExecutableSchema dependency to combine typeDefs and resolvers
@@ -48,9 +50,7 @@ const resolvers = {
   Query: {
     Users_id: async (parent, args, context, info) => {
       try {
-        const data = await db.query(
-          `SELECT * FROM users WHERE _id='${args._id}'`
-        );
+        const data = await db.query(`SELECT * FROM users WHERE _id='${args._id}'`);
         return data.rows;
       } catch (error) {
         throw new Error(error);
