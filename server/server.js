@@ -19,8 +19,7 @@ const userRouter = require(path.join(__dirname, '/routers/userRouter.js'));
 // const outputRouter = require(path.join(__dirname, '/routers/outputRouter.js'));
 const oauthRouter = require(path.join(__dirname, '/routers/oauthRouter.js'));
 
-// telling the host site that if we are in prod -> serve this build file
-app.use('/', express.static('./build'));
+app.use(express.static(path.join(__dirname, './build')));
 
 // Route requests to schemaRouter
 app.use('/schemas', schemaRouter);
