@@ -37,8 +37,8 @@ function Landing(props) {
       </GitHubButton>
       <div className='squril-info'>
         <h2>
-          Meet SQuriL.ts, an open source GraphQL schema generation and storage tool that creates customized, production-ready GraphQL schemas from a PostgreSQL
-          URI for both JavaScript and TypeScript compatible environments.
+          Meet SQuriL, an open source GraphQL schema generation and storage tool that creates customized, production-ready GraphQL schemas from a PostgreSQL URI
+          for both JavaScript and TypeScript compatible environments.
         </h2>
       </div>
       <div className='app-welcome' style={isDarkTheme ? { background: '#212121', borderRadius: '25px' } : { background: '#fff', borderRadius: '25px' }}>

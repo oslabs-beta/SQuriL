@@ -5,8 +5,6 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import IconButton from '@mui/material/IconButton';
 import SQuriLts_logos_black_loading from '../Public/SQuriLts_logos_black_loading.png';
 import SQuriLts_logos_white_loading from '../Public/SQuriLts_logos_white_loading.png';
-import squirltsLogosBlack2 from '../Public/squirltsLogosBlack2.png';
-import SQuriLts_logos_white2 from '../Public/SQuriLts_logos_white2.png';
 import QueryContainer from './QueryContainer';
 import SchemaContainer from './SchemaContainer';
 import URIInput from './URIInput';
