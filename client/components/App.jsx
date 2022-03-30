@@ -41,7 +41,7 @@ function App() {
   // declare state for dark theme
   const [isDarkTheme, setIsDarkTheme] = useState(true);
   // declare state for login
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // function to change theme
   const changeTheme = () => {
@@ -62,7 +62,7 @@ function App() {
 
   // runs loginStatus function on page load
   useEffect(() => {
-    // loginStatus();
+    loginStatus();
   }, []);
 
   return (
