@@ -40,7 +40,7 @@ function URIInput(props) {
             setLoading(true);
             setTimeout(() => setLoading(false), 2000);
             createGQLSchema(uri);
-            createTsSchema();
+            // createTsSchema();
             setUri('');
           }
         }}

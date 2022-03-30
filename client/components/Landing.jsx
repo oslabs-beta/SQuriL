@@ -8,6 +8,7 @@ import github_white from '../Public/github_white.png';
 import github_black from '../Public/github_black.png';
 import squrilGif1 from '../Public/squrilGif1.gif';
 import squrilGif2 from '../Public/squrilGif2.gif';
+import squrilGif3 from '../Public/squrilGif3.gif';
 import squrilGif4 from '../Public/squrilGif4.gif';
 import Mark from '../Public/Mark.jpg';
 import Frank from '../Public/Frank.jpg';
@@ -65,7 +66,7 @@ function Landing(props) {
         <div className='item'>
           <h2>Save Your Schema</h2>
           <h3>Once generated, both JavaScript and TypeScript schemas can be saved by users for future database querying needs.</h3>
-          <img src={squrilGif2} alt='landing-page' className='instruction-photo' />
+          <img src={squrilGif3} alt='landing-page' className='instruction-photo' />
         </div>
         <div className='item'>
           <h2>Copy or Export Your Code</h2>

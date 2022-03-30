@@ -1,0 +1,90 @@
+  type planet {
+    id: ID!
+    name: String
+    rotation_period: Int
+    orbital_period: Int
+    diameter: Int
+    climate: String
+    gravity: String
+    terrain: String
+    surface_water: String
+    population: Int
+    created_date: String
+    updated_date: String
+    url: String
+  }
+  type people {
+    id: ID!
+    planet_id: [planet]
+    url: String
+    name: String
+    height: Int
+    mass: Float
+    hair_color: String
+    skin_color: String
+    eye_color: String
+    birth_year: String
+    gender: String
+    created_date: String
+    updated_date: String
+  }
+  type planet {
+    id: ID!
+    name: String
+    rotation_period: Int
+    orbital_period: Int
+    diameter: Int
+    climate: String
+    gravity: String
+    terrain: String
+    surface_water: String
+    population: Int
+    created_date: String
+    updated_date: String
+    url: String
+  }
+  type people {
+    id: ID!
+    planet_id: [planet]
+    url: String
+    name: String
+    height: Int
+    mass: Float
+    hair_color: String
+    skin_color: String
+    eye_color: String
+    birth_year: String
+    gender: String
+    created_date: String
+    updated_date: String
+  }
+  type planet {
+    id: ID!
+    name: String
+    rotation_period: Int
+    orbital_period: Int
+    diameter: Int
+    climate: String
+    gravity: String
+    terrain: String
+    surface_water: String
+    population: Int
+    created_date: String
+    updated_date: String
+    url: String
+  }
+  type people {
+    id: ID!
+    planet_id: [planet]
+    url: String
+    name: String
+    height: Int
+    mass: Float
+    hair_color: String
+    skin_color: String
+    eye_color: String
+    birth_year: String
+    gender: String
+    created_date: String
+    updated_date: String
+  }

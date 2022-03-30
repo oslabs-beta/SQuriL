@@ -115,6 +115,7 @@ function Dashboard(props) {
     fetch(url)
       .then((data) => data.json())
       .then((data) => {
+        console.log(data);
         const TsGQL = data;
         setTsSchema(TsGQL);
       });
@@ -168,7 +169,15 @@ function Dashboard(props) {
               setLoading={setLoading}
               tsSchema={tsSchema}
             />
-            <TSContainer isDarkTheme={isDarkTheme} value={tsSchema} onChange={setTsSchema} loading={loading} setLoading={setLoading} />
+            <TSContainer
+              isDarkTheme={isDarkTheme}
+              value={tsSchema}
+              onChange={setTsSchema}
+              loading={loading}
+              currentQueryId={currentQueryId}
+              setLoading={setLoading}
+              createTsSchema={createTsSchema}
+            />
           </div>
           <br />
         </div>

@@ -71,7 +71,7 @@ Accelerated by <a href="https://github.com/oslabs-beta/" >OS Labs</a>.
 No need to create a new username and password - users simply login with their already established GitHub accounts through SQuriL's GitHub OAuth option on the main landing page.
 
 <div  align="center">
-<img src='./client/Public/squrilGif1.gif'>
+<img src='./client/Public/squrilGif1.gif' width='1200' >
 </div>
 
 ### Link Your Database and Generate Your GraphQL Schema
@@ -79,19 +79,23 @@ No need to create a new username and password - users simply login with their al
 Simply copy and paste your PostgreSQL URI into the address bar at the top of the application dashboard page and hit -Go- Within seconds, both your JavaScript and TypeScript compatible GraphQL schema code will be populated within the application's code windows.
 
 <div  align="center">
-<img src='./client/Public/squrilGif2.gif'>
+<img src='./client/Public/squrilGif2.gif' width='1200' >
 </div>
 
 ### Save Your Schema
 
 Once generated, both JavaScript and TypeScript schemas can be saved by users for future database querying needs.
 
+<div  align="center">
+<img src='./client/Public/squrilGif3.gif' width='1200' >
+</div>
+
 ### Copy or Export Your Code
 
 With a simple click, users can both copy their code to clipboard for immediate use or export their schema code to .js and .ts files for local storage.
 
 <div  align="center">
-<img src='./client/Public/squrilGif4.gif'>
+<img src='./client/Public/squrilGif4.gif' width='1200'>
 </div>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -136,7 +140,7 @@ Required software for setting up this application:
    ```sh
    npm install
    ```
-3. The application can be run in development mode by running the following command and going to http://localhost:3000/ on your browser.
+3. The application can be run in development mode by running the following command and going to http://localhost:8080/ on your browser.
 
    ```sh
    npm run dev
