@@ -22,8 +22,8 @@ const oauthRouter = require(path.join(__dirname, '/routers/oauthRouter.js'));
 // telling the host site that if we are in prod -> serve this build file
 app.use('/', express.static('./build'));
 
-// Route requests to queryRouter
-app.use('/query', queryRouter);
+// Route requests to schemaRouter
+app.use('/schemas', schemaRouter);
 
 // Route requests to apiRouter --> convert the db to gql schema
 app.use('/api', apiRouter);
