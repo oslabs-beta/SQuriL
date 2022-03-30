@@ -34,7 +34,10 @@ const corsOptions = {
   },
 };
 
+// serve any statis files that html file is requesting
 app.use(express.static(path.join(__dirname, './build')));
+// serve the root file
+app.get('/', (req, res) => res.status(200).sendFile(path.resolve(__dirname, './build/index.html')));
 
 // Route requests to schemaRouter
 app.use('/schemas', schemaRouter);
