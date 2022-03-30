@@ -20,7 +20,7 @@
     "build": "webpack --config ./webpack.config.js",
     "install-client": "npm install",
     "heroku-build": "npm run build",
-    "heroku-postbuild": "npm run install-client && npm run heroku-build",
+    "heroku-postbuild": "npm run install-client && npm run heroku-build"
   },
   "author": "",
   "license": "ISC",
