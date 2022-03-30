@@ -102,7 +102,12 @@ apiController.createGQLmeta = (req, res, next) => {
 };
 
 apiController.codegen = (req, res, next) => {
+  console.log('in the codegen middleware');
   execSync('npm run codegen');
+  return next();
+};
+
+apiController.emptyInput = (req, res, next) => {
   fs.writeFileSync('server/schemas/input/inputSchema.graphql', '', (err) => {
     if (err) console.log(err);
     else console.log('Written successfully');
