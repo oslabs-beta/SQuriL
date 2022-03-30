@@ -19,6 +19,21 @@ const userRouter = require(path.join(__dirname, '/routers/userRouter.js'));
 // const outputRouter = require(path.join(__dirname, '/routers/outputRouter.js'));
 const oauthRouter = require(path.join(__dirname, '/routers/oauthRouter.js'));
 
+// ** MIDDLEWARE ** //
+const whitelist = ['http://localhost:3000', 'http://localhost:8080', 'https://https://squril2.herokuapp.com/'];
+const corsOptions = {
+  origin: (origin, callback) => {
+    console.log('** Origin of request ' + origin);
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      console.log('Origin acceptable');
+      callback(null, true);
+    } else {
+      console.log('Origin rejected');
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+
 app.use(express.static(path.join(__dirname, './build')));
 
 // Route requests to schemaRouter
