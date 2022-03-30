@@ -8,6 +8,7 @@
   flex-direction: column;
   width: 15vw;
   height: 65vh;
+  margin-left: 5px;
 }
 
 .QueryCard {

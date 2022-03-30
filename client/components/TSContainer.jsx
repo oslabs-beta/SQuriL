@@ -9,18 +9,14 @@ import Loading from './Loading';
 import '../Styles/TSContainer.css';
 
 function TSContainer(props) {
-  const { value, onChange, isDarkTheme, setLoading, loading } = props;
+  const { value, onChange, isDarkTheme, setLoading, loading, currentQueryId, createTsSchema } = props;
+  const [tsLoading, setTsLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
   // tooltip function close - copy button
   const handleTooltipClose = () => {
     setOpen(false);
   };
-
-  // // tooltip function open - copy button
-  // const handleTooltipOpen = () => {
-  //   setOpen(true);
-  // };
 
   // handleChange function for code-mirror editor window
   function handleChange(editor, data, valueCM) {
@@ -41,32 +37,27 @@ function TSContainer(props) {
     );
   };
 
-  // const createSampleSchema = () => {
-  //   const url = `/api/createGqlSchema`;
-  //   fetch(url, {
-  //     method: 'Post',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       link: 'postgres://itjbbwxw:B0wiXF4aypk5kOpWNXmiU2JFV6CEvTW8@raja.db.elephantsql.com/itjbbwxw',
-  //     }),
-  //   })
-  //     .then((data) => data.json())
-  //     .then((data) => {
-  //       const GQL = data;
-  //       onChange(GQL);
-  //     });
-  // };
-
   return (
     <div
       className='TSContainer'
       style={isDarkTheme ? { background: '#212121', borderRadius: '25px' } : { background: '#fff', borderRadius: '25px' }}
       data-testid='schema-container'
     >
-      <h3>TS Schema</h3>
+      <h3>{currentQueryId ? `TS Schema ${currentQueryId}` : 'TS Schema'}</h3>
       <span>
+        <Button
+          type='button'
+          className='gen-schema'
+          variant='contained'
+          onClick={() => {
+            setTsLoading(true);
+            setTimeout(() => setTsLoading(false), 2000);
+            createTsSchema();
+          }}
+          sx={{ borderRadius: 12.5, fontWeight: 'bold' }}
+        >
+          Generate
+        </Button>{' '}
         <Button
           sx={{ borderRadius: 12.5, fontWeight: 'bold' }}
           variant='contained'
@@ -103,7 +94,7 @@ function TSContainer(props) {
           </Tooltip>
         </ClickAwayListener>
       </span>
-      {loading === false ? (
+      {tsLoading === false ? (
         <Controlled
           onBeforeChange={handleChange}
           value={value}
@@ -130,6 +121,8 @@ TSContainer.propTypes = {
   isDarkTheme: PropTypes.bool,
   loading: PropTypes.bool,
   setLoading: PropTypes.func,
+  currentQueryId: PropTypes.number,
+  createTsSchema: PropTypes.func,
 };
 
 export default TSContainer;

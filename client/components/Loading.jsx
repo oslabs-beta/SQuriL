@@ -13,7 +13,7 @@ function Loading(props) {
 }
 
 Loading.propTypes = {
-  isDarkTheme: PropTypes.bool.isRequired,
+  isDarkTheme: PropTypes.bool,
 };
 
 export default Loading;
