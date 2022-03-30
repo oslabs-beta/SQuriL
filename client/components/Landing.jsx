@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import GitHubButton from 'react-github-btn';
 import OAuth from './OAuth';
-import squirltsLogosBlack2 from '../Public/squirltsLogosBlack2.png';
-import SQuriLts_logos_white2 from '../Public/SQuriLts_logos_white2.png';
 import github_white from '../Public/github_white.png';
 import github_black from '../Public/github_black.png';
+import squrilLogosWhiteLandscape from '../Public/squrilLogosWhiteLandscape.png';
 import squrilGif1 from '../Public/squrilGif1.gif';
 import squrilGif2 from '../Public/squrilGif2.gif';
 import squrilGif3 from '../Public/squrilGif3.gif';
@@ -24,7 +23,7 @@ function Landing(props) {
 
   return (
     <div className='Landing'>
-      <img src={isDarkTheme ? SQuriLts_logos_white2 : squirltsLogosBlack2} alt='logo' className='' />
+      <img src={isDarkTheme ? squrilLogosWhiteLandscape : squrilLogosWhiteLandscape} alt='logo' className='' />
       <GitHubButton
         href='https://github.com/oslabs-beta/SQuriL'
         target='_blank'
@@ -37,8 +36,8 @@ function Landing(props) {
       </GitHubButton>
       <div className='squril-info'>
         <h2>
-          Meet SQuriL.ts, an open source GraphQL schema generation and storage tool that creates customized, production-ready GraphQL schemas from a PostgreSQL
-          URI for both JavaScript and TypeScript compatible environments.
+          Meet SQuriL, an open source GraphQL schema generation and storage tool that creates customized, production-ready GraphQL schemas from a PostgreSQL URI
+          for both JavaScript and TypeScript compatible environments.
         </h2>
       </div>
       <div className='app-welcome' style={isDarkTheme ? { background: '#212121', borderRadius: '25px' } : { background: '#fff', borderRadius: '25px' }}>

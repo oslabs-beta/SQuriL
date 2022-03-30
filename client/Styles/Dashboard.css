@@ -16,6 +16,9 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  padding: 0px 5px 0px 5px;
 }
 
 .main {

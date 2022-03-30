@@ -5,7 +5,7 @@
 
 <!-- SQuriL -->
 <div id='top' align='center'>
-<img src='./client/Public/readmeLogo.png'>
+<img src='./client/Public/SQuriL-logos.jpeg' width='900'>
 </br>
 <!-- PROJECT SHIELDS -->
 
