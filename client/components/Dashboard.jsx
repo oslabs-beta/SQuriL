@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import IconButton from '@mui/material/IconButton';
+import SQuriLts_logos_black_loading from '../Public/SQuriLts_logos_black_loading.png';
+import SQuriLts_logos_white_loading from '../Public/SQuriLts_logos_white_loading.png';
 import squirltsLogosBlack2 from '../Public/squirltsLogosBlack2.png';
 import SQuriLts_logos_white2 from '../Public/SQuriLts_logos_white2.png';
 import QueryContainer from './QueryContainer';
@@ -129,7 +131,7 @@ function Dashboard(props) {
         <div className='Dashboard' data-testid='dashboard'>
           <header>
             <div className='topright'>
-              <img src={isDarkTheme ? SQuriLts_logos_white2 : squirltsLogosBlack2} alt='logo' className='dash-logo' />
+              <img src={isDarkTheme ? SQuriLts_logos_white_loading : SQuriLts_logos_black_loading} alt='logo' className='dash-logo' />
             </div>
             <URIInput
               createGQLSchema={createGQLSchema}
