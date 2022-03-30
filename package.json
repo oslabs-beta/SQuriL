@@ -3,16 +3,24 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x"
+  },
   "scripts": {
     "test": "jest",
-    "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production",
     "dev": " NODE_ENV=development nodemon server/server.js --open & NODE_ENV=development webpack-dev-server --open --hot",
     "server": "nodemon server/server.js",
     "api-dev": "nodemon server/graphql.js",
     "tsc-test": "tsc type-test.ts",
     "codegen": "graphql-codegen --config codegen.yml",
-    "codegen-server": "node --loader ts-node/esm server/schemas/output/testServer.js"
+    "codegen-server": "node --loader ts-node/esm server/schemas/output/testServer.js",
+    "codegen-init": "graphql-codegen init",
+    "start": "node server/server.js",
+    "build": "webpack --config ./webpack.config.js",
+    "install-client": "npm install",
+    "heroku-build": "npm run build",
+    "heroku-postbuild": "npm run install-client && npm run heroku-build",
   },
   "author": "",
   "license": "ISC",
