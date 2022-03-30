@@ -1,32 +1,34 @@
-"env": {
-  "POSTGRES_URI":  {
-    "value": "postgres://tkzilovn:m5yA9sMSYjH85UM3tfI6dG0JfsarQSAV@jelani.db.elephantsql.com/tkzilovn"
-  },
-  "PG_USER": {
-    "value": "tkzilovn"
-  },
-  "PG_HOST": {
-    "value": "jelani.db.elephantsql.com"
-  },
-  "PG_PASSWORD": {
-    "value": "m5yA9sMSYjH85UM3tfI6dG0JfsarQSAV"
-  },
-  "PG_DATABASE": {
-    "value": "tkzilovn"
-  },
-  "API_KEY": {
-    "value": "ec583029-2958-4e8a-9238-2a11b3722454"
-  },
-  "CLIENT_ID": {
-    "value": "82f62cf2189dcfd58ca3"
-  },
-  "CLIENT_SECRET": {
-    "value": "17df6291cce4e877c9deebe12256ec3417c1fa5b"
-  },
-  "JWT_SECRET": {
-    "value": "2E6C238321FFDC8ADC722457C98516EE1CBCHUNGUS6A461BF278EA4F0DAE4148E"
-  },
-  "JWT_EXPIRES_IN": {
-    "value": "30"
+ { 
+  "env": {
+    "POSTGRES_URI":  {
+      "value": "postgres://tkzilovn:m5yA9sMSYjH85UM3tfI6dG0JfsarQSAV@jelani.db.elephantsql.com/tkzilovn"
+    },
+    "PG_USER": {
+      "value": "tkzilovn"
+    },
+    "PG_HOST": {
+      "value": "jelani.db.elephantsql.com"
+    },
+    "PG_PASSWORD": {
+      "value": "m5yA9sMSYjH85UM3tfI6dG0JfsarQSAV"
+    },
+    "PG_DATABASE": {
+      "value": "tkzilovn"
+    },
+    "API_KEY": {
+      "value": "ec583029-2958-4e8a-9238-2a11b3722454"
+    },
+    "CLIENT_ID": {
+      "value": "82f62cf2189dcfd58ca3"
+    },
+    "CLIENT_SECRET": {
+      "value": "17df6291cce4e877c9deebe12256ec3417c1fa5b"
+    },
+    "JWT_SECRET": {
+      "value": "2E6C238321FFDC8ADC722457C98516EE1CBCHUNGUS6A461BF278EA4F0DAE4148E"
+    },
+    "JWT_EXPIRES_IN": {
+      "value": "30"
+    }
   }
 }
