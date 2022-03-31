@@ -71,27 +71,27 @@ module.exports = {
     proxy: {
       // for API request in schemas generations in URIinput component
       '/api/*': {
-        target: 'http://localhost:3000/',
+        target: 'http://www.squril.io/',
         secure: false,
       },
       // for managing the saved queries
       '/schemas/*': {
-        target: 'http://localhost:3000/',
+        target: 'http://www.squril.io/',
         secure: false,
       },
       // for managing the user's front page content
       '/user/*': {
-        target: 'http://localhost:3000/',
+        target: 'http://www.squril.io/',
         secure: false,
       },
       // for managing the output from GraphQl results
       '/output/*': {
-        target: 'http://localhost:3000/',
+        target: 'http://www.squril.io/',
         secure: false,
       },
       // for managing the oauth route
       '/oauth/*': {
-        target: 'http://localhost:3000/',
+        target: 'http://www.squril.io/',
         secure: false,
       },
     },

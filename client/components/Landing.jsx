@@ -37,7 +37,7 @@ function Landing(props) {
       <div className='squril-info'>
         <h2>
           Meet SQuriL, an open source GraphQL schema generation and storage tool that creates customized, production-ready GraphQL schemas from a PostgreSQL URI
-          for both JavaScript and TypeScript compatible environments.
+          for both Node.js and TypeScript compatible environments.
         </h2>
       </div>
       <div className='app-welcome' style={isDarkTheme ? { background: '#212121', borderRadius: '25px' } : { background: '#fff', borderRadius: '25px' }}>
@@ -58,13 +58,13 @@ function Landing(props) {
           <h2>Link Your Database and Generate Your GraphQL Schema</h2>
           <h3>
             Simply copy and paste your PostgreSQL URI into the address bar at the top of the application dashboard page and hit -Go- Within seconds, both your
-            JavaScript and TypeScript compatible GraphQL schema code will be populated within the application&apos;s code windows.
+            Node.js and TypeScript compatible GraphQL schema code will be populated within the application&apos;s code windows.
           </h3>
           <img src={squrilGif2} alt='landing-page' className='instruction-photo' />
         </div>
         <div className='item'>
           <h2>Save Your Schema</h2>
-          <h3>Once generated, both JavaScript and TypeScript schemas can be saved by users for future database querying needs.</h3>
+          <h3>Once generated, both Node.js and TypeScript schemas can be saved by users for future database querying needs.</h3>
           <img src={squrilGif3} alt='landing-page' className='instruction-photo' />
         </div>
         <div className='item'>
@@ -80,7 +80,7 @@ function Landing(props) {
       <div className='meet-the-team'>
         <div className='team-members'>
           <img src={Diana} className='photo' alt='Diana' />
-          <h3>Diana Kim</h3>
+          <h3>Diana R Kim</h3>
           <span>
             <a href='https://github.com/ruslanovna' target='_blank' rel='noreferrer'>
               <img src={isDarkTheme ? github_white : github_black} alt='logo' className='logos' />

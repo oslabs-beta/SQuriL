@@ -21,14 +21,14 @@
   <summary>Table of Contents</summary>
   <ol>
       <li><a href='#background'>Background</a></li>
-      <li><a href='#meet-squril.ts'>About SQuriL</a></li>
+      <li><a href='#meet-squril'>About SQuriL</a></li>
       <li><a href='#getting-started'>Getting Started</a></li>
           <ul>
             <li><a href='#sign-in-using-github-oauth'>Sign In Using GitHub OAuth</a></li>
             <li><a href='#link-your-database-and-generate-your-graphql-schema'>Link Your Database</a></li>
             <li><a href='#generate-your-graphql-schema'>Generate Your GraphQL Schema</a></li>
             <li><a href='#save-your-schema'>Save Your Schema</a></li>
-            <li><a href='#copy-or-export-your-code'>Copy Or Export Your Code</a></li>
+            <li><a href='#export-your-code'>Export Your Code</a></li>
           </ul>
       <li><a href='#for-developers'>For Developers</a></li>
           <ul>
@@ -48,15 +48,15 @@
 
 [GraphQL](https://graphql.org/) is a query language and server-side runtime for application programming interfaces (APIs) that prioritizes giving users the exact data they request and nothing more. GraphQL provides a complete and understandable description of the data in a client's API, making it easier to evolve APIs over time and enables powerful developer tools.
 
-The barrier of entry for GraphQL can be daunting - making the switch to GraphQL can be labor intensive and time consuming. On top of that, there aren't many options for both generating usable GraphQL schema for both JavaScript and TypeScript environments and also storing them for future use and reference.
+The barrier of entry for GraphQL can be daunting - making the switch to GraphQL can be labor intensive and time consuming. On top of that, there aren't many options for both generating usable GraphQL schema for both Node.js and TypeScript environments and also storing them for future use and reference.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- MEET SQURIL.TS -->
+<!-- MEET SQURIL -->
 
-## Meet SQuriL.ts
+## Meet SQuriL
 
-Meet SQuriL.ts, an open source GraphQL schema generation and storage tool that creates customized, production-ready GraphQL schemas from a PostgreSQL URI for both JavaScript and TypeScript compatible environments. Simply log in with your GitHub account and start generating and saving your GraphQL schemas today! Check out our [medium](www.medium.com) article detailing the inspiration behind SQuriL.
+Meet [SQuriL](https://squril.io), an open source GraphQL schema generation and storage tool that creates customized, production-ready GraphQL schemas from a PostgreSQL URI for both Node.js and TypeScript compatible environments. Simply log in with your GitHub account and start generating and saving your GraphQL schemas today!
 
 Accelerated by <a href="https://github.com/oslabs-beta/" >OS Labs</a>.
 
@@ -76,7 +76,7 @@ No need to create a new username and password - users simply login with their al
 
 ### Link Your Database and Generate Your GraphQL Schema
 
-Simply copy and paste your PostgreSQL URI into the address bar at the top of the application dashboard page and hit -Go- Within seconds, both your JavaScript and TypeScript compatible GraphQL schema code will be populated within the application's code windows.
+Simply copy and paste your PostgreSQL URI into the address bar at the top of the application dashboard page and hit -Go- Within seconds, both your Node.js and TypeScript compatible GraphQL schema code will be populated within the application's code windows.
 
 <div  align="center">
 <img src='./client/Public/squrilGif2.gif' width='1200' >
@@ -84,15 +84,15 @@ Simply copy and paste your PostgreSQL URI into the address bar at the top of the
 
 ### Save Your Schema
 
-Once generated, both JavaScript and TypeScript schemas can be saved by users for future database querying needs.
+Once generated, both Node.js and TypeScript schemas can be saved by users for future database querying needs.
 
 <div  align="center">
 <img src='./client/Public/squrilGif3.gif' width='1200' >
 </div>
 
-### Copy or Export Your Code
+### Export Your Code
 
-With a simple click, users can both copy their code to clipboard for immediate use or export their schema code to .js and .ts files for local storage.
+With a simple click, users can export their schema code to .js and .ts files for local storage.
 
 <div  align="center">
 <img src='./client/Public/squrilGif4.gif' width='1200'>
@@ -158,7 +158,7 @@ Required software for setting up this application:
 
 ## Contributors
 
-Diana Kim [LinkedIn](https://www.linkedin.com/in/diana-r-kim-a25a36157/) | [GitHub](https://github.com/ruslanovna)
+Diana R Kim [LinkedIn](https://www.linkedin.com/in/diana-r-kim-a25a36157/) | [GitHub](https://github.com/ruslanovna)
 
 Frank Nguyen [LinkedIn](https://www.linkedin.com/in/frankknguyen/) | [GitHub](https://github.com/frankknguyen)
 

@@ -89,6 +89,7 @@
     "graphql": "^16.3.0",
     "jsonwebtoken": "^8.5.1",
     "node-fetch": "^2.6.7",
+    "openssl": "^2.0.0",
     "pg": "^8.7.3",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",

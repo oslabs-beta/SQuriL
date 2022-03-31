@@ -49,7 +49,7 @@ function SchemaContainer(props) {
   }
 
   const createSampleSchema = () => {
-    const url = `/api/createGqlSchema`;
+    const url = `http://www.squril.io/api/createGqlSchema`;
     fetch(url, {
       method: 'Post',
       headers: {
@@ -72,7 +72,7 @@ function SchemaContainer(props) {
       style={isDarkTheme ? { background: '#212121', borderRadius: '25px' } : { background: '#fff', borderRadius: '25px' }}
       data-testid='schema-container'
     >
-      <h3>{currentQueryId ? `JS Schema ${currentQueryId}` : 'JS Schema'}</h3>
+      <h3>{currentQueryId ? `Schema ${currentQueryId}` : 'Schema'}</h3>
       <span>
         <Button type='button' className='save-schema' variant='contained' onClick={() => handleSubmit()} sx={{ borderRadius: 12.5, fontWeight: 'bold' }}>
           Save
@@ -98,7 +98,7 @@ function SchemaContainer(props) {
         >
           Export
         </Button>{' '}
-        <ClickAwayListener onClickAway={handleTooltipClose}>
+        {/* <ClickAwayListener onClickAway={handleTooltipClose}>
           <Tooltip
             PopperProps={{
               disablePortal: true,
@@ -123,7 +123,7 @@ function SchemaContainer(props) {
               Copy
             </Button>
           </Tooltip>
-        </ClickAwayListener>
+        </ClickAwayListener> */}
       </span>
       {/* <FormControlLabel control={<Switch />} label='TypeScript' className='switch' /> */}
       {loading === false ? (

@@ -43,7 +43,7 @@ function TSContainer(props) {
       style={isDarkTheme ? { background: '#212121', borderRadius: '25px' } : { background: '#fff', borderRadius: '25px' }}
       data-testid='schema-container'
     >
-      <h3>{currentQueryId ? `TS Schema ${currentQueryId}` : 'TS Schema'}</h3>
+      <h3>{currentQueryId ? `TypeScript Schema ${currentQueryId}` : 'TypeScript Schema'}</h3>
       <span>
         <Button
           type='button'
@@ -51,8 +51,8 @@ function TSContainer(props) {
           variant='contained'
           onClick={() => {
             setTsLoading(true);
-            setTimeout(() => setTsLoading(false), 2000);
             createTsSchema();
+            setTimeout(() => setTsLoading(false), 10000);
           }}
           sx={{ borderRadius: 12.5, fontWeight: 'bold' }}
         >
@@ -67,7 +67,7 @@ function TSContainer(props) {
         >
           Export
         </Button>{' '}
-        <ClickAwayListener onClickAway={handleTooltipClose}>
+        {/* <ClickAwayListener onClickAway={handleTooltipClose}>
           <Tooltip
             PopperProps={{
               disablePortal: true,
@@ -92,7 +92,7 @@ function TSContainer(props) {
               Copy
             </Button>
           </Tooltip>
-        </ClickAwayListener>
+        </ClickAwayListener> */}
       </span>
       {tsLoading === false ? (
         <Controlled
