@@ -1,20 +1,27 @@
 import React from 'react';
 import { Button } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import '../Styles/Landing.css'
+import '../Styles/Landing.css';
 
 function OAuth() {
+  const oAuthGo = () => {
+    window.location = 'http://www.squril.io/oauth/authorize';
+  };
 
-    return (
-        <Button
-        variant="contained"
-        size="large"
+  return (
+    <div data-testid='OAuth-1'>
+      <Button
+        data-testid='OAuth-2'
+        variant='contained'
+        size='large'
         startIcon={<GitHubIcon />}
-        onClick={()=>location.href = '/oauth/authorize'}
+        sx={{ borderRadius: 12.5, fontWeight: 'bold' }}
+        onClick={oAuthGo}
       >
         github
       </Button>
-    )
+    </div>
+  );
 }
 
 export default OAuth;

@@ -1,0 +1,10 @@
+overwrite: true
+schema: './server/schemas/input/inputSchema.graphql'
+documents: null
+generates:
+  server/schemas/output/outputSchema.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-resolvers'
+    config:
+      useIndexSignature: true

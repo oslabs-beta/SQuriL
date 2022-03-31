@@ -1,43 +1,120 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 .Landing {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(94, 14, 151);
-    display: grid;
-    /* grid: 400px / 400px; */
-    justify-content: center;
-    align-items: center;
+  padding-top: 100px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
 }
 
+h1 {
+  color: rgb(128, 64, 231);
+  font-weight: 900;
+}
+
+.app-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 50px 30px 50px;
+  margin-top: 15px;
+  border-radius: 20px;
+}
+
+.squril-info {
+  display: flex;
+  flex-direction: column;
+}
+
+hr {
+  color: white;
+  width: 1400px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
 .logoLanding {
-    height: 400px;
-    width: 400px;
-    box-sizing: border-box; 
+  height: 400px;
+  width: 400px;
+  box-sizing: border-box;
 }
 
 .OAuth {
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.instruction-photo {
+  height: 50%;
+  width: 50%;
+  border-radius: 10px;
+  border: 30px solid #121212;
+}
+
+.getting-started {
+  text-align: center;
+  /* margin-left: 300px;
+  margin-right: 300px; */
+  background-color: #212121;
+  /* border-radius: 20px; */
+  padding: 10px 100px 10px 100px;
+  margin-bottom: 50px;
+  margin-top: 100px;
+}
+
+.item {
+  margin-bottom: 50px;
+}
+
+.squril-info {
+  margin-left: 500px;
+  margin-right: 500px;
+  text-align: center;
 }
 
 .Tagline {
-    font-family: Roboto;
-    font-size: 40px;
-    color: white;
-    text-align: center;
-    height: 10px;
-    margin: 0px;
+  font-family: Roboto;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  height: 10px;
+  margin: 0px;
 }
 
 .graphql {
-    height: 64px;
-    width: 64px;
+  height: 64px;
+  width: 64px;
+}
+
+.meet-the-team {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.photo {
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+  margin: 5px;
+}
+
+.team-members {
+  display: flex;
+  margin: 5px 5px 100px 5px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .logos {
-    display: flex;
+  height: 40px;
+  width: 40px;
+  margin: 0px 15px 0px 15px;
+}
 
+.logo {
+  height: 100%;
+  width: 100%;
 }

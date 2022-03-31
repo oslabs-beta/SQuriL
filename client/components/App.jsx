@@ -1,85 +1,83 @@
 import React, { useState, useEffect } from 'react';
-import Landing from './Landing'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
-import Dashboard from './Dashboard.jsx'
-import Loading from './Loading'
-import '../Styles/App.css'
-import { darken } from '@mui/material';
+import Landing from './Landing';
+import Dashboard from './Dashboard';
+import '../Styles/App.css';
 
 // set palette for light mode
 const light = {
-    palette: {
-        primary: {
-            light: '#9162e4',
-            main: 'rgb(72, 20, 155)',
-            dark: '#280680',
-            mode: 'light',
-            contrastText: '#ffffff'
-        }
+  palette: {
+    primary: {
+      main: '#aedb95',
+      mode: 'light',
+      contrastText: '#000',
     },
+    secondary: {
+      main: '#fff',
+      contrastText: '#000',
+    },
+    background: {
+      default: '#f1f1f1',
+    },
+  },
 };
 
 // set palette for dark mode
 const dark = {
-    palette: {
-        mode: 'dark',
-        primary: {
-            main: 'rgb(125, 54, 175)'
-        }
-    }, 
-
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: 'rgb(72, 20, 155)',
+    },
+    secondary: {
+      main: '#212121',
+      contrastText: '#fff',
+    },
+  },
 };
 
 function App() {
+  // declare state for dark theme
+  const [isDarkTheme, setIsDarkTheme] = useState(true);
+  // declare state for login
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    // declare state for dark theme
-    const [isDarkTheme, setIsDarkTheme] = useState(false);
-    // declare state for login
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // function to change theme
+  const changeTheme = () => {
+    setIsDarkTheme(!isDarkTheme);
+  };
 
-    const changeTheme = () => {
-        setIsDarkTheme(!isDarkTheme);
-    }
+  // function to check login status to either render landing or dashboard
+  const loginStatus = () => {
+    const url = `http://www.squril.io/user/cookie`;
+    fetch(url)
+      .then((data) => data.json())
+      .then((data) => {
+        const status = data;
+        setIsLoggedIn(status);
+      })
+      .catch((err) => console.log('err', err));
+  };
 
-    const loginStatus = () => {
-        const url = `/user/cookie`
-        fetch(url)
-            .then(data => data.json())
-            .then(data => {
-                const status = data;
-                setIsLoggedIn(status)
-            })
-            .catch((err) => console.log('err', err));
-    }
+  // runs loginStatus function on page load
+  useEffect(() => {
+    loginStatus();
+  }, []);
 
-    useEffect(() => {
-        loginStatus();
-    }, []);
-
-
-    return (
-        <ThemeProvider theme={isDarkTheme ? createTheme(dark) : createTheme(light)}>
-            <CssBaseline />
-            <div className='App'>
-                {isLoggedIn === false ? (
-                    <Landing
-                        isDarkTheme={isDarkTheme}
-                        changeTheme={changeTheme}
-                        light={light}
-                        dark={dark}
-                    />
-                ) : (
-                    <Dashboard
-                        isDarkTheme={isDarkTheme}
-                        changeTheme={changeTheme}
-                        light={light}
-                        dark={dark}
-                    />
-                )}
-            </div>
-        </ThemeProvider>
-    );
+  return (
+    // Passing down settings for both light and dark mode
+    <ThemeProvider theme={isDarkTheme ? createTheme(dark) : createTheme(light)}>
+      <CssBaseline />
+      <div className='App' data-testid='app'>
+        {isLoggedIn === false ? (
+          <Landing isDarkTheme={isDarkTheme} changeTheme={changeTheme} light={light} dark={dark} />
+        ) : (
+          <Dashboard isDarkTheme={isDarkTheme} changeTheme={changeTheme} light={light} dark={dark} />
+        )}
+      </div>
+    </ThemeProvider>
+  );
 }
 
 export default App;

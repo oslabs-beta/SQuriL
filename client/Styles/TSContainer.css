@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+.TSContainer {
+  text-align: center;
+  border: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10px 0px 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-family: Roboto;
+  width: 80vw;
+  height: 65vh;
+}

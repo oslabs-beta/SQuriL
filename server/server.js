@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+
 const app = express();
 
 // requiring in dotenv to use environment variable process.env.POSTGRES_URI from .env file
@@ -12,16 +13,17 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
-const queryRouter = require(path.join(__dirname, '/routers/queryRouter.js'));
+const schemaRouter = require(path.join(__dirname, '/routers/schemaRouter.js'));
 const apiRouter = require(path.join(__dirname, '/routers/apiRouter.js'));
 const userRouter = require(path.join(__dirname, '/routers/userRouter.js'));
 // const outputRouter = require(path.join(__dirname, '/routers/outputRouter.js'));
 const oauthRouter = require(path.join(__dirname, '/routers/oauthRouter.js'));
 
+// telling the host site that if we are in prod -> serve this build file
+app.use('/', express.static('./build'));
 
-// Route requests to queryRouter
-app.use('/query', queryRouter);
+// Route requests to schemaRouter
+app.use('/schemas', schemaRouter);
 
 // Route requests to apiRouter --> convert the db to gql schema
 app.use('/api', apiRouter);
@@ -34,7 +36,6 @@ app.use('/user', userRouter);
 
 // Route requests to oauthRouter
 app.use('/oauth', oauthRouter);
-
 
 // Unknown Route Handler
 app.use((req, res) => res.sendStatus(404));
@@ -51,5 +52,6 @@ app.use((err, req, res, next) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
+// for Heroku to choose first available port || 3000 is used of running on the local server
+// const PORT = process.env.PORT || 3000;
+app.listen(process.env.PORT || 3000, () => console.log(`Listening on PORT: ${process.env.PORT}`));

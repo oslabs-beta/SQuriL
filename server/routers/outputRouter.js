@@ -1,6 +1,6 @@
 const express = require('express');
-const queryController = require('../controllers/outputController.js');
-const router = express.Router();
+const schemasController = require('../controllers/outputController');
 
+const router = express.Router();
 
 module.exports = router;
