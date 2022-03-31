@@ -68,11 +68,8 @@ function Landing(props) {
           <img src={squrilGif3} alt='landing-page' className='instruction-photo' />
         </div>
         <div className='item'>
-          <h2>Copy or Export Your Code</h2>
-          <h3>
-            With a simple click, users can both copy their code to clipboard for immediate use or export their schema code to .js and .ts files for local
-            storage.
-          </h3>
+          <h2>Export Your Code</h2>
+          <h3>With a simple click, users can export their schema code to .js and .ts files for local storage.</h3>
           <img src={squrilGif4} alt='landing-page' className='instruction-photo' />
         </div>
       </div>
@@ -80,7 +77,7 @@ function Landing(props) {
       <div className='meet-the-team'>
         <div className='team-members'>
           <img src={Diana} className='photo' alt='Diana' />
-          <h3>Diana Kim</h3>
+          <h3>Diana R. Kim</h3>
           <span>
             <a href='https://github.com/ruslanovna' target='_blank' rel='noreferrer'>
               <img src={isDarkTheme ? github_white : github_black} alt='logo' className='logos' />

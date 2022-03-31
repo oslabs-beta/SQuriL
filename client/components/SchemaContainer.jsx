@@ -115,6 +115,7 @@ function SchemaContainer(props) {
               sx={{ borderRadius: 12.5, fontWeight: 'bold' }}
               variant='contained'
               onClick={() => {
+                console.log(value);
                 setOpen(true);
                 navigator.clipboard.writeText(value);
                 setTimeout(() => setOpen(false), 1000);
