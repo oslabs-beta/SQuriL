@@ -56,7 +56,7 @@ The barrier of entry for GraphQL can be daunting - making the switch to GraphQL 
 
 ## Meet SQuriL
 
-Meet [SQuriL](https://squril.io), an open source GraphQL schema generation and storage tool that creates customized, production-ready GraphQL schemas from a PostgreSQL URI for both Node.js and TypeScript compatible environments. Simply log in with your GitHub account and start generating and saving your GraphQL schemas today!
+Meet [SQuriL](www.squril.io), an open source GraphQL schema generation and storage tool that creates customized, production-ready GraphQL schemas from a PostgreSQL URI for both Node.js and TypeScript compatible environments. Simply log in with your GitHub account and start generating and saving your GraphQL schemas today!
 
 Accelerated by <a href="https://github.com/oslabs-beta/" >OS Labs</a>.
 
