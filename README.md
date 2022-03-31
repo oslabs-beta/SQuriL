@@ -48,7 +48,7 @@
 
 [GraphQL](https://graphql.org/) is a query language and server-side runtime for application programming interfaces (APIs) that prioritizes giving users the exact data they request and nothing more. GraphQL provides a complete and understandable description of the data in a client's API, making it easier to evolve APIs over time and enables powerful developer tools.
 
-The barrier of entry for GraphQL can be daunting - making the switch to GraphQL can be labor intensive and time consuming. On top of that, there aren't many options for both generating usable GraphQL schema for both JavaScript and TypeScript environments and also storing them for future use and reference.
+The barrier of entry for GraphQL can be daunting - making the switch to GraphQL can be labor intensive and time consuming. On top of that, there aren't many options for both generating usable GraphQL schema for both Node.js and TypeScript environments and also storing them for future use and reference.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -56,7 +56,7 @@ The barrier of entry for GraphQL can be daunting - making the switch to GraphQL 
 
 ## Meet SQuriL
 
-Meet [SQuriL](https://squril.io), an open source GraphQL schema generation and storage tool that creates customized, production-ready GraphQL schemas from a PostgreSQL URI for both JavaScript and TypeScript compatible environments. Simply log in with your GitHub account and start generating and saving your GraphQL schemas today!
+Meet [SQuriL](https://squril.io), an open source GraphQL schema generation and storage tool that creates customized, production-ready GraphQL schemas from a PostgreSQL URI for both Node.js and TypeScript compatible environments. Simply log in with your GitHub account and start generating and saving your GraphQL schemas today!
 
 Accelerated by <a href="https://github.com/oslabs-beta/" >OS Labs</a>.
 
@@ -76,7 +76,7 @@ No need to create a new username and password - users simply login with their al
 
 ### Link Your Database and Generate Your GraphQL Schema
 
-Simply copy and paste your PostgreSQL URI into the address bar at the top of the application dashboard page and hit -Go- Within seconds, both your JavaScript and TypeScript compatible GraphQL schema code will be populated within the application's code windows.
+Simply copy and paste your PostgreSQL URI into the address bar at the top of the application dashboard page and hit -Go- Within seconds, both your Node.js and TypeScript compatible GraphQL schema code will be populated within the application's code windows.
 
 <div  align="center">
 <img src='./client/Public/squrilGif2.gif' width='1200' >
@@ -84,7 +84,7 @@ Simply copy and paste your PostgreSQL URI into the address bar at the top of the
 
 ### Save Your Schema
 
-Once generated, both JavaScript and TypeScript schemas can be saved by users for future database querying needs.
+Once generated, both Node.js and TypeScript schemas can be saved by users for future database querying needs.
 
 <div  align="center">
 <img src='./client/Public/squrilGif3.gif' width='1200' >
