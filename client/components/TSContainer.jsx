@@ -52,7 +52,7 @@ function TSContainer(props) {
           onClick={() => {
             setTsLoading(true);
             createTsSchema();
-            setTimeout(() => setTsLoading(false), 3500);
+            setTimeout(() => setTsLoading(false), 10000);
           }}
           sx={{ borderRadius: 12.5, fontWeight: 'bold' }}
         >
