@@ -31,7 +31,7 @@ router.get(
   userController.addUser,
   (req, res) => {
     console.log('Ended at the /oauth/userDatabase');
-    return res.redirect('https://squril.netlify.app/'); // Change this to website homepage
+    return res.redirect('http://squril2.herokuapp.com'); // Change this to website homepage
   }
 );
 

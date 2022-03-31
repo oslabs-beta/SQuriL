@@ -50,7 +50,7 @@ function App() {
 
   // function to check login status to either render landing or dashboard
   const loginStatus = () => {
-    const url = `https://squril2.herokuapp.com/user/cookie`;
+    const url = `http://www.squril.io/user/cookie`;
     fetch(url)
       .then((data) => data.json())
       .then((data) => {

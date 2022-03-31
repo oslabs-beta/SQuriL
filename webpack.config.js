@@ -71,27 +71,27 @@ module.exports = {
     proxy: {
       // for API request in schemas generations in URIinput component
       '/api/*': {
-        target: 'https://squril2.herokuapp.com/',
+        target: 'http://www.squril.io/',
         secure: false,
       },
       // for managing the saved queries
       '/schemas/*': {
-        target: 'https://squril2.herokuapp.com/',
+        target: 'http://www.squril.io/',
         secure: false,
       },
       // for managing the user's front page content
       '/user/*': {
-        target: 'https://squril2.herokuapp.com/',
+        target: 'http://www.squril.io/',
         secure: false,
       },
       // for managing the output from GraphQl results
       '/output/*': {
-        target: 'https://squril2.herokuapp.com/',
+        target: 'http://www.squril.io/',
         secure: false,
       },
       // for managing the oauth route
       '/oauth/*': {
-        target: 'https://squril2.herokuapp.com/',
+        target: 'http://www.squril.io/',
         secure: false,
       },
     },

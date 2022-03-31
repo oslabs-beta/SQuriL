@@ -80,7 +80,7 @@ function Landing(props) {
       <div className='meet-the-team'>
         <div className='team-members'>
           <img src={Diana} className='photo' alt='Diana' />
-          <h3>Diana Kim</h3>
+          <h3>Diana R Kim</h3>
           <span>
             <a href='https://github.com/ruslanovna' target='_blank' rel='noreferrer'>
               <img src={isDarkTheme ? github_white : github_black} alt='logo' className='logos' />

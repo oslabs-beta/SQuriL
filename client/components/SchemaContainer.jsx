@@ -49,7 +49,7 @@ function SchemaContainer(props) {
   }
 
   const createSampleSchema = () => {
-    const url = `https://squril2.herokuapp.com/api/createGqlSchema`;
+    const url = `http://www.squril.io/createGqlSchema`;
     fetch(url, {
       method: 'Post',
       headers: {

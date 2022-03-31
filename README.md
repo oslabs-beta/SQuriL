@@ -21,7 +21,7 @@
   <summary>Table of Contents</summary>
   <ol>
       <li><a href='#background'>Background</a></li>
-      <li><a href='#meet-squril.ts'>About SQuriL</a></li>
+      <li><a href='#meet-squril'>About SQuriL</a></li>
       <li><a href='#getting-started'>Getting Started</a></li>
           <ul>
             <li><a href='#sign-in-using-github-oauth'>Sign In Using GitHub OAuth</a></li>
@@ -52,11 +52,11 @@ The barrier of entry for GraphQL can be daunting - making the switch to GraphQL 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- MEET SQURIL.TS -->
+<!-- MEET SQURIL -->
 
-## Meet SQuriL.ts
+## Meet SQuriL
 
-Meet SQuriL.ts, an open source GraphQL schema generation and storage tool that creates customized, production-ready GraphQL schemas from a PostgreSQL URI for both JavaScript and TypeScript compatible environments. Simply log in with your GitHub account and start generating and saving your GraphQL schemas today! Check out our [medium](www.medium.com) article detailing the inspiration behind SQuriL.
+Meet [SQuriL](https://squril.io), an open source GraphQL schema generation and storage tool that creates customized, production-ready GraphQL schemas from a PostgreSQL URI for both JavaScript and TypeScript compatible environments. Simply log in with your GitHub account and start generating and saving your GraphQL schemas today!
 
 Accelerated by <a href="https://github.com/oslabs-beta/" >OS Labs</a>.
 
@@ -158,7 +158,7 @@ Required software for setting up this application:
 
 ## Contributors
 
-Diana Kim [LinkedIn](https://www.linkedin.com/in/diana-r-kim-a25a36157/) | [GitHub](https://github.com/ruslanovna)
+Diana R Kim [LinkedIn](https://www.linkedin.com/in/diana-r-kim-a25a36157/) | [GitHub](https://github.com/ruslanovna)
 
 Frank Nguyen [LinkedIn](https://www.linkedin.com/in/frankknguyen/) | [GitHub](https://github.com/frankknguyen)
 
