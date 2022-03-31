@@ -28,7 +28,7 @@
             <li><a href='#link-your-database-and-generate-your-graphql-schema'>Link Your Database</a></li>
             <li><a href='#generate-your-graphql-schema'>Generate Your GraphQL Schema</a></li>
             <li><a href='#save-your-schema'>Save Your Schema</a></li>
-            <li><a href='#copy-or-export-your-code'>Copy Or Export Your Code</a></li>
+            <li><a href='#export-your-code'>Export Your Code</a></li>
           </ul>
       <li><a href='#for-developers'>For Developers</a></li>
           <ul>
@@ -90,9 +90,9 @@ Once generated, both JavaScript and TypeScript schemas can be saved by users for
 <img src='./client/Public/squrilGif3.gif' width='1200' >
 </div>
 
-### Copy or Export Your Code
+### Export Your Code
 
-With a simple click, users can both copy their code to clipboard for immediate use or export their schema code to .js and .ts files for local storage.
+With a simple click, users can export their schema code to .js and .ts files for local storage.
 
 <div  align="center">
 <img src='./client/Public/squrilGif4.gif' width='1200'>
