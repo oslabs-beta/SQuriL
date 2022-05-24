@@ -62,7 +62,7 @@ function App() {
 
   // runs loginStatus function on page load
   useEffect(() => {
-    // loginStatus();
+    loginStatus();
   }, []);
 
   return (
